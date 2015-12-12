@@ -5,7 +5,7 @@
 		$user = $_POST['nomuser'];
 		$passwd = $_POST['pass'];
 
-		$loginuser = "SELECT username, rol , password FROM usuarios WHERE username='$user' AND rol='administrador';";
+		$loginuser = "SELECT username, rol , password FROM usuarios WHERE username='$user';";
 		$result = mysqli_query($db,$loginuser);
 		$row 	= mysqli_fetch_array($result);
 		//password_verify
@@ -13,6 +13,7 @@
 			if(password_verify($passwd , $row['password'])){
 			
 				$_SESSION['usuario'] = $row['username'];
+				$_SESSION['rol'] = $row['rol'];
 
 				$file = fopen("log.txt", "a+");
 					if(!$file){

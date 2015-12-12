@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `ttounkyo`.`productos` (
   `precio` DECIMAL(10,0) NULL DEFAULT NULL,
   `marca` VARCHAR(45) NULL DEFAULT NULL,
   `ruta` VARCHAR(100) NULL DEFAULT NULL,
+  `cantidad` INT(11) NOT NULL DEFAULT 1,
   `createdAt` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idproducto`))
 ENGINE = InnoDB
@@ -166,6 +167,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 INSERT INTO usuarios(username,password) VALUES("boss", "1234");
+INSERT INTO `usuarios`(`username`, `nombre`, `apellidos`, `email`, `telefono`, `direccion`, `password`) VALUES ('antonio','Antonio','Delgado','aa.antonio.delgado@gmail.com','680840609','Crr Sant Carlos','1234');
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

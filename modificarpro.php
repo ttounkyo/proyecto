@@ -13,6 +13,7 @@
 		$precio = $_POST['precio'];
 		$desc 	= $_POST['descripcion'];
 		$titu 	= $_POST['tit'];
+		$cant 	= $_POST['cant'];
 		$mctg 	= $_POST['cat'];
 
 		$target_dir = "img_products/".$id."/";
@@ -43,12 +44,11 @@
 				}
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 			       echo "El archivo ha sido ". basename( $_FILES["fileToUpload"]["name"]). " cargado.";
-			      // header('location:index.php?sec=servicios');
 	   		}else {echo "<b>Error de pujada</b><br>.";}
 		}
 
 		// Hacer una actualización a la base de datos.
-		$update = "UPDATE productos SET  titulo='$titu' ,descripcion='$desc',precio='$precio',marca='$marca', ruta='$target_file' WHERE idproducto='$id';";
+		$update = "UPDATE productos SET  titulo='$titu' ,descripcion='$desc',precio='$precio',marca='$marca', ruta='$target_file',cantidad='$cant' WHERE idproducto='$id';";
 		mysqli_query($db,$update);
 
 		if( $mctg != $_REQUEST['ctg']){
@@ -60,6 +60,7 @@
 			$updatecp = "UPDATE categorias_productos SET  idcategoria='$final' WHERE idproducto='$id';";
 			mysqli_query($db,$updatecp);
 		}
+		header('location:index.php?sec=producto');
 	}
 
  ?>	
@@ -76,6 +77,8 @@
 	<input type="text" name="descripcion" value="<?php echo $_REQUEST['d']?>"><br>
 	<label for="descripcionp">New Marca: </label><br>
 	<input type="text" name="marca" value="<?php echo $_REQUEST['m']?>"><br>
+	<label>Nueva Cantidad: </label><br>
+	<input type="text" name="cant" value="<?php echo $_REQUEST['cant']?>"><br>
 	Selecciona nueva imagen para subir:<br>
     <input type="file" name="fileToUpload" id="fileToUpload"><br>
     <input type="submit" value="Modificar" name="añadir"><br>

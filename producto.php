@@ -9,6 +9,11 @@
 	<div><label for="">Descripcion</label><br><input type="text" name="descripcion"></div>
 	<div><label for="">Precio</label><br><input type="text" name="precio"></div>
 	<div><label for="">Marca</label><br><input type="text" name="marca"></div>
+	<div>
+		<label for="">Cantidad</label>
+		<br>
+		<input type="text" name="cant">
+	</div>
 	<div><label for="">Categoria</label><br>
 		<select name="cat" style="width:100px;border:1px solid #04467E;background-color:#DDFFFF;color:#2D4167;font-size:18px" >
 			<?php 
@@ -36,9 +41,10 @@
 		$precio 	=	$_POST['precio'];
 		$marca 		=	$_POST['marca'];
 		$nomcat 	=	$_POST['cat'];
+		$cant 		=	$_POST['cant'];
 
-		$pronou = "INSERT INTO productos(titulo,descripcion,precio,marca)
-			VALUES ('$titulo','$descrp','$precio','$marca');";
+		$pronou = "INSERT INTO productos(titulo,descripcion,precio,marca,cantidad)
+			VALUES ('$titulo','$descrp','$precio','$marca','$cant');";
 		mysqli_query($db,$pronou);
 
 		$product = "SELECT idproducto FROM productos WHERE titulo='$titulo' AND marca='$marca';";

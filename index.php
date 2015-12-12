@@ -53,10 +53,13 @@ if(isset($_SESSION['usuario'])){
 				}
 				elseif($seccion=="modificarctg"){
 					require_once("modificarctg.php");
-				}/*
-				elseif($seccion=="login"){
-					require_once("login.php");
-				}*/
+				}
+				elseif($seccion=="pedido"){
+					require_once("pedido.php");
+				}
+				elseif($seccion=="log"){
+					require_once("log.php");
+				}
 				elseif ($seccion=="logout"){
                     session_destroy();
                     header('location:login.php');

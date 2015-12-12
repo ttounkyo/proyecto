@@ -13,10 +13,12 @@
 	<th>Precio</th>
 	<th>Marca</th>
 	<th>Imagen</th>
+	<th>Cantidad</th>
 	<th>Creado</th>
 	<th>Categoria</th>
 	<th>Eliminar</th>
 	<th>Modificar</th>
+	<th>Seleccionar</th>
 	</tr>
 
 <?php 
@@ -33,10 +35,12 @@
 			echo "<td>".$registro['precio']."</td>";
 			echo "<td>".$registro['marca']."</td>";
 			echo "<td><img id='imagen' src='".$registro['ruta']."'alt='imagen'></img></td>";
+			echo "<td>".$registro['cantidad']."</td>";
 			echo "<td>".$registro['createdAt']."</td>";
 			echo "<td>".$registro['nombre']."</td>";
 			echo "<td>"."<button><a href='index.php?sec=eliminarpro&id=".$id."'>Eliminar</a></button>"."</td>";
-			echo "<td><button><a href='index.php?sec=modificarpro&ctg=".$registro['nombre']."&m=".$registro['marca']."&id=".$id."&t=".$registro['titulo']."&p=".$registro['precio']."&d=".$registro['descripcion']."&img=".$registro['ruta']."'>Modificar</a></button></td>";
+			echo "<td><button><a href='index.php?sec=modificarpro&cant=".$registro['cantidad']."&ctg=".$registro['nombre']."&m=".$registro['marca']."&id=".$id."&t=".$registro['titulo']."&p=".$registro['precio']."&d=".$registro['descripcion']."&img=".$registro['ruta']."'>Modificar</a></button></td>";
+			echo "<td><button><a href='index.php?sec=pedido&id=".$id."'>Seleccionar</a></button></td>";
 			echo "</tr>";		
 		}
 
