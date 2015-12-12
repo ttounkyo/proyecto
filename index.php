@@ -5,6 +5,8 @@ $seccion = null;
 else
 $seccion = $_GET['sec'];
 
+if(isset($_SESSION['usuario'])){
+
 // if(!isset($_COOKIE['user'])){
 //     setcookie("user",false, time()+10);     
 // }
@@ -46,12 +48,18 @@ $seccion = $_GET['sec'];
 				elseif($seccion=="categoria"){
 					require_once("categoria.php");
 				}
+				elseif($seccion=="eliminarctg"){
+					require_once("eliminarctg.php");
+				}
+				elseif($seccion=="modificarctg"){
+					require_once("modificarctg.php");
+				}/*
 				elseif($seccion=="login"){
 					require_once("login.php");
-				}
+				}*/
 				elseif ($seccion=="logout"){
                     session_destroy();
-                    header('location:index.php?sec=login');
+                    header('location:login.php');
                 }
 				else{
 					require_once("inicio.php");
@@ -61,3 +69,12 @@ $seccion = $_GET['sec'];
 		</div>
 	</body>
 </html>
+
+<?php 
+	
+
+}else{
+	header("location:login.php");
+}
+
+ ?>

@@ -14,9 +14,7 @@
 			<?php 
 				$query = 'SELECT * FROM categorias;';
 				// Comprobar la query
-
 				$resultado = $db->query($query) or die ($db->connect_error. " en la línea ");
-
 				// Mostrar los valores de la tabla productos.
 				while ($registro = $resultado->fetch_array(MYSQLI_BOTH)){
 						// Tanto con variables o con el mismo registro.
@@ -31,7 +29,7 @@
 	<div ><button class="btn" type='submit' name='enviar'>Enviar</button></div>
 </form>
 <?php 
-	if(isset($_POST['titulo'])){
+	if(!empty($_POST['titulo']) && isset($_POST['precio']) && isset($_POST['marca'])){
 
 		$titulo 	=	$_POST['titulo'];
 		$descrp 	=	$_POST['descripcion'];
@@ -41,13 +39,7 @@
 
 		$pronou = "INSERT INTO productos(titulo,descripcion,precio,marca)
 			VALUES ('$titulo','$descrp','$precio','$marca');";
-		
-			if($resul = $db->query($pronou)){
-				echo "Producto añadido";
-			}else{
-				echo "Error el producto ya existe en la base de datos!";
-				die ($db->connect_error. " en la línea ");
-			}
+		mysqli_query($db,$pronou);
 
 		$product = "SELECT idproducto FROM productos WHERE titulo='$titulo' AND marca='$marca';";
 		$resul_pro = $db->query($product) or die ($db->connect_error. " en la línea ");
@@ -58,14 +50,9 @@
 		$id_cat = $resul_categ->fetch_array(MYSQLI_BOTH)['idcategoria'];
 
 
-
 		if(!is_dir("img_products/".$id_pro)){ // Miram si el directori ja existeix i si no el cream
 			mkdir("img_products/".$id_pro);
-		}else{
-			echo "<b>El Directori ya existeix</b><br>";
 		}
-
-
 			$target_dir = "img_products/".$id_pro."/";
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -84,35 +71,26 @@
 	    		}
 			}
 
-			if (file_exists($target_file) && empty($target_file)) {
-	   			 echo "Lo siento esta vacio";
-	    		$uploadOk = 0;
-			}
+		if (!empty($target_file)) {
+   			 echo "Lo siento esta vacio";
+    		$uploadOk = 0;
+		}
 		//Aqui es fa la pujada del arxiu
 		if ($uploadOk == 0) {
-		   echo "<b>No s'ha pujat la imatge</b><br>.";
+		    header('location:index.php?sec=producto');
 		//Si va tot be, es puja
 		}else {
 		   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 		      header('location:index.php?sec=producto');
-		   }else {echo "<b>Error de pujada</b><br>.";}
+		   }else {
+		   	echo "<br>Error al subir imagen<br>.";
+		   }
 		}
 
 		$pronou = "UPDATE productos SET ruta = '$target_file' WHERE titulo='$titulo' AND marca='$marca';";
-		
-			if($resul = $db->query($pronou)){
-				echo "Producto añadido";
-			}else{
-				echo "Error el producto ya existe en la base de datos!";
-				die ($db->connect_error. " en la línea ");
-			}
+		mysqli_query($db,$pronou);
 		$catpro = "INSERT INTO categorias_productos(idcategoria,idproducto) VALUES ('$id_cat','$id_pro');";
-		if($resul = $db->query($catpro)){
-				echo "Producto añadido a la categoria";
-			}else{
-				echo "Error!";
-				die ($db->connect_error. " en la línea ");
-		}
+		mysqli_query($db,$catpro);
 		$db->close();
 	}
 	require_once("listarpro.php");
