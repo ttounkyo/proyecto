@@ -1,0 +1,17 @@
+form {
+    font-size: 11px;
+    margin: 20px             
+}
+
+form input, textarea {
+    margin-bottom: 20px;    
+}
+
+#rellenar{
+	float:left;
+	width: 60%;
+}
+#datos{
+	float: left;
+	width: 40%;
+}

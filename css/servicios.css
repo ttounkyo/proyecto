@@ -1,0 +1,35 @@
+.datos{
+	height: 360px;
+	overflow-y: scroll;
+}
+
+.detalles {
+    width: 350px;
+    border: 1px solid #c3c3c3;
+    margin: 15px;
+    padding: 5px;  
+}
+
+.enlaces {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+section{
+	background-color: #1313DE;
+	width: 350px;
+	height: 170px;
+	margin: 0.5em 0 0.5em 0;
+	color: white;
+}
+div#registro{
+	/*float: left;*/
+}
+img#imagen{
+	width: 5em;
+	height: 5em;
+	float: left;	
+	vertical-align: middle;
+	margin: 1em;
+	border: 5px solid white;
+}

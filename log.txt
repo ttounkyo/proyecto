@@ -1,0 +1,9 @@
+El usuario admo ha accedido el día. 15/12/11 19:21:03 incorrectamente.
+El usuario boss ha accedido el día. 15/12/11 19:32:03 Satisfactoriamente
+El usuario boss ha accedido el día. 15/12/11 19:38:04 Satisfactoriamente
+El usuario boss ha accedido el día. 15/12/11 21:56:05 incorrectamente.
+El usuario boss ha accedido el día. 15/12/11 21:06:06 incorrectamente.
+El usuario  ha accedido el día. 15/12/11 21:08:06 incorrectamente.
+El usuario boss ha accedido el día. 15/12/11 21:23:06 incorrectamente.
+El usuario boss ha accedido el día. 15/12/11 21:57:09 Satisfactoriamente
+El usuario boss ha accedido el día. 15/12/11 21:33:17 Satisfactoriamente

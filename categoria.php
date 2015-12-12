@@ -1,0 +1,27 @@
+<form class='categoria' action='index.php?sec=categoria' method='POST'>
+	<h1>Area de usuarios</h1>
+	<div><label for="ctg">Nombre de categoria: </label><input type='text' value='' name='ctg' /></div>
+	<div ><button class="btn" type='submit' name='enviar'>Enviar</button></div>
+</form>
+
+	<?php 
+		if(isset($_POST['ctg'])){
+			$nom_categ	=	$_POST['ctg'];
+			$db = new mysqli('localhost', 'root', '', 'ttounkyo');
+			if($db->connect_errno > 0){
+			    die('Imposible conectar [' . $db->connect_error . ']');
+			}
+			
+			$query = "INSERT INTO categorias(nombre)
+					VALUES ('$nom_categ');";
+				
+				if($resul = $db->query($query)){
+					echo "Categoria añadida";
+				}else{
+					echo "Categoria ya existe.";
+					die ($db->connect_error. " en la línea ");
+				}
+			$db->close();
+		}
+
+		?>

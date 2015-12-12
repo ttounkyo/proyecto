@@ -1,0 +1,91 @@
+body {
+    font-family: Verdana, Arial;    
+}
+
+h1 {
+    margin: 0;        
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 860px;
+    border-left: 1px solid #c3c3c3;
+    border-right: 1px solid #c3c3c3;
+    padding: 0 15px 0 15px;    
+}
+
+#header {
+    background-color: #C9B1B1;
+    padding: 0 15px 0 15px;
+    height: 90px;
+    color: #fff;    
+}
+
+#header .subtitulo {
+    font-style: italic;    
+}
+
+#sidebar {
+    float: left;        
+    background-color: #9E6868;
+    width: 160px;
+    height: 400px;
+}
+
+#sidebar ul {
+    list-style-type: none;    
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 1.8em; 
+}
+
+#sidebar ul li a:hover {
+    text-decoration: underline;    
+}
+#sidebar div.user{
+    margin-top: 1em;
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-left:2.5em; 
+}
+#sidebar img{
+    width: 2em;
+    height: 2em;
+    margin: .3em 0 0 -2.3em;
+    float: left;
+}
+
+#sidebar div.user a{
+    text-decoration: none;
+}
+
+#sidebar div span{
+    text-transform: uppercase;
+    color: white;
+    float: inherit;
+}
+#principal {
+    background-color: #F2D5D5;
+    float: left;
+    width: 680px;
+    padding: 0 10px 0 10px;
+}
+
+#footer {
+    clear: left;
+    width: 850px;
+    background-color: #7A4949;
+    height: 85px;   
+    padding: 5px 0 0px 10px;   
+    margin: 0 auto; 
+}
+
+#footer p {
+    font-size: 12px;
+    line-height: 0.8em;
+    color: #fff;    
+}
