@@ -74,37 +74,34 @@
 				
 			</div>
 		<?php
-
-			
-				if($seccion=='producto'){
+			switch ($seccion) {
+				case 'producto':
 					require_once('producto.php');
-				}
-				elseif($seccion=="registro"){
+					break;
+				case 'registro':
 					require_once("registro.php");
-				}
-				elseif($seccion=="pedido"){
-					require_once("pedido.php");
-				}
-				elseif($seccion == 'logout'){
+					break;
+				case 'logout':
 					unset($_SESSION['usuariofront']);
 					unset($_SESSION['usuario']);
 					header("location:indexp.php");
-				}
-				elseif($seccion == 'buscador'){
+					break;
+				case 'buscador':
 					require_once("buscador.php");
-				}
-				elseif ($seccion=="patines"){
+					break;
+				case 'patines':
 					require_once("patines.php");
-				}
-				elseif ($seccion== 'accesorios'){
+					break;
+				case 'accesorios':
 					require_once("accesorios.php");
-				}
-				elseif ($seccion== 'marca'){
+					break;
+				case 'marca':
 					require_once("marca.php");
-				}
-				else{
-					//require_once("patines.php");
-				} 
+					break;				
+				default:
+					# code...
+					break;
+			}
 				?>
 		</section>
 		<footer>
