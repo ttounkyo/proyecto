@@ -10,7 +10,7 @@
 		            echo "<a href='indexp.php?sec=logout'><span>$nomuser Logout</span></a>";
 		        }else{
 
-		        	echo "<span onclick='showmenu(this)'>Login</span>"
+		        	echo "<span onclick='showmenu(this.id)'>Login</span>"
 		     ?>
 		     		
 		            <div id="menulog">
