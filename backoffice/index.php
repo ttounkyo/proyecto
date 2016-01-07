@@ -30,40 +30,46 @@ if($_SESSION['usuario'] === 'boss'){
 			<div id="header"><?php require_once("header.php") ?></div>
 			<div id="sidebar"><?php require_once("sidebar.php") ?></div>
 			<div id="principal">
-				<?php 
-				if($seccion=='producto'){
-					require_once('producto.php');
-				}
-				elseif($seccion=="eliminarpro"){
-					require_once("eliminarpro.php");
-				}
-				elseif($seccion=="modificarpro"){
-					require_once("modificarpro.php");
-				}
-				else if($seccion=="altausuario"){
-					require_once("altausuario.php");
-				}
-				elseif($seccion=="categoria"){
-					require_once("categoria.php");
-				}
-				elseif($seccion=="eliminarctg"){
-					require_once("eliminarctg.php");
-				}
-				elseif($seccion=="modificarctg"){
-					require_once("modificarctg.php");
-				}
-				elseif($seccion=="pedido"){
-					require_once("pedido.php");
-				}
-				elseif($seccion=="log"){
-					require_once("log.php");
-				}
-				elseif ($seccion=="logout"){
-                    unset($_SESSION['usuario']);
-                    header('location:login.php');
-                }
-				else{
-					require_once("inicio.php");
+				<?php
+				switch ($seccion) {
+					case "producto":
+						require_once('producto.php');
+						break;				
+					case "eliminarpro":
+						require_once("eliminarpro.php");
+						break;				
+					case "modificarpro":
+						require_once("modificarpro.php");
+						break;				
+					case "altausuario":
+						require_once("altausuario.php");
+						break;				
+					case "categoria":
+						require_once("categoria.php");
+						break;				
+					case "eliminarctg":
+						require_once("eliminarctg.php");
+						break;				
+					case "modificarctg":
+						require_once("modificarctg.php");
+						break;				
+					case "pedido":
+						require_once("pedido.php");
+						break;				
+					case "log":
+						require_once("log.php");
+						break;
+					case "compra":
+						require_once("compra.php");
+						break;			
+					case "logout":
+	                    unset($_SESSION['usuario']);
+	                    header('location:login.php');
+	                    break;
+	                   
+	                default: 
+	                	require_once("inicio.php");
+	                	break;
 				}
 				?>
 			</div>

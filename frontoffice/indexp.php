@@ -83,6 +83,9 @@
 				case 'pedido':
 					require_once('pedido.php');
 					break;
+				case 'compra':
+					require_once('compra.php');
+					break;
 				case 'registro':
 					require_once("registro.php");
 					break;

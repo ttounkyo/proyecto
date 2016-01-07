@@ -3,7 +3,7 @@
 
  ?>
 
-<form action="indexp.php?sec=pedido&id=<?php echo $_REQUEST['id']?>">
+<form action="indexp.php?sec=compra&id=<?php echo $_REQUEST['id']?>" method="GET">
  	<div>
  		<label for="">Metodo de pago.</label>
  		<br>
@@ -17,11 +17,9 @@
  	<div>
  		<label for="">Estado</label>
  		<br>
- 		<input type="text" name="">
+ 		<input type="text" name="" value="enviado">
  	</div>
- 	<button><a href="indexp.php?sec=patines">Seguir pidiendo</a></button>
- 	<button type="submit">Comprar</button>
-</form>
+
 
 
 
@@ -33,15 +31,6 @@
 	<th>Precio</th>
 	<th>Marca</th>
 	<th>Cantidad</th>
-<?php 
-	ifisset($_SESSION['rol']== 'administrador'){
-		// Para agregar el contenido
- ?>
-	<th>Eliminar</th>
-	<th>Modificar</th>
-<?php 
-	}
- ?>
 	</tr>
 
 <?php 
@@ -55,7 +44,6 @@
 			$resultado = mysqli_query($db,$verproductos);
 			
 				while ($registro = mysqli_fetch_array($resultado)){
-					$id 	= $registro['idproducto'];
 					echo "<tr>";
 					echo "<td><img id='imagen' src='".$registro['ruta']."'alt='imagen'></img></td>";
 				
@@ -65,22 +53,17 @@
 					echo "<td>".$registro['marca']."</td>";
 					
 					echo "<td>";
-					$cantidad = $registro['cantidad'];
-					if($cantidad !=0){
-						echo "<select name='cantidad'>";
-						for ($i=1; $i <= $cantidad ; $i++) { 
-							echo "<option value='$i'>$i</option>";
+						$cantidad = $registro['cantidad'];
+						if($cantidad !=0){
+							echo "<select name='cantidad'>";
+							for ($i=1; $i <= $cantidad ; $i++) { 
+								echo "<option value='$i'>$i</option>";
+							}
+							echo "</select>";
+						}else{
+							echo "<h2>No hay productos por ahora</h2>";
 						}
-						echo "</select>";
-					}else{
-						echo "<h2>No hay productos por ahora</h2>";
-					}
 					echo "</td>";
-					if($_SESSION['rol']== 'administrador'){
-						echo "<td>"."<button><a href='index.php?sec=eliminarpro&id=".$id."'>Eliminar</a></button>"."</td>";
-						echo "<td><button><a href='index.php?sec=modificarpro&cant=".$registro['cantidad']."&ctg=".$registro['nombre']."&m=".$registro['marca']."&id=".$id."&t=".$registro['titulo']."&p=".$registro['precio']."&d=".$registro['descripcion']."&img=".$registro['ruta']."'>Modificar</a></button></td>";
-					}
-					
 					echo "</tr>";	
 				
 				}
@@ -92,3 +75,7 @@
  ?>
 
  </table>
+
+  	<button><a href="indexp.php?sec=patines">Seguir pidiendo</a></button>
+ 	<button type="submit">Comprar</button>
+</form>
