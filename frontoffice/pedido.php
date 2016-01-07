@@ -3,7 +3,7 @@
 
  ?>
 
- <form action="indexp.php?sec=pedido&id=<?php echo $_REQUEST['id']?>">
+<form action="indexp.php?sec=pedido&id=<?php echo $_REQUEST['id']?>">
  	<div>
  		<label for="">Metodo de pago.</label>
  		<br>
@@ -21,7 +21,7 @@
  	</div>
  	<button><a href="indexp.php?sec=patines">Seguir pidiendo</a></button>
  	<button type="submit">Comprar</button>
- </form>
+</form>
 
 
 

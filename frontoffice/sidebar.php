@@ -19,7 +19,7 @@
 		        <ul>
 					<?php
 						while($row = $resultado->fetch_array(MYSQLI_BOTH)){
-							echo "<li><a href=\"indexp.php?sec=".$row['nombre']."&id=".$row['nombre']."\">".$row['nombre']."</a></li>";
+							echo "<li><a href=\"indexp.php?sec=buscador&id=".$row['nombre']."\">".$row['nombre']."</a></li>";
 						}
 					?>
 					<li><a href="indexp.php?sec=home">Back</a></li>
