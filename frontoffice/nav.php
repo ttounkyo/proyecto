@@ -40,7 +40,7 @@
 </nav>
 <nav>
 	<img id="menu" src="./imagenes/menu.png" alt="menu"  onclick=showmenu("nav")>
-	<ul id="nav" style="display: none">
+	<ul id="nav">
 		<a href="indexp.php?sec=patines"><la>Patines</la></a>
 		<a href="indexp.php?sec=accesorios"><la>Accesorios</la></a>
 		<a href="indexp.php?sec=marca"><la>Marca</la></a>
