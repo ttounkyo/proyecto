@@ -49,7 +49,7 @@ ul.log{
 	display: inline-block;
 	padding: 1px 10px;
 	font-family: 'Noticia Text', serif;
-	font-size: 18px;
+	font-size: 80%;
 	color: white;
 }
 #nav{
@@ -70,7 +70,7 @@ ul#nav la{
 	/*display: inline-block;*/
 	padding: 1px 10px;
 	font-family: 'Oswald', sans-serif;
-	font-size: 29px;
+	font-size: 99%;
 
 }
 aside{
@@ -94,11 +94,11 @@ section{
 .breadcrumbs{
 	display: block;
     /*float: left;*/
-    margin: 20px 0px;
+
     width: auto;
     height: 40px;
     line-height: 40px;
-    font-size: 11px;
+    font-size: 70%;
     font-family: "futura_bold", helvetica, arial, sans-serif;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -107,7 +107,6 @@ section{
     background-color: red;
 }
 footer{
-	z-index: -1;
 	clear: both;
 	background-color: #483E3D;
 	margin: 0em 0.5em 0em 0.5em;
@@ -117,12 +116,12 @@ footer div{
 	float: left;
 	width: 32.3%;
 	font-family: 'Noticia Text', serif;
-	font-size: 18px;
 	color: white;
 }
 footer span{
-	margin: 0 auto;
+	margin: 20%;
 	color: white;
+	text-align: center;
 }
 
 a{
@@ -186,26 +185,22 @@ a{
 	}
 	footer{
 		margin: .5em .5em 0 .5em;
+
 	}
 	footer div{
 		width: 99%;
 		font-family: 'Noticia Text', serif;
-		font-size: 38px;
 		color: white;
 		text-align: center;
 	}
 	footer span{
-		margin: 0 auto;
 		color: white;
 		font-family: 'Noticia Text', serif;
-		font-size: 18px;
 		text-align: center;
-	}
-	footer span{
-		margin: 0 auto;
 		color: white;
-	}
-	
+		text-align: center;
+		margin: 5%;
+	}	
 	aside{
 		/*display:none;*/
 		height:100%;
@@ -259,7 +254,7 @@ a{
   border-radius: 4px;
   font-family: Arial;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 15%;
   background: #8b969e;
   padding: 3px 15px 3px 15px;
   margin-top:5px;
