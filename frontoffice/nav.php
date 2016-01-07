@@ -10,7 +10,7 @@
 		            echo "<a href='indexp.php?sec=logout'><span>$nomuser Logout</span></a>";
 		        }else{
 
-		        	echo "<span onclick='showmenu()'>Login</span>"
+		        	echo "<span onclick='showmenu(this)'>Login</span>"
 		     ?>
 		     		
 		            <div id="menulog">
@@ -39,7 +39,7 @@
 	</ul>
 </nav>
 <nav>
-	<img id="menu" src="./imagenes/menu.png" alt="menu">
+	<img id="menu" src="./imagenes/menu.png" alt="menu"  onclick="showmenu(this)">
 	<ul class="nav">
 		<a href="indexp.php?sec=patines"><la>Patines</la></a>
 		<a href="indexp.php?sec=accesorios"><la>Accesorios</la></a>
