@@ -19,6 +19,7 @@
 <?php 
 	}
  ?>
+	<th>Seleccionar</th>
 	</tr>
 
 <?php 
@@ -44,6 +45,7 @@
 				echo "<td><a href='index.php?sec=eliminarpro&id=".$id."'><button>Eliminar</button></a></td>";
 				echo "<td><a href='index.php?sec=modificarpro&cant=".$registro['cantidad']."&ctg=".$idcat."&m=".$registro['marca']."&id=".$id."&t=".$registro['titulo']."&p=".$registro['precio']."&d=".$registro['descripcion']."&img=".$registro['ruta']."'><button>Modificar</button></a></td>";
 			}
+			echo "<td><a href='index.php?sec=pedido&id=".$id."'><button>Seleccionar</button></a></td>";
 			echo "</tr>";		
 		}
 
