@@ -75,8 +75,8 @@
 			</div>
 		<?php
 			switch ($seccion) {
-				case 'producto':
-					require_once('producto.php');
+				case 'pedido':
+					require_once('pedido.php');
 					break;
 				case 'registro':
 					require_once("registro.php");

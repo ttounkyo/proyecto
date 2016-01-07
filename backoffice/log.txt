@@ -155,3 +155,4 @@ El usuario boss ha accedido el día. 16/01/07 06:49:42 Satisfactoriamente
 El usuario boss ha accedido el día. 16/01/07 06:56:42 Satisfactoriamente
 El usuario boss ha accedido el día. 16/01/07 14:11:24 Satisfactoriamente
 El usuario boss ha accedido el día. 16/01/07 14:12:24 Satisfactoriamente
+El usuario antonio ha accedido el día. 16/01/07 17:28:49 Satisfactoriamente

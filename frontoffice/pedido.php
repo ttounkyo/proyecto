@@ -27,15 +27,12 @@
 
 <table id="listadopro">
 	<tr>
-	<th>Identificador</th>
+	<th>Imagen</th>
 	<th>Titulo</th>
 	<th>Descripcion</th>
 	<th>Precio</th>
 	<th>Marca</th>
-	<th>Imagen</th>
 	<th>Cantidad</th>
-	<th>Creado</th>
-	<th>Categoria</th>
 <?php 
 	if($_SESSION['rol']== 'administrador'){
 		// Para agregar el contenido
@@ -60,13 +57,13 @@
 				while ($registro = mysqli_fetch_array($resultado)){
 					$id 	= $registro['idproducto'];
 					echo "<tr>";
-					echo "<td>".$id."</td>";
+					echo "<td><img id='imagen' src='".$registro['ruta']."'alt='imagen'></img></td>";
+				
 					echo "<td>".$registro['titulo']."</td>";
 					echo "<td>".$registro['descripcion']."</td>";
 					echo "<td>".$registro['precio']."</td>";
 					echo "<td>".$registro['marca']."</td>";
-					echo "<td><img id='imagen' src='".$registro['ruta']."'alt='imagen'></img></td>";
-				
+					
 					echo "<td>";
 					$cantidad = $registro['cantidad'];
 					if($cantidad !=0){
@@ -79,8 +76,6 @@
 						echo "<h2>No hay productos por ahora</h2>";
 					}
 					echo "</td>";
-					echo "<td>".$registro['createdAt']."</td>";
-					echo "<td>".$registro['nombre']."</td>";
 					if($_SESSION['rol']== 'administrador'){
 						echo "<td>"."<button><a href='index.php?sec=eliminarpro&id=".$id."'>Eliminar</a></button>"."</td>";
 						echo "<td><button><a href='index.php?sec=modificarpro&cant=".$registro['cantidad']."&ctg=".$registro['nombre']."&m=".$registro['marca']."&id=".$id."&t=".$registro['titulo']."&p=".$registro['precio']."&d=".$registro['descripcion']."&img=".$registro['ruta']."'>Modificar</a></button></td>";
