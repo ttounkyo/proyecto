@@ -22,7 +22,7 @@
 				require_once("nav.php");
 			 ?>
 		</header>
-		<aside>
+		<aside class="buscador">
 			<div class="busc">
 				<h1>BUSCADOR</h1>
 				<form id="buscador" name="buscador" method="post" action="indexp.php?sec=buscador">
