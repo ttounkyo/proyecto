@@ -147,15 +147,14 @@ a{
 	border-radius: 3px;
 	text-align: center;
 }
-.product>button{
-	color: black;
-	background-color: red;
-}
 .pic{
 	border-radius: 15px;
 }
 .product .price{
 	float:right;
+}
+.product .descripcion{
+	text-align: left;
 }
 .product img{
 	border-radius: 3px;
@@ -244,4 +243,21 @@ a{
 		background-color: #8295A0;
 		text-decoration: underline; 
 	}
+}
+/*Botones*/
+.btn {
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  background: #8b969e;
+  padding: 3px 15px 3px 15px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #356380;
+  text-decoration: none;
 }
