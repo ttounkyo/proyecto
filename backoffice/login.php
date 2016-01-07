@@ -9,10 +9,8 @@
 		$result = mysqli_query($db,$loginuser);
 		$row 	= mysqli_fetch_array($result);
 		//password_verify
-
 			if(password_verify($passwd , $row['password'])){
-			
-				$_SESSION['usuario'] = $row['username'];
+
 				$_SESSION['rol'] = $row['rol'];
 
 				$file = fopen("log.txt", "a+");
@@ -22,34 +20,40 @@
 					fputs($file,"El usuario ". $row['username'] . " ha accedido el día. " . date("y/m/d H:s:i" , time()) . " Satisfactoriamente" .PHP_EOL);
 
 				fclose($file);
-
-				header('location:index.php?sec=index');
+				if($_SESSION['rol'] === 'administrador'){
+					$_SESSION['usuario'] = $row['username'];
+				  	header('location:index.php?sec=index');
+				}elseif($_SESSION['rol'] === 'cliente'){
+					$_SESSION['usuariofront'] = $row['username'];
+				 	header('location:../frontoffice/indexp.php');
+				}
+				
 			
 			}else{
 				$file = fopen("log.txt", "a+");
 				if(!$file){
 					echo "No es pot obrir el file";
 				}
-				fwrite($file,"El usuario ". $row['username'] . " ha accedido el día. " . date("y/m/d H:s:i" , time()) . " incorrectamente." .PHP_EOL);
+				fwrite($file,"El usuario ". $row['username'] . " ha accedido el día. " . date("y/m/d H:s:i" , time()) . " Incorrectamente." .PHP_EOL);
 				fclose($file);
-				//header('location:index.php?sec=login');
+				header('location:index.php?sec=login');
 			}
-		$db->close();
+		mysqli_close($db);
 	}
 	// Hacerlo con comprobadores de pass 
  ?>
 
 <?php 
-	if(empty($_SESSION['usuario'])){
+	if(isset($_SESSION['usuario']) || empty($_SESSION['usuario'])){
  ?>
-<h1>LOGIN</h1>
-<div class="login" >
-	<form action='login.php' method='POST'>
-		<div><label for="">Usuario</label><br><input type="text" name="nomuser"></div>
-		<div><label for="">Contraseña</label><br><input type="password" name="pass"></div><br>
-		<div><button class="btn" type='submit' name='enviar'>Enviar</button></div>
-	</form>
-</div>
+	<h1>LOGIN</h1>
+	<div class="login" >
+		<form action='login.php' method='POST'>
+			<div><label for="">Usuario</label><br><input type="text" name="nomuser"></div>
+			<div><label for="">Contraseña</label><br><input type="password" name="pass"></div><br>
+			<div><button class="btn" type='submit' name='enviar'>Enviar</button></div>
+		</form>
+	</div>
 <?php 
-	}
+	} 
  ?>

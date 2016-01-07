@@ -167,8 +167,9 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 INSERT INTO usuarios(username,password,rol) VALUES("boss", "$2y$10$C/lJA4tl7kOZ35FtILF5sOBOloNAl0wIVEIl2apAoVLl5rT4fBgpC","administrador");
+INSERT INTO usuarios(username,password,rol) VALUES("admin", "$2y$10$C/lJA4tl7kOZ35FtILF5sOBOloNAl0wIVEIl2apAoVLl5rT4fBgpC","administrador");
 INSERT INTO `usuarios`(`username`, `nombre`, `apellidos`, `email`, `telefono`, `direccion`, `password`) VALUES ('antonio','Antonio','Delgado','aa.antonio.delgado@gmail.com','680840609','Crr Sant Carlos','$2y$10$C/lJA4tl7kOZ35FtILF5sOBOloNAl0wIVEIl2apAoVLl5rT4fBgpC');
-
+INSERT INTO `ttounkyo`.`usuarios` (`username`, `nombre`, `apellidos`, `datealta`, `email`, `telefono`, `direccion`, `rol`, `password`) VALUES ('mello', 'miguel', 'roig', CURRENT_TIMESTAMP, NULL, NULL, NULL, 'cliente', '$2y$10$GpasA7/dy80X.1C5bzYIHu75W4RsoJwLLs5lE0Xk4/VZNQ8btRtIe');
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

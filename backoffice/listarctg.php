@@ -21,8 +21,8 @@
 			echo "<tr>";
 			echo "<td>".$registro['idcategoria']."</td>";
 			echo "<td>".$registro['nombre']."</td>";
-			echo "<td>"."<button><a href='index.php?sec=eliminarctg&id=".$registro['idcategoria']."'>Eliminar</a></button>"."</td>";
-			echo "<td><button><a href='index.php?sec=modificarctg&id=".$registro['idcategoria']."&nom=".$registro['nombre']."'>Modificar</a></button></td>";
+			echo "<td>"."<a href='index.php?sec=eliminarctg&id=".$registro['idcategoria']."'><button>Eliminar</button></a></td>";
+			echo "<td><a href='index.php?sec=modificarctg&id=".$registro['idcategoria']."&nom=".$registro['nombre']."'><button>Modificar</button></a></td>";
 			echo "</tr>";		
 		}
 

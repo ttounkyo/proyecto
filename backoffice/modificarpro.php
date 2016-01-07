@@ -8,13 +8,14 @@
 		
 
 		// Asignar valor a las variables.
+		
 		$id 	= $_REQUEST['id'];
 		$marca 	= $_POST['marca'];
 		$precio = $_POST['precio'];
-		$desc 	= $_POST['descripcion'];
-		$titu 	= $_POST['tit'];
+		$descripcion 	= $_POST['descripcion'];
+		$tit 	= $_POST['tit'];
 		$cant 	= $_POST['cant'];
-		$mctg 	= $_POST['cat'];
+		$cat 	= $_POST['cat'];
 
 		$target_dir = "img_products/".$id."/";
 		$target_file = $target_dir. basename($_FILES["fileToUpload"]["name"]);
@@ -48,18 +49,21 @@
 		}
 
 		// Hacer una actualización a la base de datos.
-		$update = "UPDATE productos SET  titulo='$titu' ,descripcion='$desc',precio='$precio',marca='$marca', ruta='$target_file',cantidad='$cant' WHERE idproducto='$id';";
+		$update = "UPDATE productos SET  titulo='$tit' ,descripcion='$descripcion',precio='$precio',marca='$marca', ruta='$target_file',cantidad='$cant' WHERE idproducto='$id';";
 		mysqli_query($db,$update);
+		
+		// hacer un insert aqui de categoria producto por si el producto pertenece a otra categoria.
+		if($cat != 1){
+			$query = "DELETE FROM categorias_productos WHERE idproducto='$id';";
+			mysqli_query($db,$query);
 
-		if( $mctg != $_REQUEST['ctg']){
-			$hola 	= "SELECT idcategoria FROM categorias WHERE nombre='$mctg';";
-			$result = mysqli_query($db,$hola);
-			$row 	= mysqli_fetch_array($result);
-			$final 	= $row['idcategoria'];
-			// hacer un insert aqui de categoria producto por si el producto pertenece a otra categoria.
-			$updatecp = "UPDATE categorias_productos SET  idcategoria='$final' WHERE idproducto='$id';";
-			mysqli_query($db,$updatecp);
+			foreach ($cat as $value) {
+				$catpro = "INSERT INTO categorias_productos(idcategoria,idproducto) VALUES ('$value','$id');";
+				mysqli_query($db,$catpro);
+			}
 		}
+			
+		
 		header('location:index.php?sec=producto');
 	}
 
@@ -84,22 +88,20 @@
     <input type="submit" value="Modificar" name="añadir"><br>
 	<div>
 	<label for="">Categoria</label><br>
-		<select name="cat"  style="width:100px;border:1px solid #04467E;background-color:#DDFFFF;color:#2D4167;font-size:18px" >
+		<select name="cat[]" multiple style="width:100px;border:1px solid #04467E;background-color:#DDFFFF;color:#2D4167;font-size:18px" >
 			<?php 
-				
-				$select_nombre = 'SELECT nombre FROM categorias;';
-				$resultado = mysqli_query($db,$select_nombre);
-				echo mysqli_error($db);
-				while ($registro = mysqli_fetch_array($resultado)){
+				$query = 'SELECT * FROM categorias;';
+				// Comprobar la query
+				$resultado = $db->query($query) or die ($db->connect_error. " en la línea ");
+				// Mostrar los valores de la tabla productos.
+				while ($registro = $resultado->fetch_array(MYSQLI_BOTH)){
 						// Tanto con variables o con el mismo registro.
-						$n = $registro[0];
-						if($n == $_REQUEST['ctg']){
-							echo "<option value='$n' selected>$n</option>";
-						}else{
-							echo "<option value='$n'>$n</option>";
-						}
+						$valor = $registro['idcategoria'];
+						$n = $registro['nombre'];
+						echo "<option value='$valor' selected>$n</option>";		
 				}
-				$db->close();
+				
+	mysqli_close($db);
 			 ?>
 		</select>
 	</div>
