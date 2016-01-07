@@ -1,12 +1,12 @@
 <?php
-if(isset($_POST['buscar'])){
+if(isset($_REQUEST['buscar']) || isset($_REQUEST['id'])){
 	$db = new mysqli('localhost', 'root', '', 'ttounkyo');
 	
-	$busqueda = $_POST['buscar'];
-	if (empty($busqueda)){
-		$texto = 'Búsqueda sin resultados';
-	} 
-	else{
+	if (isset($_REQUEST['buscar']) ){
+		$busqueda = $_REQUEST['buscar'];
+	}elseif(isset($_REQUEST['id'])){
+		$busqueda = $_REQUEST['id'];
+	}
 		// Si hay información para buscar, abrimos la conexión
 
 		$verproductos = "SELECT * FROM productos JOIN categorias_productos USING (idproducto)
@@ -26,11 +26,8 @@ if(isset($_POST['buscar'])){
 			</div>
 			';
 		}
-
-	} 
-
 	$db->close();
-} 
+}
 ?>
 
 	<h1>Resultados</h1>

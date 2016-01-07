@@ -5,17 +5,7 @@
 	else
 	$seccion = $_GET['sec'];
 	
-	$db = new mysqli('localhost', 'root', '', 'ttounkyo');
-    $query = 'SELECT * FROM categorias';
-        // Comprobar la query
-    $resultado = $db->query($query) or die ($db->connect_error. " en la línea ");
-    if(isset($_REQUEST['id'])){
-    	 $categoria = $_REQUEST['id'];
-    }else{
-    	$categoria = '';
-    }
-   
-    $db->close();
+  
 
 
  ?>
@@ -90,9 +80,6 @@
 			</div>
 		<?php
 			switch ($seccion) {
-				case $categoria:
-					require_once($categoria.".php");
-					break;
 				case 'pedido':
 					require_once('pedido.php');
 					break;

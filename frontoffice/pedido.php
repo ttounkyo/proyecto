@@ -34,7 +34,7 @@
 	<th>Marca</th>
 	<th>Cantidad</th>
 <?php 
-	if($_SESSION['rol']== 'administrador'){
+	ifisset($_SESSION['rol']== 'administrador'){
 		// Para agregar el contenido
  ?>
 	<th>Eliminar</th>
