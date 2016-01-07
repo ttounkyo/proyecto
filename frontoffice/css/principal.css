@@ -196,6 +196,9 @@ a{
 		width: 90%;
 		margin: 1em;
 	}
+	ul#nav la{
+		display: none;
+	}
 	ul.log{
 		position: relative;
 		margin-left: 1.5em;
@@ -215,3 +218,4 @@ a{
 		text-decoration: underline; 
 	}
 }
+
