@@ -54,7 +54,7 @@
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
 			$verproductos = "SELECT * FROM productos JOIN categorias_productos USING (idproducto)
-							JOIN categorias USING(idcategoria) WHERE idproducto='$id';";
+							JOIN categorias USING(idcategoria) WHERE idproducto='$id' LIMIT 1;";
 			$resultado = mysqli_query($db,$verproductos);
 			
 				while ($registro = mysqli_fetch_array($resultado)){
