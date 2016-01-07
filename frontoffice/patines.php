@@ -11,8 +11,8 @@
 		while ($registro = $result_vpro->fetch_array(MYSQLI_BOTH)){
 			$products .='
 			<div class="product">
-			<div class="pic"><img src="../backoffice/'.$registro['ruta'].'" width="128" height="128" alt="'.htmlspecialchars($registro['titulo']).'" /></div>
 			<div class="title">'.$registro['titulo'].'</div>
+			<div class="pic"><img src="../backoffice/'.$registro['ruta'].'" width="128" height="128" alt="'.htmlspecialchars($registro['titulo']).'" /></div>
 			<div class="price">'.$registro['precio'].' €</div>
 			<div class="description">'.$registro['descripcion'].'</div>
 			<div class="link">'.$registro['cantidad'].'</div>
