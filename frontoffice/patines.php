@@ -17,7 +17,8 @@
 			<div class="description">'.$registro['descripcion'].'</div>
 			<div class="link">'.$registro['cantidad'].'</div>
 			<div class="clear"></div>
-			<div class="pedir">Pedir</div>
+			<div>identificador = '.$registro["idproducto"].'</div>
+			<div class="buton"><button><a href="indexp.php?sec=pedido&id="'.$registro["idproducto"].'">Seleccionar</a></button></div>
 			</div>
 			';
 			// Class pedir quedarme con el identificador de producto

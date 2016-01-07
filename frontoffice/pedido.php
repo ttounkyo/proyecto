@@ -3,7 +3,7 @@
 
  ?>
 
- <form action="index.php?sec=pedido&id=<?php echo $_REQUEST['id']?>">
+ <form action="indexp.php?sec=pedido&id=<?php echo $_REQUEST['id']?>">
  	<div>
  		<label for="">Metodo de pago.</label>
  		<br>
@@ -19,7 +19,7 @@
  		<br>
  		<input type="text" name="">
  	</div>
- 	<button><a href="index.php?sec=producto">Seguir pidiendo</a></button>
+ 	<button><a href="indexp.php?sec=patines">Seguir pidiendo</a></button>
  	<button type="submit">Comprar</button>
  </form>
 
@@ -45,7 +45,6 @@
 <?php 
 	}
  ?>
-	<th>Seleccionar</th>
 	</tr>
 
 <?php 
@@ -86,7 +85,7 @@
 						echo "<td>"."<button><a href='index.php?sec=eliminarpro&id=".$id."'>Eliminar</a></button>"."</td>";
 						echo "<td><button><a href='index.php?sec=modificarpro&cant=".$registro['cantidad']."&ctg=".$registro['nombre']."&m=".$registro['marca']."&id=".$id."&t=".$registro['titulo']."&p=".$registro['precio']."&d=".$registro['descripcion']."&img=".$registro['ruta']."'>Modificar</a></button></td>";
 					}
-					echo "<td><button><a href='index.php?sec=pedido&id=".$id."'>Seleccionar</a></button></td>";
+					
 					echo "</tr>";	
 				
 				}

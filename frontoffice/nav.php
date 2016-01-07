@@ -28,6 +28,7 @@
 			<?php
 				if (isset($_SESSION['usuario'])){
 					echo "<a href='../backoffice/index.php'>BACK-OFFICE</a>";
+
 			    }else{
 			            echo "<a href='indexp.php?sec=registro'>Registrate</a>";
 				}
@@ -45,6 +46,6 @@
 		<a href="indexp.php?sec=marca"><la>Marca</la></a>
 		<la>Ofertas</la>
 		<la>Personaliza</la>
-		<la>Carrito</la>
+		<a href="indexp.php?sec=pedido"><la>Carrito</la></a>
 	</ul>
 </nav>

@@ -138,6 +138,10 @@ a{
 	background-color: red;
 	border: 7px solid #11A430;
 }
+.product>button{
+	color: black;
+	background-color: red;
+}
 .pic{
 	border-radius: 20px;
 }

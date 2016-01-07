@@ -4,15 +4,6 @@
 	$seccion = null;
 	else
 	$seccion = $_GET['sec'];
-
-	// if($seccion == 'logout'){
-	// 	unset($_SESSION['usuariofront']);
-	// 	// ob_start();
-	// 	// ob_get_clean();
-	// 	header("location:indexp.php");
-	// }
-
-	
  ?>
 
 <!DOCTYPE html>
