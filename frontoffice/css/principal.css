@@ -77,6 +77,7 @@ aside{
 	float: left;
 	background-color: #625452;
 	width: 25%;
+	height:100%;
 	min-height: 22em;
 	margin-left: .5em;
 
@@ -87,9 +88,8 @@ aside .busc{
 section{	
 	float: left;
 	margin: 10px;
-	width:100%;
-	max-width: 72%;
-	min-width: 40em;
+	width:71%;
+	/*max-width: 72%;*/
 }
 .breadcrumbs{
 	display: block;
@@ -107,6 +107,7 @@ section{
     background-color: red;
 }
 footer{
+	z-index: -1;
 	clear: both;
 	background-color: #483E3D;
 	margin: 0em 0.5em 0em 0.5em;
@@ -207,6 +208,7 @@ a{
 	
 	aside{
 		/*display:none;*/
+		height:100%;
 		min-height: 400px;
 	}
 	img#menu{
@@ -243,7 +245,13 @@ a{
 		background-color: #8295A0;
 		text-decoration: underline; 
 	}
+	section{	
+	float: left;
+	margin: 10px;
+	width:100%;
+	/*max-width: 72%;*/
 }
+
 /*Botones*/
 .btn {
   -webkit-border-radius: 4;
@@ -254,6 +262,7 @@ a{
   font-size: 14px;
   background: #8b969e;
   padding: 3px 15px 3px 15px;
+  margin-top:5px;
   text-decoration: none;
 }
 
