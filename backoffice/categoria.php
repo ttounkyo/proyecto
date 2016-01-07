@@ -1,6 +1,7 @@
 <form class='categoria' action='index.php?sec=categoria' method='POST'>
-	<h1>Area de usuarios</h1>
-	<div><label for="ctg">Nombre de categoria: </label><input type='text' value='' name='ctg' /></div>
+	<h1>Crear Categorias</h1>
+	<div><label for="ctg">Nombre de categoria: </label><br>
+	<input type='text' value='' name='ctg' /></div>
 	<div ><button class="btn" type='submit' name='enviar'>Enviar</button></div>
 </form>
 
@@ -23,5 +24,5 @@
 				}
 			$db->close();
 		}
-
-		?>
+	require_once("listarctg.php");
+	?>

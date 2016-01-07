@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `ttounkyo`.`productos` (
   `precio` DECIMAL(10,0) NULL DEFAULT NULL,
   `marca` VARCHAR(45) NULL DEFAULT NULL,
   `ruta` VARCHAR(100) NULL DEFAULT NULL,
+  `cantidad` INT(11) NOT NULL DEFAULT 1,
   `createdAt` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idproducto`))
 ENGINE = InnoDB
@@ -91,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `ttounkyo`.`usuarios` (
   `telefono` VARCHAR(45) NULL DEFAULT NULL,
   `direccion` VARCHAR(45) NULL DEFAULT NULL,
   `rol` VARCHAR(45) NULL DEFAULT 'cliente',
-  `password` VARCHAR(45) NULL DEFAULT NULL,
+  `password` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`username`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB
@@ -165,8 +166,10 @@ CREATE TABLE IF NOT EXISTS `ttounkyo`.`productos_has_media` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-INSERT INTO usuarios(username,password) VALUES("boss", "1234");
-
+INSERT INTO usuarios(username,password,rol) VALUES("boss", "$2y$10$C/lJA4tl7kOZ35FtILF5sOBOloNAl0wIVEIl2apAoVLl5rT4fBgpC","administrador");
+INSERT INTO usuarios(username,password,rol) VALUES("admin", "$2y$10$C/lJA4tl7kOZ35FtILF5sOBOloNAl0wIVEIl2apAoVLl5rT4fBgpC","administrador");
+INSERT INTO `usuarios`(`username`, `nombre`, `apellidos`, `email`, `telefono`, `direccion`, `password`) VALUES ('antonio','Antonio','Delgado','aa.antonio.delgado@gmail.com','680840609','Crr Sant Carlos','$2y$10$C/lJA4tl7kOZ35FtILF5sOBOloNAl0wIVEIl2apAoVLl5rT4fBgpC');
+INSERT INTO `ttounkyo`.`usuarios` (`username`, `nombre`, `apellidos`, `datealta`, `email`, `telefono`, `direccion`, `rol`, `password`) VALUES ('mello', 'miguel', 'roig', CURRENT_TIMESTAMP, NULL, NULL, NULL, 'cliente', '$2y$10$GpasA7/dy80X.1C5bzYIHu75W4RsoJwLLs5lE0Xk4/VZNQ8btRtIe');
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

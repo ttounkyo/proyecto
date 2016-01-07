@@ -13,4 +13,7 @@
 	</li>
     <li><a href="index.php?sec=categoria">Categoria</a></li>
     <li><a href="index.php?sec=producto">Producto</a></li>
+    <li><a href="index.php?sec=pedido">Pedido</a></li>
+    <li><a href="index.php?sec=log">Log</a></li>
+    <li><a href="../frontoffice/indexp.php">FRONT-OFFICE</a></li>
 </ul>

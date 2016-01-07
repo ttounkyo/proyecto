@@ -5,9 +5,9 @@ $seccion = null;
 else
 $seccion = $_GET['sec'];
 
-// if(!isset($_COOKIE['user'])){
-//     setcookie("user",false, time()+10);     
-// }
+// Ponemos la session rol para que el cliente no entre al backoffice porque no tiene porque mirar las cosas eso los trabajadores.
+if($_SESSION['usuario'] === 'boss'){
+
  ?>
 <!DOCTYPE html>
 <!--
@@ -46,12 +46,21 @@ $seccion = $_GET['sec'];
 				elseif($seccion=="categoria"){
 					require_once("categoria.php");
 				}
-				elseif($seccion=="login"){
-					require_once("login.php");
+				elseif($seccion=="eliminarctg"){
+					require_once("eliminarctg.php");
+				}
+				elseif($seccion=="modificarctg"){
+					require_once("modificarctg.php");
+				}
+				elseif($seccion=="pedido"){
+					require_once("pedido.php");
+				}
+				elseif($seccion=="log"){
+					require_once("log.php");
 				}
 				elseif ($seccion=="logout"){
-                    session_destroy();
-                    header('location:index.php?sec=login');
+                    unset($_SESSION['usuario']);
+                    header('location:login.php');
                 }
 				else{
 					require_once("inicio.php");
@@ -61,3 +70,11 @@ $seccion = $_GET['sec'];
 		</div>
 	</body>
 </html>
+
+<?php 
+	
+}else{
+	header("location:login.php");
+}
+
+ ?>
