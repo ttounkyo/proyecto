@@ -19,9 +19,14 @@
 			<div class="clear"></div>
 			<div>identificador = '.$registro["idproducto"].'</div>
 			<div class="buton"><button><a href="indexp.php?sec=pedido&id="'.$registro["idproducto"].'">Seleccionar</a></button></div>
+			<div class="buton"><button><a href="indexp.php?sec=pedido&id="'.$registro["idproducto"].'">Seleccionar</a></button></div>
+			<div class="buton"><button><a href="indexp.php?sec=pedido&id="'.$registro["idproducto"].'">Seleccionar</a></button></div>
 			</div>
+
 			';
 			// Class pedir quedarme con el identificador de producto
+			// Hola Antonio, esto es una prueba
+			
 		}
 
 		$db->close();
