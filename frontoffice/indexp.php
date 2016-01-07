@@ -4,6 +4,20 @@
 	$seccion = null;
 	else
 	$seccion = $_GET['sec'];
+	
+	$db = new mysqli('localhost', 'root', '', 'ttounkyo');
+    $query = 'SELECT * FROM categorias';
+        // Comprobar la query
+    $resultado = $db->query($query) or die ($db->connect_error. " en la línea ");
+    if(isset($_REQUEST['id'])){
+    	 $categoria = $_REQUEST['id'];
+    }else{
+    	$categoria = '';
+    }
+   
+    $db->close();
+
+
  ?>
 
 <!DOCTYPE html>
@@ -23,13 +37,7 @@
 			 ?>
 		</header>
 		<aside class="buscador">
-			<div class="busc">
-				<h1>BUSCADOR</h1>
-				<form id="buscador" name="buscador" method="post" action="indexp.php?sec=buscador">
-					<input id="buscar" name="buscar" type="search" placeholder="Buscar aquí..." autofocus >
-					<input type="submit" name="buscador" class="boton peque aceptar" value="buscar">
-				</form>
-			</div>
+			<?php require_once("sidebar.php"); ?>
 		</aside>
 		<section>
 			<div class="breadcrumbs">
@@ -75,6 +83,9 @@
 			</div>
 		<?php
 			switch ($seccion) {
+				case $categoria:
+					require_once($categoria.".php");
+					break;
 				case 'pedido':
 					require_once('pedido.php');
 					break;
