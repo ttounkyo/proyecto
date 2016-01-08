@@ -276,12 +276,14 @@ aside{
 
 }
 aside .busc{
-	margin-left: 2em;
+	margin-left: 25px;
+    color: #C88657;
+    font-family: 'playfair_displaybold';
 }
 
 
 ul.lista li {
-	color:#DBCCCC;
+	color:  #C88657;
 	font-family: 'Arvo', serif;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -298,10 +300,11 @@ ul.lista {
 	background: #F4F4F4;
 }*/
 ul.lista li a {
-	padding: .2em 0 .2em 1.3em;
-	display: block;
-	text-decoration: none;
-	color: #FFFFFF;
+    padding: .2em 0 .2em 1.3em;
+    display: block;
+    text-decoration: none;
+    color: #C88657;
+    font-family: 'arvobold';
 }
 ul.lista li {
 	list-style-position: inside;

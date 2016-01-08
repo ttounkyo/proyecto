@@ -6,7 +6,10 @@
 		<input id="buscar" name="buscar" type="search" placeholder="Buscar aquí..." autofocus >
 		<input type="submit" name="buscador" class="btn" value="buscar">
 	</form>
-</div>
+	<br>
+	<h1>CATEGORIAS</h1>
+</div >
+	
 	<?php
 		$db = new mysqli('localhost', 'root', '', 'ttounkyo');
 	    $query = 'SELECT * FROM categorias;';
