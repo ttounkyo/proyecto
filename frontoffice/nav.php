@@ -1,3 +1,4 @@
+<a href="indexp.php"><img id="logo" src="imagenes/logo.png" alt="logo"></a>
 <nav >
 	<ul class="log">
 		<la id="login">

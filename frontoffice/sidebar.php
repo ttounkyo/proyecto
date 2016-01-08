@@ -1,3 +1,5 @@
+<aside class="buscador">
+	
 <div class="busc">
 	<h1>BUSCADOR</h1>
 	<form id="buscador" name="buscador" method="post" action="indexp.php?sec=buscador">
@@ -5,7 +7,6 @@
 		<input type="submit" name="buscador" class="btn" value="buscar">
 	</form>
 </div>
-<div class="lista">
 	<?php
 		$db = new mysqli('localhost', 'root', '', 'ttounkyo');
 	    $query = 'SELECT * FROM categorias;';
@@ -16,7 +17,7 @@
 	    $db->close();
 	?>
 
-	    <ul>
+	    <ul class="lista">
 			<?php
 				while($row = $resultado->fetch_array(MYSQLI_BOTH)){
 					echo "<li><a href=\"indexp.php?sec=buscador&id=".$row['nombre']."\">".$row['nombre']."</a></li>";
@@ -30,5 +31,5 @@
 		mysqli_free_result($result);
 		mysqli_close($db);
 	}
-	?>
-</div>
+	?>		
+</aside>
