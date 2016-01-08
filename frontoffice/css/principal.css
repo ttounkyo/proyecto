@@ -133,6 +133,7 @@ ul#nav la{
 	padding: 1px 10px;
 	font-family: 'Oswald', sans-serif;
 	font-size: 99%;
+	text-transform: uppercase;
 
 }
 section{	
@@ -230,7 +231,7 @@ a{
 .product .price{
 	float:right;
 }
-.product .descripcion{
+.product .description:first-letter{
 	text-align: left;
 	font-family: 'Playfair Display', serif;
 	text-transform: uppercase;
@@ -240,6 +241,7 @@ a{
 	font-family: 'Playfair Display', serif;
 	font-size: 20px;
 	text-transform: uppercase;
+	color: #483634;
 }
 
 .product img{
