@@ -14,7 +14,7 @@
 			<div class="title">'.$registro['titulo'].'</div>
 			<div class="pic"><img src="../backoffice/'.$registro['ruta'].'" width="128" height="128" alt="'.htmlspecialchars($registro['titulo']).'" /></div>
 			<div class="description">'.$registro['descripcion'].'</div>
-			<div class="price">'.$registro['precio'].' €</div><br>
+			<div class="price">'.$registro['precio'].'€</div><br>
 			<!--<div class="cantidad">'.$registro['cantidad'].'</div>-->
 			<div class="buton"><button class="btn"><a href="indexp.php?sec=pedido&id='.$registro["idproducto"].'">Añadir</a></button></div>
 		</div>

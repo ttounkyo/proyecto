@@ -3,7 +3,7 @@
 
  ?>
 
-<form action="indexp.php?sec=compra&id=<?php echo $_REQUEST['id']?>" method="GET">
+<form action="indexp.php?sec=compra&id=<?php echo $_REQUEST['id']?>" method="POST">
  	<div>
  		<label for="">Metodo de pago.</label>
  		<br>
@@ -17,7 +17,7 @@
  	<div>
  		<label for="">Estado</label>
  		<br>
- 		<input type="text" name="" value="enviado">
+ 		<input type="text" name="estado" value="Pedido">
  	</div>
 
 
@@ -34,6 +34,16 @@
 	</tr>
 
 <?php 
+
+// // Se puede almacenar un array en una sesion muy facil
+
+// $_SESSION['pedido'][] = $fid;  //el valor de $fid se añade como nuevo elemento del array fotos
+
+// Puedes recuperar los datos de la siguiente manera
+
+// for($i=0;$i<count($_SESSION['pedido']);$i++){
+//     echo $_SESSION['pedido'][$i];
+// }
 		
 
 		
@@ -64,8 +74,8 @@
 							echo "<h2>No hay productos por ahora</h2>";
 						}
 					echo "</td>";
-					echo "</tr>";	
-				
+					echo "</tr>";
+					 
 				}
 		}
 		

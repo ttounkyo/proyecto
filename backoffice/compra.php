@@ -1,7 +1,8 @@
 <h1>Compras</h1>
 
 <?php
-	if(isset($_POST['pago']) && isset($_POST['idproducto'])){
+	if(isset($_POST['pago']) && isset($_POST['id'])){
+		echo "hola estas comprando";
 		$db = new mysqli('localhost', 'root', '', 'ttounkyo');
 		if($db->connect_errno > 0){
 		    die('Imposible conectar [' . $db->connect_error . ']');
