@@ -1,5 +1,3 @@
-
-
 window.smoothScroll = (function (window, document, undefined) {
 
   'use strict';

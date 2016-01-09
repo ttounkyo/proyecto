@@ -1,27 +1,10 @@
  <?php 
 	$db = new mysqli('localhost', 'root', '', 'ttounkyo');
+	if(empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])){
 
  ?>
 
-<form action="indexp.php?sec=compra&id=<?php echo $_REQUEST['id']?>" method="POST">
- 	<div>
- 		<label for="">Metodo de pago.</label>
- 		<br>
- 		<select name="pago">
-		  <option value="paypal">PayPal</option>
-		  <option value="mastercard">MasterCard</option>
-		  <option value="visa" selected>Visa</option>
-		</select>
- 	</div>
- 	<br>
- 	<div>
- 		<label for="">Estado</label>
- 		<br>
- 		<input type="text" name="estado" value="Pedido">
- 	</div>
-
-
-
+<form action="indexp.php?sec=listapedido&id=<?php echo $_REQUEST['id']?>" method="POST">
 
 <table id="listadopro">
 	<tr>
@@ -33,50 +16,37 @@
 	<th>Cantidad</th>
 	</tr>
 
-<?php 
-
-// // Se puede almacenar un array en una sesion muy facil
-
-// $_SESSION['pedido'][] = $fid;  //el valor de $fid se añade como nuevo elemento del array fotos
-
-// Puedes recuperar los datos de la siguiente manera
-
-// for($i=0;$i<count($_SESSION['pedido']);$i++){
-//     echo $_SESSION['pedido'][$i];
-// }
-		
-
-		
+<?php 		
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
 			$verproductos = "SELECT * FROM productos JOIN categorias_productos USING (idproducto)
-							JOIN categorias USING(idcategoria) WHERE idproducto='$id' LIMIT 1;";
+							JOIN categorias USING(idcategoria) WHERE idproducto='$id' GROUP BY idproducto;";
 			$resultado = mysqli_query($db,$verproductos);
 			
 				while ($registro = mysqli_fetch_array($resultado)){
-					echo "<tr>";
-					echo "<td><img id='imagen' src='".$registro['ruta']."'alt='imagen'></img></td>";
-				
-					echo "<td>".$registro['titulo']."</td>";
-					echo "<td>".$registro['descripcion']."</td>";
-					echo "<td>".$registro['precio']."</td>";
-					echo "<td>".$registro['marca']."</td>";
 					
-					echo "<td>";
-						$cantidad = $registro['cantidad'];
-						if($cantidad !=0){
-							echo "<select name='cantidad'>";
-							for ($i=1; $i <= $cantidad ; $i++) { 
-								echo "<option value='$i'>$i</option>";
+						echo "<tr>";
+						echo "<td><img id='imagen' src='../backoffice/".$registro['ruta']."'alt='imagen'></img></td>";
+						echo "<td class='textupper'>".$registro['titulo']."</td>";
+						echo "<td class='textupper'>".$registro['descripcion']."</td>";
+						echo "<td class='textupper'>".$registro['precio']."</td>";
+						echo "<td class='textupper'>".$registro['marca']."</td>";
+						
+						echo "<td>";
+							$cantidad = $registro['cantidad'];
+							if($cantidad !=0){
+								echo "<select name='cantidad'>";
+								for ($i=1; $i <= $cantidad ; $i++) { 
+									echo "<option value='$i'>$i</option>";
+								}
+								echo "</select>";
+							}else{
+								echo "<h2>No hay productos por ahora</h2>";
 							}
-							echo "</select>";
-						}else{
-							echo "<h2>No hay productos por ahora</h2>";
-						}
-					echo "</td>";
-					echo "</tr>";
-					 
+						echo "</td>";
+						echo "</tr>";
 				}
+
 		}
 		
 
@@ -85,7 +55,10 @@
  ?>
 
  </table>
-
-  	<button><a href="indexp.php?sec=patines">Seguir pidiendo</a></button>
- 	<button type="submit">Comprar</button>
+ 	<button class="btn"><a href="indexp.php?sec=patines">Seguir pidiendo</a></button>
+	<button class="btn" type="submit">Pedir</button>
 </form>
+
+<?php 
+	}
+ ?>

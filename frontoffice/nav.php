@@ -8,7 +8,7 @@
 		            echo "<a href='indexp.php?sec=logout'><span>$nomuser Logout</span></a>";
 		        }else if(isset($_SESSION['usuario'])){
 		        	$nomuser = $_SESSION['usuario'];
-		            echo "<a href='indexp.php?sec=logout'><span>$nomuser Logout</span></a>";
+		            echo "<a href='../backoffice/index.php?sec=logout'><span>$nomuser Logout</span></a>";
 		        }else{
 
 		        	echo "<span onclick=showmenu()>Login</span>"
@@ -27,11 +27,13 @@
 		</la>
 		<la>
 			<?php
-				if (isset($_SESSION['usuario'])){
+				if (isset($_SESSION['usuario']) && !isset($_SESSION['usuariofront'])){
 					echo "<a href='../backoffice/index.php'>BACK-OFFICE</a>";
 
-			    }else{
-			            echo "<a href='indexp.php?sec=registro'>Registrate</a>";
+			    }else if(isset($_SESSION['usuariofront']) && !isset($_SESSION['usuario'])){
+			    	echo "<a stylesheet='display:none;'></a>";
+			    }else if (!isset($_SESSION['usuario']) || !isset($_SESSION['usuariofront'])){
+			        echo "<a href='indexp.php?sec=registro'>Registrate</a>";
 				}
 			?>
 			
@@ -47,6 +49,6 @@
 		<a href="indexp.php?sec=marca"><la>Marca</la></a>
 		<la>Ofertas</la>
 		<la>Personaliza</la>
-		<a href="indexp.php?sec=pedido"><la>Carrito</la></a>
+		<a href="indexp.php?sec=listapedido"><la>Carrito</la></a>
 	</ul>
 </nav>

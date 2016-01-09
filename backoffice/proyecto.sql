@@ -124,18 +124,18 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `ttounkyo`.`pedidos_has_productos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ttounkyo`.`pedidos_has_productos` (
-  `pedidos_idpedidos` INT(11) NOT NULL,
-  `productos_idproducto` INT(11) NOT NULL,
-  PRIMARY KEY (`pedidos_idpedidos`, `productos_idproducto`),
-  INDEX `fk_pedidos_has_productos_productos1_idx` (`productos_idproducto` ASC),
-  INDEX `fk_pedidos_has_productos_pedidos1_idx` (`pedidos_idpedidos` ASC),
+  `idpedido` INT(11) NOT NULL,
+  `idproducto` INT(11) NOT NULL,
+  PRIMARY KEY (`idpedido`, `idproducto`),
+  INDEX `fk_pedidos_has_productos_productos1_idx` (`idproducto` ASC),
+  INDEX `fk_pedidos_has_productos_pedidos1_idx` (`idpedido` ASC),
   CONSTRAINT `fk_pedidos_has_productos_pedidos1`
-    FOREIGN KEY (`pedidos_idpedidos`)
+    FOREIGN KEY (`idpedido`)
     REFERENCES `ttounkyo`.`pedidos` (`idpedido`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_pedidos_has_productos_productos1`
-    FOREIGN KEY (`productos_idproducto`)
+    FOREIGN KEY (`idproducto`)
     REFERENCES `ttounkyo`.`productos` (`idproducto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
@@ -148,13 +148,13 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `ttounkyo`.`productos_has_media`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ttounkyo`.`productos_has_media` (
-  `productos_idproducto` INT(11) NOT NULL,
+  `idproducto` INT(11) NOT NULL,
   `media_idimagen` INT(11) NOT NULL,
-  PRIMARY KEY (`productos_idproducto`, `media_idimagen`),
+  PRIMARY KEY (`idproducto`, `media_idimagen`),
   INDEX `fk_productos_has_media_media1_idx` (`media_idimagen` ASC),
-  INDEX `fk_productos_has_media_productos1_idx` (`productos_idproducto` ASC),
+  INDEX `fk_productos_has_media_productos1_idx` (`idproducto` ASC),
   CONSTRAINT `fk_productos_has_media_productos1`
-    FOREIGN KEY (`productos_idproducto`)
+    FOREIGN KEY (`idproducto`)
     REFERENCES `ttounkyo`.`productos` (`idproducto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,

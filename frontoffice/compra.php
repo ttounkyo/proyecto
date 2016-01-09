@@ -16,19 +16,36 @@
 			$user  	= $_SESSION['usuariofront'];
 		}
 		
-		$cantidad	= $_POST['cantidad'];
-		$id      	= $_REQUEST['id'];
+		// $cantidad	= $_POST['cantidad'];
+		// $id      	= $_REQUEST['id'];
+		$i = 0;
+		$j = 0;
+		while ($i < count($_SESSION['id']) && $j < count($_SESSION['can'])){
+			$actu 		= "UPDATE productos SET cantidad = cantidad - ".$_SESSION['can'][$j]." WHERE idproducto = '".$_SESSION['id'][$i]."';";
+			$res = $db->query($actu) or die ($db->connect_error. " en la línea ");
+			$i++;
+			$j++;
+		}
 
-		$actu 		= "UPDATE productos SET cantidad = cantidad - $cantidad WHERE idproducto = $id;";
-		$res = $db->query($actu) or die ($db->connect_error. " en la línea ");
-		// ya funciona pedidos hahahahah
-		$query 		= "INSERT INTO pedidos(idmetodopago,estado,username)
+		$query 	= "INSERT INTO pedidos(idmetodopago,estado,username)
 				VALUES ('$metodop','$estado','$user');";
 		$result_vpro = $db->query($query) or die ($db->connect_error. " en la línea ");
+
+		$querypedido = "SELECT MAX(idpedido) AS 'maxpedido' FROM pedidos WHERE username = '$user'";
+		$resultado = mysqli_query($db,$querypedido);
+		$registro = mysqli_fetch_array($resultado)['maxpedido'];
+		$i = 0;
+		while ( $i < count($_SESSION['id'])){
+			$id = $_SESSION['id'][$i];
+			$query 		= "INSERT INTO pedidos_has_productos
+	 		VALUES ('$$registro','$id');";
+	 		mysqli_query($db,$query);
+	 		$i++;
+		}
+
+
+		header('location:indexp.php?sec=cancelar');
 		$db->close();
-	}
-	elseif(isset($_SESSION['usuario']) || empty($_SESSION['usuario']) || isset($_SESSION['usuariofront']) || empty($_SESSION['usuariofront'])){
-		echo "Tienes que iniciar session";
 	}
 
 ?>

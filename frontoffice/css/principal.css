@@ -350,6 +350,56 @@ ul.lista li:active a{
   text-decoration: none;
 }
 
+
+/*Listar pedidos*/
+img#imagen{
+    width: 214px;
+    height: 160px;
+}
+table#listadopro{
+    border: 1px solid black;
+
+}
+table#listadopro{     
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;    
+    margin: 45px;     
+    width: 480px; 
+    text-align: left;    
+    border-collapse: collapse; 
+}
+
+th {
+	font-size: 19px;
+    font-weight: normal;
+    padding: 8px;
+    background-color: #C88657;
+    border: 2px solid #e3e3e3;
+    /* border-bottom: 1px solid #fff; */
+    color: #52625A;
+}
+
+tr{
+	border: 2px solid #e3e3e3;
+}
+
+td {   
+    padding: 8px;     
+    background-color: #C88657;     
+    color: #52625A;
+    font-size: 21px;
+    border: 2px solid #e3e3e3;
+}
+td.textupper:first-letter{
+	text-transform: uppercase;
+}
+tr:hover td { 
+    background-color:#E8912B;
+    font-size: 21px;
+    color: #52625A;
+    text-transform: uppercase;
+}
+
 @media screen and (max-width: 800px) {
 	.buscador{
 		display: none;

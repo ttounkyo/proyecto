@@ -39,6 +39,15 @@
 					case 'pedido':
 						require_once('pedido.php');
 						break;
+					case 'listapedido':
+						require_once('listapedido.php');
+						break;
+					case 'cancelar':
+						unset($_SESSION['pedido']);
+						unset($_SESSION['id']);
+						unset($_SESSION['can']);
+						header("location:indexp.php?sec=patines");
+						break;
 					case 'compra':
 						require_once('compra.php');
 						break;
@@ -47,7 +56,6 @@
 						break;
 					case 'logout':
 						unset($_SESSION['usuariofront']);
-						unset($_SESSION['usuario']);
 						header("location:indexp.php");
 						break;
 					case 'buscador':
