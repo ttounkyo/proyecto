@@ -19,7 +19,6 @@
 <?php 
 	}
  ?>
-	<th>Seleccionar</th>
 	</tr>
 
 <?php 

@@ -1,6 +1,6 @@
  <?php 
 	$db = new mysqli('localhost', 'root', '', 'ttounkyo');
-	if(empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])){
+	if((empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']) ) && !empty($_REQUEST['id'])){
 
  ?>
 
@@ -95,6 +95,8 @@ if(isset($_SESSION['pedido'])){
 </form>
 
 <?php 
+	}else if(empty($_REQUEST['id'])){
+		echo "<h1>No hay nada en el carrito :)";
 	}
 	
  ?>
