@@ -36,9 +36,8 @@
 		$registro = mysqli_fetch_array($resultado)['maxpedido'];
 		$i = 0;
 		while ( $i < count($_SESSION['id'])){
-			$id = $_SESSION['id'][$i];
 			$query 		= "INSERT INTO pedidos_has_productos
-	 		VALUES ('$$registro','$id');";
+	 		VALUES ('$registro','".$_SESSION['id'][$i]."');";
 	 		mysqli_query($db,$query);
 	 		$i++;
 		}

@@ -25,7 +25,6 @@
 <table id="listadopro">
 	<tr>
 	<th>Imagen</th>
-	<th>Id</th>
 	<th>Titulo</th>
 	<th>Descripcion</th>
 	<th>Precio</th>
@@ -48,7 +47,6 @@
 						$products = '
 							<tr>
 							<td><img id="imagen" src="../backoffice/'.$registro['ruta'].'" alt="imagen"></img></td>
-							<td>'.$registro['idproducto'].'</td>
 							<td class="textupper">'.$registro['titulo'].'</td>
 							<td class="textupper">'.$registro['descripcion'].'</td>
 							<td class="textupper">'.$registro['precio'].'</td>

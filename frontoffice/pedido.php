@@ -34,13 +34,13 @@
 						
 						echo "<td>";
 							$cantidad = $registro['cantidad'];
-							if($cantidad !=0){
+							if($cantidad > 0){
 								echo "<select name='cantidad'>";
 								for ($i=1; $i <= $cantidad ; $i++) { 
 									echo "<option value='$i'>$i</option>";
 								}
 								echo "</select>";
-							}else{
+							}else if($cantidad <= 0){
 								echo "<h2>No hay productos por ahora</h2>";
 							}
 						echo "</td>";
@@ -56,7 +56,13 @@
 
  </table>
  	<button class="btn"><a href="indexp.php?sec=patines">Seguir pidiendo</a></button>
+ 	<?php if($cantidad <= 0){
+
+ 		?>
+ 		<span class="btn">No puede pedir este articulo</span>
+ 		<?php } else{ ?>
 	<button class="btn" type="submit">Pedir</button>
+	<?php } ?>
 </form>
 
 <?php 
