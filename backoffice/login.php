@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	$db = new mysqli('localhost', 'root', '', 'ttounkyo');
+	$db = new mysqli('mysql.hostinger.es', 'u121308368_boss', '162534Aa', '	u121308368_ttoun');
 	if(isset($_POST['nomuser']) && isset($_POST['pass'])){
 		$user = $_POST['nomuser'];
 		$passwd = $_POST['pass'];
@@ -46,14 +46,24 @@
 <?php 
 	if(isset($_SESSION['usuario']) || empty($_SESSION['usuario'])){
  ?>
-	<h1>LOGIN</h1>
-	<div class="login" >
-		<form action='login.php' method='POST'>
-			<div><label for="">Usuario</label><br><input type="text" name="nomuser"></div>
-			<div><label for="">Contraseña</label><br><input type="password" name="pass"></div><br>
-			<div><button class="btn" type='submit' name='enviar'>Enviar</button></div>
-		</form>
-	</div>
+ 	<!DOCTYPE html>
+ 	<html lang="en">
+ 	<head>
+ 		<meta charset="UTF-8">
+ 		<title>Document</title>
+ 	</head>
+ 	<body>
+ 		<h1>LOGIN</h1>
+		<div class="login" >
+			<form action='login.php' method='POST'>
+				<div><label for="">Usuario</label><br><input type="text" name="nomuser"></div>
+				<div><label for="">Contraseña</label><br><input type="password" name="pass"></div><br>
+				<div><button class="btn" type='submit' name='enviar'>Enviar</button></div>
+			</form>
+		</div>
+ 	</body>
+ 	</html>
+	
 <?php 
 	} 
  ?>

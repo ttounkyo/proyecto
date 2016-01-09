@@ -3,7 +3,7 @@
 	if(isset($_REQUEST['id']) && isset($_POST['ctg'])){
 		$ctg 	= $_POST['ctg'];
 		$id 	= $_REQUEST['id'];
-		$db = new mysqli("localhost","root","","ttounkyo");
+		$db = new mysqli('mysql.hostinger.es', 'u121308368_boss', '162534Aa', '	u121308368_ttoun');
 		
 		$sql = "UPDATE categorias SET nombre ='$ctg' WHERE idcategoria = '$id';";
 		mysqli_query($db,$sql);

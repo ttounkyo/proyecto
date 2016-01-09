@@ -1,5 +1,5 @@
  <?php 
-	$db = new mysqli('localhost', 'root', '', 'ttounkyo');
+	$db = new mysqli('mysql.hostinger.es', 'u121308368_boss', '162534Aa', '	u121308368_ttoun');
 	if((empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']) ) && !empty($_REQUEST['id'])){
 
  ?>

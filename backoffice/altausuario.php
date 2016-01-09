@@ -24,7 +24,7 @@
 
 			
 
-			$db = new mysqli('localhost', 'root', '', 'ttounkyo');
+			$db = new mysqli('mysql.hostinger.es', 'u121308368_boss', '162534Aa', '	u121308368_ttoun');
 			if($db->connect_errno > 0){
 			    die('Imposible conectar [' . $db->connect_error . ']');
 			}
