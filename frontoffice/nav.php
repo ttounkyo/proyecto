@@ -11,7 +11,7 @@
 		            echo "<a href='indexp.php?sec=logout'><span>$nomuser Logout</span></a>";
 		        }else{
 
-		        	echo "<span onclick=showmenu('menulog')>Login</span>"
+		        	echo "<span onclick=showmenu()>Login</span>"
 		     ?>
 		     		
 		            <div id="menulog">
@@ -36,11 +36,11 @@
 			?>
 			
 		</la>
-		<la><a href="index.php?">Idioma</a></la>
+		<la><a href="#">Idioma</a></la>
 	</ul>
 </nav>
 <nav>
-	<img id="menu" src="./imagenes/menu.png" alt="menu"  onclick=showmenu("nav")>
+	<img id="menu" onclick="showmenu2()" src="./imagenes/menu.png" alt="menu">
 	<ul id="nav">
 		<a href="indexp.php?sec=patines"><la>Patines</la></a>
 		<a href="indexp.php?sec=accesorios"><la>Accesorios</la></a>

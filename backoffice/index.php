@@ -55,7 +55,13 @@ if($_SESSION['usuario'] === 'boss'){
 						break;				
 					case "pedido":
 						require_once("pedido.php");
-						break;				
+						break;
+					case "eliminarpe":
+						require_once("eliminarpe.php");
+						break;
+					case "modificarpe":
+						require_once("modificarpe.php");
+						break;			
 					case "log":
 						require_once("log.php");
 						break;

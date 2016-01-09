@@ -1,9 +1,21 @@
 // Oculta o muestra un contenido 
-function showmenu(id) {
-  if(document.getElementById(id).style.display == "block") {
-	document.getElementById(id).style.display ="none !important";
+function showmenu(){
+  if(document.getElementById('menulog').style.display == "block") {
+	document.getElementById('menulog').style.display ="none";
   }
   else {
-    document.getElementById(id).style.display = "block !important";
+    document.getElementById('menulog').style.display = "block";
+  }
+}
+
+function showmenu2(){
+  if(document.getElementById('nav').style.display == "inline-block") {
+	document.getElementById('nav').style.display ="none";
+  }
+  // else if(document.getElementById('nav').style.display == "none"){
+  // 	document.getElementById('nav').style.display ="block";
+  // }
+  else {
+    document.getElementById('nav').style.display = "inline-block";
   }
 }

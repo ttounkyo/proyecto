@@ -4,10 +4,6 @@
 	$seccion = null;
 	else
 	$seccion = $_GET['sec'];
-	
-  
-
-
  ?>
 
 <!DOCTYPE html>
@@ -28,10 +24,7 @@
 	<!-- Hacer cada archivo contenido de la pagina en otro porque será mucha la complicacion que tendremos
 		Podemos poner en otra carpeta y gestionar el FrontOffice -->
 		<header>
-			
-			<?php 
-				require_once("nav.php");
-			 ?>
+			<?php require_once("nav.php"); ?>
 		</header>
 		
 		<!-- aside -->
@@ -70,11 +63,14 @@
 						require_once("marca.php");
 						break;				
 					default:
-						# code...
+						require_once("patines.php");
 						break;
 				}
 			?>
 		</section>
+		<!-- aside2 -->
+		<?php require_once("sidebar2.php"); ?>
+		<!-- footer -->
 		<?php
 			require_once("pie.php");
 		?>

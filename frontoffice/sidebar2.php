@@ -1,4 +1,5 @@
-<aside class="buscador">
+
+<aside class="buscador2">
 	
 <div class="busc">
 	<h1>BUSCADOR</h1>

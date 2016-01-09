@@ -10,7 +10,7 @@ if(isset($_REQUEST['buscar']) || isset($_REQUEST['id'])){
 		// Si hay información para buscar, abrimos la conexión
 
 		$verproductos = "SELECT * FROM productos JOIN categorias_productos USING (idproducto)
-				JOIN categorias USING(idcategoria) WHERE titulo='$busqueda' OR marca='$busqueda' OR nombre='$busqueda' ";
+				JOIN categorias USING(idcategoria) WHERE titulo='$busqueda' OR marca='$busqueda' OR nombre='$busqueda' GROUP BY idproducto";
 		$result_vpro = $db->query($verproductos) or die ($db->connect_error. " en la línea ");
 		$products='';
 		while ($registro = $result_vpro->fetch_array(MYSQLI_BOTH)){

@@ -5,7 +5,7 @@
 	     <?php 
 	        if (isset($_SESSION['usuario'])){
 	            $nomuser = $_SESSION['usuario'];
-	            echo "<a href='index.php?sec=logout'><span> $nomuser Logout</span></a>";
+	            echo "<a href='index.php?sec=logout'><span> $nomuser LOGOUT</span></a>";
 	        }else{
 	            echo '<a href="index.php?sec=login"><span>Login<span></a>';
 	        }

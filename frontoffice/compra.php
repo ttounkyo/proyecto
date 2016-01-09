@@ -10,7 +10,12 @@
 		}
 		$metodop 	= $_POST['pago'];
 		$estado  	= $_POST['estado'];
-		$user    	= $_SESSION['usuario'];
+		if(isset($_SESSION['usuario'])){
+			$user  	= $_SESSION['usuario'];
+		}elseif(isset($_SESSION['usuariofront'])){
+			$user  	= $_SESSION['usuariofront'];
+		}
+		
 		$cantidad	= $_POST['cantidad'];
 		$id      	= $_REQUEST['id'];
 
