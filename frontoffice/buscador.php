@@ -1,6 +1,6 @@
 <?php
 if(isset($_REQUEST['buscar']) || isset($_REQUEST['id'])){
-	$db = new mysqli('mysql.hostinger.es', 'u121308368_boss', '162534Aa', '	u121308368_ttoun');
+	$db = new mysqli('mysql.hostinger.es', 'u121308368_boss', '162534Aa', '	u121308368_ttoun',3306);
 	
 	if (isset($_REQUEST['buscar']) ){
 		$busqueda = $_REQUEST['buscar'];

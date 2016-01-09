@@ -1,5 +1,5 @@
 <?php 
-	$db = new mysqli('mysql.hostinger.es', 'u121308368_boss', '162534Aa', '	u121308368_ttoun');
+	$db = new mysqli('mysql.hostinger.es', 'u121308368_boss', '162534Aa', '	u121308368_ttoun',3306);
 
 	// Comprovar que no sea vacio.
 	if(isset($_POST['marca']) || isset($_POST['tit']) || isset($_POST['precio']) || isset($_POST['descripcion'])){
