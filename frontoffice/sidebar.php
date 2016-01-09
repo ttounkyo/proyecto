@@ -11,12 +11,9 @@
 </div >
 	
 	<?php
-		$db = new mysqli('mysql.hostinger.es', 'u121308368_boss', '162534Aa', '	u121308368_ttoun',3306);
+		$db = new mysqli('db608606955.db.1and1.com', 'dbo608606955', '162534Aa', 'db608606955');
 	    $query = 'SELECT * FROM categorias;';
-	        // Comprobar la query
 	    $resultado = $db->query($query) or die ($db->connect_error. " en la línea ");
-	    //$categoria = $resultado->fetch_array(MYSQLI_BOTH);
-	//    $ruta      = $resultado->fetch_array(MYSQLI_BOTH)['ruta'];
 	    $db->close();
 	?>
 
