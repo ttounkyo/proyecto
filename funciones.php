@@ -7,8 +7,8 @@ function conectarBD(){
         // $usuario = "root";
         // $pass = "";
         // $BD = "ttounkyo";
-        $server = "mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/";
-        $usuario = "dmin9kDV7Ta";
+        $server = "127.2.31.130";
+        $usuario = "admin9kDV7Ta";
         $pass = "XnDEf3TQ2a68";
         $BD = "ttounkyo";
         //variable que guarda la conexión de la base de datos
