@@ -1,5 +1,5 @@
  <?php 
-	 
+	$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
 	if((empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']) ) && !empty($_REQUEST['id'])){
 
  ?>
@@ -20,6 +20,8 @@
  		<br>
  		<input type="text" name="estado" value="Pedido">
  	</div>
+
+
 <table id="listadopro">
 	<tr>
 	<th>Imagen</th>
@@ -55,8 +57,11 @@
 						$_SESSION['pedido'][] = $products;
 						$_SESSION['id'][] = $identi;
 						$_SESSION['can'][] = $cantidad;
+
 				}					
 		}
+		
+
 		$db->close();
  ?>
 <?php

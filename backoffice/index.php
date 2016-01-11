@@ -4,10 +4,10 @@ if (!isset($_GET['sec']))
 $seccion = null;
 else
 $seccion = $_GET['sec'];
-
+//$db = new mysqli('db608606955.db.1and1.com', 'dbo608606955', '162534Aa', 'db608606955');
 // Ponemos la session rol para que el cliente no entre al backoffice porque no tiene porque mirar las cosas eso los trabajadores.
 if($_SESSION['rol'] === 'administrador'){
-$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+
  ?>
 <!DOCTYPE html>
 <!--

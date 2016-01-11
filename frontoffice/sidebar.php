@@ -11,7 +11,7 @@
 </div >
 	
 	<?php
-		 
+		$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
 	    $query = 'SELECT * FROM categorias;';
 	    $resultado = $db->query($query) or die ($db->connect_error. " en la línea ");
 	    $db->close();

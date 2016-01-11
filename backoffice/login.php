@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	 
+	$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
 	if(isset($_POST['nomuser']) && isset($_POST['pass'])){
 		$user = $_POST['nomuser'];
 		$passwd = $_POST['pass'];

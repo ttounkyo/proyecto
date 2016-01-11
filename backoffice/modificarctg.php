@@ -3,7 +3,7 @@
 	if(isset($_REQUEST['id']) && isset($_POST['ctg'])){
 		$ctg 	= $_POST['ctg'];
 		$id 	= $_REQUEST['id'];
-		 
+		$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
 		
 		$sql = "UPDATE categorias SET nombre ='$ctg' WHERE idcategoria = '$id';";
 		mysqli_query($db,$sql);
