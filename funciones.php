@@ -7,9 +7,9 @@ function conectarBD(){
         // $usuario = "root";
         // $pass = "";
         // $BD = "ttounkyo";
-        $server = "localhost";
-        $usuario = "root";
-        $pass = "";
+        $server = "mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/";
+        $usuario = "dmin9kDV7Ta";
+        $pass = "XnDEf3TQ2a68";
         $BD = "ttounkyo";
         //variable que guarda la conexión de la base de datos
         $conexion = mysqli_connect($server, $usuario, $pass, $BD);
@@ -24,5 +24,5 @@ function desconectarBD($conexion){
         //devuelve el estado del cierre de conexión
         return $close;         
 }
-
+// $db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
  ?>
