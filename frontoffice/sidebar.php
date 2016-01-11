@@ -2,7 +2,7 @@
 	
 <div class="busc">
 	<h1>BUSCADOR</h1>
-	<form id="buscador" name="buscador" method="post" action="indexp.php?sec=buscador">
+	<form id="buscador" name="buscador" method="post" action="index.php?sec=buscador">
 		<input id="buscar" name="buscar" type="search" placeholder="Buscar aquí..." autofocus >
 		<input type="submit" name="buscador" class="btn" value="buscar">
 	</form>
@@ -11,19 +11,21 @@
 </div >
 	
 	<?php
-		$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+		require_once("../funciones.php");
+		 
+		$db = conectarBD();
 	    $query = 'SELECT * FROM categorias;';
 	    $resultado = $db->query($query) or die ($db->connect_error. " en la línea ");
-	    $db->close();
+	    desconectarBD($db);
 	?>
 
 	    <ul class="lista">
 			<?php
 				while($row = $resultado->fetch_array(MYSQLI_BOTH)){
-					echo "<li><a href=\"indexp.php?sec=buscador&id=".$row['nombre']."\">".$row['nombre']."</a></li>";
+					echo "<li><a href=\"index.php?sec=buscador&id=".$row['nombre']."\">".$row['nombre']."</a></li>";
 				}
 			?>
-			<li><a href="indexp.php?sec=patines">home</a></li>
+			<li><a href="index.php?sec=patines">home</a></li>
 	    </ul>
 
 	    <?php

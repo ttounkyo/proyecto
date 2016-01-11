@@ -1,6 +1,7 @@
 <?php 
-	$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
-
+	require_once("../funciones.php");
+ 
+	$db = conectarBD();
 	// Comprovar que no sea vacio.
 	if(isset($_POST['marca']) || isset($_POST['tit']) || isset($_POST['precio']) || isset($_POST['descripcion'])){
 
@@ -101,7 +102,7 @@
 						echo "<option value='$valor' selected>$n</option>";		
 				}
 				
-	mysqli_close($db);
+				desconectarBD($db);
 			 ?>
 		</select>
 	</div>

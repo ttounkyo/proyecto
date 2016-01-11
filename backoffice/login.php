@@ -1,6 +1,8 @@
 <?php 
 	session_start();
-	$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+	require_once("../funciones.php");
+ 
+	$db = conectarBD();
 	if(isset($_POST['nomuser']) && isset($_POST['pass'])){
 		$user = $_POST['nomuser'];
 		$passwd = $_POST['pass'];
@@ -25,7 +27,7 @@
 				  	header('location:index.php?sec=index');
 				}elseif($_SESSION['rol'] === 'cliente'){
 					$_SESSION['usuariofront'] = $row['username'];
-				 	header('location:../frontoffice/indexp.php');
+				 	header('location:../frontoffice/index.php');
 				}
 				
 			
@@ -38,7 +40,7 @@
 				fclose($file);
 				header('location:index.php?sec=login');
 			}
-		mysqli_close($db);
+		desconectarBD($db);
 	}
 	// Hacerlo con comprobadores de pass 
  ?>

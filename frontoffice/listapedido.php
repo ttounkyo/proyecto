@@ -1,10 +1,12 @@
  <?php 
-	$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+	require_once("../funciones.php");
+ 
+	$db = conectarBD();
 	if((empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']) ) && !empty($_REQUEST['id'])){
 
  ?>
 
-<form action="indexp.php?sec=compra&id=<?php echo $_REQUEST['id']?>" method="POST">
+<form action="index.php?sec=compra&id=<?php echo $_REQUEST['id']?>" method="POST">
  	<div>
  		<label for="">Metodo de pago.</label>
  		<br>
@@ -57,12 +59,11 @@
 						$_SESSION['pedido'][] = $products;
 						$_SESSION['id'][] = $identi;
 						$_SESSION['can'][] = $cantidad;
-
 				}					
 		}
 		
 
-		$db->close();
+		desconectarBD($db);
  ?>
 <?php
 if(isset($_SESSION['pedido'])){
@@ -75,8 +76,8 @@ if(isset($_SESSION['pedido'])){
 	
  ?>
  </table>
- 	<button class="btn" ><a href="indexp.php?sec=patines">Seguir pidiendo</a></button>
- 	<button class="btn" ><a href="indexp.php?sec=cancelar">Cancelar Pedido</a></button>
+ 	<button class="btn" ><a href="index.php?sec=patines">Seguir pidiendo</a></button>
+ 	<button class="btn" ><a href="index.php?sec=cancelar">Cancelar Pedido</a></button>
 	<?php 
 		if(!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])){
 			?>

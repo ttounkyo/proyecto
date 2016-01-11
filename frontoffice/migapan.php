@@ -7,7 +7,7 @@
 
 	    // This will build our "base URL" ... Also accounts for HTTPS :)
 	    $base = 'http://' . $_SERVER['HTTP_HOST'] . '/' . '?';
-	  //  http://localhost/DAW/DEWS/Proyecto/frontoffice/indexp.php?patines
+	  //  http://localhost/DAW/DEWS/Proyecto/frontoffice/index.php?patines
 
 	    // Initialize a temporary array with our breadcrumbs. (starting with our home page, which I'm assuming will be the base URL)
 	    $breadcrumbs = Array("<a href=\"$base\">$home</a>");

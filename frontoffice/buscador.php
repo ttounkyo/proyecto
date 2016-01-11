@@ -1,6 +1,8 @@
 <?php
 if(isset($_REQUEST['buscar']) || isset($_REQUEST['id'])){
-	$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+	require_once("../funciones.php");
+ 
+	$db = conectarBD();
 	
 	if (isset($_REQUEST['buscar']) ){
 		$busqueda = $_REQUEST['buscar'];
@@ -20,11 +22,11 @@ if(isset($_REQUEST['buscar']) || isset($_REQUEST['id'])){
 			<div class="pic"><img src="../backoffice/'.$registro['ruta'].'" width="128" height="128" alt="'.htmlspecialchars($registro['titulo']).'" /></div>
 			<div class="description">'.$registro['descripcion'].'</div>
 			<div class="price">'.$registro['precio'].'€</div><br>
-			<div class="buton"><button class="btn"><a href="indexp.php?sec=pedido&id='.$registro["idproducto"].'">Añadir</a></button></div>
+			<div class="buton"><button class="btn"><a href="index.php?sec=pedido&id='.$registro["idproducto"].'">Añadir</a></button></div>
 			</div>
 			';
 		}
-	$db->close();
+	desconectarBD($db);
 }
 ?>
 

@@ -1,10 +1,12 @@
  <?php 
-	$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+	require_once("../funciones.php");
+ 
+	$db = conectarBD();
 	if(empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])){
 
  ?>
 
-<form action="indexp.php?sec=listapedido&id=<?php echo $_REQUEST['id']?>" method="POST">
+<form action="index.php?sec=listapedido&id=<?php echo $_REQUEST['id']?>" method="POST">
 
 <table id="listadopro">
 	<tr>
@@ -50,12 +52,12 @@
 		}
 		
 
-		$db->close();
+		desconectarBD($db);
 
  ?>
 
  </table>
- 	<button class="btn"><a href="indexp.php?sec=patines">Seguir pidiendo</a></button>
+ 	<button class="btn"><a href="index.php?sec=patines">Seguir pidiendo</a></button>
  	<?php if($cantidad <= 0){
 
  		?>

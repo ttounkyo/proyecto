@@ -185,3 +185,6 @@ El usuario antonio ha accedido el día. 16/01/09 06:38:09 Satisfactoriamente
 El usuario antonio ha accedido el día. 16/01/09 06:45:09 Satisfactoriamente
 El usuario boss ha accedido el día. 16/01/09 07:26:18 Satisfactoriamente
 El usuario boss ha accedido el día. 16/01/09 17:33:21 Satisfactoriamente
+El usuario  ha accedido el día. 16/01/12 00:08:10 Incorrectamente.
+El usuario  ha accedido el día. 16/01/12 00:14:10 Incorrectamente.
+El usuario  ha accedido el día. 16/01/12 00:18:10 Incorrectamente.

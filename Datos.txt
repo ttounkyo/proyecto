@@ -1,5 +1,5 @@
 # Host en uno del trabajo, por complicaciones en Hostinger
-http://test.yonkiecorner.com/frontoffice/indexp.php
+http://test.yonkiecorner.com/frontoffice/index.php
 
 Usuarios => boss , antonio
 Password => 1234 , 1234

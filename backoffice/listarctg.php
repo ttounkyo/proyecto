@@ -1,5 +1,7 @@
 <?php 
-	$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+	require_once("../funciones.php");
+ 
+	$db = conectarBD();
 	if($db->connect_errno > 0){
 	    die('Imposible conectar [' . $db->connect_error . ']');
 	}
@@ -25,9 +27,7 @@
 			echo "<td><a href='index.php?sec=modificarctg&id=".$registro['idcategoria']."&nom=".$registro['nombre']."'><button>Modificar</button></a></td>";
 			echo "</tr>";		
 		}
-
-		$db->close();
-
+		desconectarBD($db);
  ?>
 
  </table>

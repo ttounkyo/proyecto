@@ -1,5 +1,7 @@
 <?php 
-	$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+	require_once("../funciones.php");
+ 
+	$db = conectarBD();
 		if($db->connect_errno > 0){
 		    die('Imposible conectar [' . $db->connect_error . ']');
 		}
@@ -16,13 +18,13 @@
 			<div class="description">'.$registro['descripcion'].'</div>
 			<div class="price">'.$registro['precio'].'€</div><br>
 			<!--<div class="cantidad">'.$registro['cantidad'].'</div>-->
-			<div class="buton"><button class="btn"><a href="indexp.php?sec=pedido&id='.$registro["idproducto"].'">Añadir</a></button></div>
+			<div class="buton"><button class="btn"><a href="index.php?sec=pedido&id='.$registro["idproducto"].'">Añadir</a></button></div>
 		</div>
 		';
 		// Class pedir quedarme con el identificador de producto
 	}
 
-	$db->close();
+	desconectarBD($db);
 
 ?>
 		<div id="lista">	

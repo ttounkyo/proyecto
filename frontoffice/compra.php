@@ -4,7 +4,9 @@
 
 	if(!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])&& isset($_REQUEST['id'])){
 
-		$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+		require_once("../funciones.php");
+ 
+		$db = conectarBD();
 		if($db->connect_errno > 0){
 		    die('Imposible conectar [' . $db->connect_error . ']');
 		}
@@ -43,8 +45,8 @@
 		}
 
 
-		header('location:indexp.php?sec=cancelar');
-		$db->close();
+		header('location:index.php?sec=cancelar');
+		desconectarBD($db);
 	}
 
 ?>
