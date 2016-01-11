@@ -6,8 +6,8 @@ else
 $seccion = $_GET['sec'];
 
 // Ponemos la session rol para que el cliente no entre al backoffice porque no tiene porque mirar las cosas eso los trabajadores.
-if($_SESSION['usuario'] === 'boss'){
-
+if($_SESSION['rol'] === 'administrador'){
+$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
  ?>
 <!DOCTYPE html>
 <!--

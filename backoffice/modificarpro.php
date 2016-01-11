@@ -1,5 +1,5 @@
 <?php 
-	$db = new mysqli('db608606955.db.1and1.com', 'dbo608606955', '162534Aa', 'db608606955');
+	 
 
 	// Comprovar que no sea vacio.
 	if(isset($_POST['marca']) || isset($_POST['tit']) || isset($_POST['precio']) || isset($_POST['descripcion'])){

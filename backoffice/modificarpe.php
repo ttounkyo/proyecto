@@ -4,7 +4,7 @@
 		$estado 	= $_REQUEST['esta'];
 		$metodo     = $_REQUEST['pago'];
 		$id 	= $_REQUEST['id'];
-		$db = new mysqli('db608606955.db.1and1.com', 'dbo608606955', '162534Aa', 'db608606955');
+		 
 		
 		$sql = "UPDATE pedidos SET idmetodopago = '$metodo', estado ='$estado' WHERE idpedido = '$id';";
 		mysqli_query($db,$sql);

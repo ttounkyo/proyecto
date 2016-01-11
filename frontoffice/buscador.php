@@ -1,6 +1,6 @@
 <?php
 if(isset($_REQUEST['buscar']) || isset($_REQUEST['id'])){
-	$db = new mysqli('db608606955.db.1and1.com', 'dbo608606955', '162534Aa', 'db608606955');
+	 
 	
 	if (isset($_REQUEST['buscar']) ){
 		$busqueda = $_REQUEST['buscar'];

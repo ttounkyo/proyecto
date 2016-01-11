@@ -11,7 +11,7 @@
 </div >
 	
 	<?php
-		$db = new mysqli('db608606955.db.1and1.com', 'dbo608606955', '162534Aa', 'db608606955');
+		 
 	    $query = 'SELECT * FROM categorias;';
 	    $resultado = $db->query($query) or die ($db->connect_error. " en la línea ");
 	    $db->close();

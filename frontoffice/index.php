@@ -4,6 +4,7 @@
 	$seccion = null;
 	else
 	$seccion = $_GET['sec'];
+$db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
  ?>
 
 <!DOCTYPE html>
