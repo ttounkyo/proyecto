@@ -20,8 +20,6 @@
  		<br>
  		<input type="text" name="estado" value="Pedido">
  	</div>
-
-
 <table id="listadopro">
 	<tr>
 	<th>Imagen</th>
@@ -33,8 +31,7 @@
 	</tr>
 
 <?php 		
-		if(isset($_REQUEST['id'])){
-						
+		if(isset($_REQUEST['id'])){		
 			$cantidad	= $_POST['cantidad'];
 			$id      	= $_REQUEST['id'];
 
@@ -58,12 +55,8 @@
 						$_SESSION['pedido'][] = $products;
 						$_SESSION['id'][] = $identi;
 						$_SESSION['can'][] = $cantidad;
-
-				}
-							
+				}					
 		}
-		
-
 		$db->close();
  ?>
 <?php
