@@ -22,6 +22,7 @@
 			// $rol 		= $_POST['rol'];
 			$pass 		= $_REQUEST['passwd'];
 
+			$cont = crypt($pass , uniqid());
 			
 
 			require_once("../funciones.php");
@@ -30,7 +31,7 @@
 			    die('Imposible conectar [' . $db->connect_error . ']');
 			}
 				$query = "INSERT INTO usuarios(username,nombre,apellidos,email,telefono,direccion,password)
-					VALUES ('$nuser','$nom','$ape','$email','$tlf','$address','$pass');";
+					VALUES ('$nuser','$nom','$ape','$email','$tlf','$address','$cont');";
 				
 
 				if($resul = $db->query($query)){

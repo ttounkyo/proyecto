@@ -25,4 +25,9 @@ function desconectarBD($conexion){
         return $close;         
 }
 // $db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
+ function hash_equals($a, $b) {
+    return substr_count($a ^ $b, "\0") * 2 === strlen($a . $b);
+}
+
+
  ?>
