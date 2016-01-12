@@ -7,7 +7,7 @@ function conectarBD(){
         // $usuario = "root";
         // $pass = "";
         $BD = "ttounkyo";
-        $server = "127.2.31.130";
+        $server = getenv("OPENSHIFT_MYSQL_DB_HOST");
         $usuario = "admin9kDV7Ta";
         $pass = "XnDEf3TQ2a68";
         
