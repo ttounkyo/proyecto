@@ -6,11 +6,11 @@ function conectarBD(){
         // $server = "localhost";
         // $usuario = "root";
         // $pass = "";
-        // $BD = "ttounkyo";
+        $BD = "ttounkyo";
         $server = "127.2.31.130";
         $usuario = "admin9kDV7Ta";
         $pass = "XnDEf3TQ2a68";
-        $BD = "ttounkyo";
+        
         //variable que guarda la conexión de la base de datos
         $conexion = mysqli_connect($server, $usuario, $pass, $BD);
         //devolvemos el objeto de conexión para usarlo en las consultas  

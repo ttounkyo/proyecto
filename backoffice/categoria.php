@@ -25,7 +25,6 @@
 					die ($db->connect_error. " en la línea ");
 				}
 			desconectarBD($db);
-conectarBD();
 		}
 	require_once("listarctg.php");
 	?>
