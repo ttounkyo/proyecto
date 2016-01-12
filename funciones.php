@@ -3,13 +3,13 @@
 *Función que crea y devuelve un objeto de conexión a la base de datos y chequea el estado de la misma. 
 */
 function conectarBD(){ 
-        // $server = "localhost";
-        // $usuario = "root";
-        // $pass = "";
+        $server = "localhost";
+        $usuario = "root";
+        $pass = "";
         $BD = "ttounkyo";
-        $server = getenv("OPENSHIFT_MYSQL_DB_HOST");
-        $usuario = "admin9kDV7Ta";
-        $pass = "XnDEf3TQ2a68";
+        // $server = getenv("OPENSHIFT_MYSQL_DB_HOST");
+        // $usuario = "admin9kDV7Ta";
+        // $pass = "XnDEf3TQ2a68";
         
         //variable que guarda la conexión de la base de datos
         $conexion = mysqli_connect($server, $usuario, $pass, $BD);

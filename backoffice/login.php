@@ -1,11 +1,15 @@
-<?php 
+<?php
+
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
 	session_start();
 	if(isset($_POST['nomuser']) && isset($_POST['pass'])){
 		$user = $_POST['nomuser'];
 		$passwd = $_POST['pass'];
-		
+
 		require_once("../funciones.php");
 		$db = conectarBD();
+
 		$loginuser = "SELECT username, rol , password FROM usuarios WHERE username='$user';";
 		$result = mysqli_query($db,$loginuser);
 		$row 	= mysqli_fetch_array($result);

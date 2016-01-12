@@ -11,11 +11,11 @@ $email->Body      = "Hola que tal";
 $email->AddAddress( 'aa.antonio.delgado@gmail.com' );
 //$email->AddAddress( 'desti2' );
 
-$file_to_attach = $_SERVER['DOCUMENT_ROOT']."//logo.png";
-echo $file_to_attach,
+// $file_to_attach = $_SERVER['DOCUMENT_ROOT']."/DAW/DEWS/hola/frontoffice/imagenes/logo.png";
+
 // $email->AddAttachment( $file_to_attach , 'logo.png' );
 
-// $email->AddAttachment( $_SERVER['DOCUMENT_ROOT']."/img/cristalina.jpg" , 'cristalina' );
+//$email->AddAttachment( $_SERVER['DOCUMENT_ROOT']."/img/cristalina.jpg" , 'cristalina' );
 
 if($email->Send()){
 	echo "mensaje enviado";
