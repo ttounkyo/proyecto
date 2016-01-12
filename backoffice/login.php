@@ -16,7 +16,7 @@
 		$result = mysqli_query($db,$loginuser);
 		$row 	= mysqli_fetch_array($result);
 		//password_verify
-			if(hash_equals($row['password'], crypt($passwd,$row['password']){
+			if(hash_equals($row['password'], crypt($passwd,$row['password']))){
 
 				$_SESSION['rol'] = $row['rol'];
 
