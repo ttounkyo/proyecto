@@ -1,5 +1,5 @@
 <?php 
 	
-	$cont = password_hash("1234" , PASSWORD_DEFAULT);
+	$cont = crypt("1234" , uniqid());
 	echo $cont;
  ?>
