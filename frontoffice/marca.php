@@ -24,3 +24,5 @@
 		<div id="lista">	
 		<?=$products?>	
 		</div>
+
+		<!-- Ver los productos que tenemos que poner con una buena presentacion. -->
