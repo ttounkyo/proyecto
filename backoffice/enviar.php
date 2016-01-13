@@ -10,7 +10,7 @@
 		// $rutaimg 	= mysqli_fetch_array($resul_prod)['ruta'];
 		$titulo 		= mysqli_fetch_array($resul_prod)['titulo'];
 		
-		$cliente		= "SELECT * FROM usuarios WHERE rol='cliente';"
+		$cliente		= "SELECT * FROM usuarios WHERE rol='cliente';";
 		$result_cli 	= $db->query($cliente) or die ($db->connect_error. " en la línea ");
 		
 		while ($registro = $result_cli->fetch_array(MYSQLI_BOTH)){
