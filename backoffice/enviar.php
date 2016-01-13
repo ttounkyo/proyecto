@@ -28,6 +28,8 @@
 								</body>
 								</html>
 								";
+			echo $mensaje;
+		}
 			$email 			  = new PHPMailer();
 			$email->From      = 'aa.antonio.delgado@gmail.com';
 			$email->FromName  = 'Administrador';
@@ -47,7 +49,6 @@
 			}else{
 				echo "no enviado";
 			}
-		}
 		desconectarBD($db);
 }
 ?>
