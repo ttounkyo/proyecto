@@ -6,7 +6,7 @@
 	    $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
 
 	    // This will build our "base URL" ... Also accounts for HTTPS :)
-	    $base = 'http://' . $_SERVER['HTTP_HOST'] . '/' . '?';
+	    $base = 'https://' . $_SERVER['HTTP_HOST'] . '/' . '?';
 	  //  http://localhost/DAW/DEWS/Proyecto/frontoffice/index.php?patines
 
 	    // Initialize a temporary array with our breadcrumbs. (starting with our home page, which I'm assuming will be the base URL)

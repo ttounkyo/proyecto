@@ -1,7 +1,7 @@
 <?php
 //Haurem de descarregar previament la llibreria
 //https://github.com/PHPMailer/PHPMailer
-require_once '../backoffice/PHPMailer-master/class.phpmailer.php';
+require_once './PHPMailer-master/class.phpmailer.php';
 
 $email = new PHPMailer();
 $email->From      = 'aa.antonio.delgado@gmail.com';
