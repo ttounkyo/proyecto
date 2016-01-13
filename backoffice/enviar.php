@@ -14,23 +14,26 @@
 		$result_cli 	= $db->query($cliente) or die ($db->connect_error. " en la línea ");
 		
 		while ($registro = $result_cli->fetch_array(MYSQLI_BOTH)){
-			$email = new PHPMailer();
+			$nom 			  = $regitro['nombre'];
+			$correo 		  = $regitro['email'];
+			$mensaje 		  = "
+								<html>
+								<head>
+								  <title>Recordatorio de Producto en oferta</title>
+								</head>
+								<body>
+								  <h1>Producto en oferta.</h1>
+								  <h2>".$titulo."</h2>
+								  <p>Mensaje para ".$nom."</p>
+								</body>
+								</html>
+								";
+			$email 			  = new PHPMailer();
 			$email->From      = 'aa.antonio.delgado@gmail.com';
 			$email->FromName  = 'Administrador';
-			$email->Subject   = $mensaje = "
-											<html>
-											<head>
-											  <title>Recordatorio de Producto en oferta</title>
-											</head>
-											<body>
-											  <h1>Producto en oferta.</h1>
-											  <h2>".$titulo."</h2>
-											  <p>Mensaje para ".$regitro['nombre']."</p>
-											</body>
-											</html>
-											";
+			$email->Subject   = $mensaje;
 			$email->Body      = "Promoción!!";
-			$email->AddAddress( $regitro['email'] );
+			$email->AddAddress($correo);
 			//$email->AddAddress( 'desti2' );
 
 			// $file_to_attach = $_SERVER['DOCUMENT_ROOT'].$ruta;
