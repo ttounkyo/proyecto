@@ -5,7 +5,7 @@
 	if(isset($_REQUEST['id'])){
 		$id = $_REQUEST['id'];
 		$db = conectarBD();
-		$verproductos 	= "SELECT * FROM productos WHERE idproducto = '$id";
+		$verproductos 	= "SELECT titulo FROM productos WHERE idproducto = '$id";
 		$resul_prod 	= mysqli_query($db,$verproductos);
 		// $rutaimg 	= mysqli_fetch_array($resul_prod)['ruta'];
 		$titulo 		= mysqli_fetch_array($resul_prod)['titulo'];
