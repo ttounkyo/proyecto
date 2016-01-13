@@ -1,7 +1,7 @@
 <h1>Enviamiento de correo</h1>
 <?php
 	require_once ('./PHPMailer-master/class.phpmailer.php');
-	require_once('./funciones.php');
+	require_once('../funciones.php');
 	if(isset($_REQUEST['id'])){
 		$id = $_REQUEST['id'];
 		$db = conectarBD();
