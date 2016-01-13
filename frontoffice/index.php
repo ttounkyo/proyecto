@@ -15,11 +15,13 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="css/principal.css">
 	
-		<!-- Librerias añadidas por mi -->
+		<!-- Librerias añadidas por mi 
 		<script src="js/fastclick.js"></script>
 	    <script src="js/scroll.js"></script>
 	    <script src="js/fixed-responsive-nav.js"></script>
 		<script src="js/responsive-nav.js"></script>
+		-->
+		
 	</head>
 	<body>
 	<!-- Hacer cada archivo contenido de la pagina en otro porque será mucha la complicacion que tendremos
@@ -31,10 +33,8 @@
 		<!-- aside -->
 		<?php require_once("sidebar.php"); ?>
 		
+		<!-- breadcrumb -->
 		<section>
-		<div class="breadcrumbs">
-			<?=breadcrumbs(' > ', ' ttounkyo ');?>
-		</div>
 			<?php
 				switch ($seccion) {
 					case 'pedido':

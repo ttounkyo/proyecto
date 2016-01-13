@@ -52,7 +52,10 @@ if($_SESSION['rol'] === 'administrador'){
 						break;				
 					case "modificarctg":
 						require_once("modificarctg.php");
-						break;				
+						break;	
+					case "enviar":
+						require_once('enviar.php');
+						break;			
 					case "pedido":
 						require_once("pedido.php");
 						break;
