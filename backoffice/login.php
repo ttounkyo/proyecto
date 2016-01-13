@@ -1,9 +1,6 @@
 <?php
-
-
-
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
+	// error_reporting(E_ALL);
+	// ini_set('display_errors', 1);
 	session_start();
 	if(isset($_POST['nomuser']) && isset($_POST['pass'])){
 		$user = $_POST['nomuser'];
