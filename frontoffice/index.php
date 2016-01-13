@@ -4,6 +4,7 @@
 	$seccion = null;
 	else
 	$seccion = $_GET['sec'];
+	require_once("funciones.php");
  ?>
 
 <!DOCTYPE html>
@@ -31,9 +32,7 @@
 		<?php require_once("sidebar.php"); ?>
 		
 		<section>
-			<?php
-				require_once("migapan.php");
-			?>
+			<?= breadcrumbs();?>
 			<?php
 				switch ($seccion) {
 					case 'pedido':
