@@ -4,7 +4,7 @@
 	$seccion = null;
 	else
 	$seccion = $_GET['sec'];
-	require_once("funciones.php");
+	require_once("../funciones.php");
  ?>
 
 <!DOCTYPE html>
