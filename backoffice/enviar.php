@@ -11,8 +11,9 @@
 		$titulo 		= mysqli_fetch_array($resul_prod)['titulo'];
 		
 		$cliente		= "SELECT * FROM usuarios WHERE rol='cliente';"
-		$resul_cli		= mysqli_query($db,$cliente);
-		while ($registro = mysqli_fetch_array($resul_cli)){
+		$result_cli 	= $db->query($cliente) or die ($db->connect_error. " en la línea ");
+		
+		while ($registro = $result_cli->fetch_array(MYSQLI_BOTH)){
 			$email = new PHPMailer();
 			$email->From      = 'aa.antonio.delgado@gmail.com';
 			$email->FromName  = 'Administrador';
