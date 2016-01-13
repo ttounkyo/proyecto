@@ -25,16 +25,17 @@ function desconectarBD($conexion){
         return $close;         
 }
 // $db = new mysqli("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "admin9kDV7Ta", "XnDEf3TQ2a68", "ttounkyo");
- function hash_equals($a, $b) {
-    return substr_count($a ^ $b, "\0") * 2 === strlen($a . $b);
-}
 
-function breadcrumbs($separator = ' ? ', $home = 'TTOUNKYO') {
+// function hash_equals($a, $b) {
+//     return substr_count($a ^ $b, "\0") * 2 === strlen($a . $b);
+// }
+
+function breadcrumbs($separator = ' &raquo; ', $home = 'Home') {
     $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
     $base = ($_SERVER['HTTPS'] ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
     $breadcrumbs = array('<a href="'. $base .'">'. $home .'</a>');
  
-    //$last = end(array_keys($path));
+    $last = end(array_keys($path));
  
     foreach ($path as $x => $crumb) {
         $title = ucwords(str_replace(array('.php', '_'), array('', ' '), $crumb));

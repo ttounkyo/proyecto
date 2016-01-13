@@ -32,7 +32,9 @@
 		<?php require_once("sidebar.php"); ?>
 		
 		<section>
-			<?= breadcrumbs();?>
+		<div class="breadcrumbs">
+			<?=breadcrumbs(' > ', ' ttounkyo ');?>
+		</div>
 			<?php
 				switch ($seccion) {
 					case 'pedido':
