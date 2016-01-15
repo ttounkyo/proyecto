@@ -7,7 +7,16 @@
 
 		$id = $_REQUEST['id'];
 		$mensaje = $_POST['textmail'];
-
+		$emessage= "--".$uid."\n";
+	    $emessage.= "Content-type:text/html; charset=iso-8859-1\n";
+	    $emessage.= "Content-Transfer-Encoding: 7bit\n\n";
+	    $emessage .= $message."\n\n";
+	    $emessage.= "--".$uid."\n";
+	    $emessage .= "Content-Type: application/octet-stream; name=\"".$filename."\"\n"; // use different content types here
+	    $emessage .= "Content-Transfer-Encoding: base64\n";
+	    $emessage .= "Content-Disposition: attachment; filename=\"".$filename."\"\n\n";
+	    $emessage .= $content."\n\n";
+	    $emessage .= "--".$uid."--";
 		$db = conectarBD();
 		$verproductos 	= "SELECT marca FROM productos WHERE idproducto = {$id}";
 		$resul_prod 	= $db->query($verproductos) or die ($db->connect_error. " en la línea " . $db->connect_error);

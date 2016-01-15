@@ -31,6 +31,7 @@ if($_SESSION['rol'] === 'administrador'){
 			<div id="sidebar"><?php require_once("sidebar.php") ?></div>
 			<div id="principal">
 				<?php
+				
 				switch ($seccion) {
 					case "producto":
 						require_once('producto.php');
