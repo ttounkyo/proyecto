@@ -11,7 +11,7 @@
 		// $rutaimg 	= mysqli_fetch_array($resul_prod)['ruta'];
 		$titulo 		= $resul_prod->fetch_array(MYSQLI_BOTH)['titulo'];
 
-		
+
 		$cliente		= "SELECT * FROM usuarios WHERE rol='cliente';";
 		$result_cli 	= $db->query($cliente) or die ($db->connect_error. " en la línea " . $db->connect_error);
 		
@@ -19,7 +19,7 @@
 
 			$nom 			= $registro['nombre'];
 			$correo 		= $registro['email'];
-			$para      		= 'nobody@example.com';
+			$para      		= $correo;
 			$titulo    		= 'Promoción!!!';
 			$mensaje   		= "
 							<html>
