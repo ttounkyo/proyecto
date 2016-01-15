@@ -28,7 +28,7 @@
 			if(mail($correo, $titulo, $mensaje)){//, $cabeceras
 				echo "mensaje enviado!! a " . $nom;
 			}else{
-				echo "error al enviar el mensaje."
+				echo "error al enviar el mensaje.";
 			}
 			
 		}
