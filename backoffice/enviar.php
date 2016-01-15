@@ -24,8 +24,7 @@
 			$correo 		= $registro['email'];
 			$cabeceras 		= 'From: webmaster@example.com';
 
-			if(mail($correo, $titulo, $mensaje)){//, $cabeceras
-				echo $correo;
+			if(mail($correo, $titulo, $mensaje, $cabeceras)){//,
 				echo "<br>mensaje enviado!! a " . $nom ."<br>";
 			}else{
 				echo "error al enviar el mensaje.";
