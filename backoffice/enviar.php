@@ -43,7 +43,6 @@
 		<!-- <input type="text" disabled value="<?php echo $_REQUEST['n']?>"> -->
 	</label><br>
 	<label for="">Mensaje promocional!</label><br>
-	<textarea name="textmail" cols="50" rows="5">
-	</textarea><br>
+	<textarea name="textmail" cols="50" rows="5"></textarea><br>
 	<button type="submit">Enviar</button>
 </form>

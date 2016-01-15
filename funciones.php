@@ -5,9 +5,8 @@
 function conectarBD(){ 
   
         $BD = "ttounkyo";   
-        if(!empty(getenv("OPENSHIFT_MYSQL_DB_HOST"))){
-
             $server = getenv("OPENSHIFT_MYSQL_DB_HOST");
+        if(!empty($server)){
             $usuario = "admin9kDV7Ta";
             $pass = "XnDEf3TQ2a68";
         }else{
