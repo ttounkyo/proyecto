@@ -18,25 +18,21 @@
 		$cliente		= "SELECT * FROM usuarios WHERE rol='cliente';";
 		$result_cli 	= $db->query($cliente) or die ($db->connect_error. " en la línea " . $db->connect_error);
 		
-		// while ($registro = $result_cli->fetch_array(MYSQLI_BOTH)){
+		while ($registro = $result_cli->fetch_array(MYSQLI_BOTH)){
 
-		// 	$nom 			= $registro['nombre'];
-		// 	$correo 		= $registro['email'];
-		// 	$titulo    		= 'Promoción!!!';
-		// 	$cabeceras 		= 'From: webmaster@example.com';
+			$nom 			= $registro['nombre'];
+			$correo 		= $registro['email'];
+			$titulo    		= 'Promoción!!!';
+			$cabeceras 		= 'From: webmaster@example.com';
 
-		// 	// if(mail('rubencidlara@gmail.com', $titulo, $mensaje)){//, $cabeceras
-		// 	// 	echo "mensaje enviado!! a " . $nom;
-		// 	// }else{
-		// 	// 	echo "error al enviar el mensaje.";
-		// 	// }
-			
-		// }
-		if(mail('rubencidlara@gmail.com', 'Hola', '$mensaje')){//, $cabeceras
-				echo "mensaje enviado!! a  Ruben";
+			if(mail($correo, '$titulo', '$mensaje')){//, $cabeceras
+				echo $correo;
+				echo "<br>mensaje enviado!! a " . $nom;
 			}else{
 				echo "error al enviar el mensaje.";
 			}
+			
+		}
 			
 		desconectarBD($db);
 
