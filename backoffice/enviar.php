@@ -25,13 +25,13 @@
 			$titulo    		= 'Promoción!!!';
 			$cabeceras 		= 'From: webmaster@example.com';
 
-			if(mail($correo, '$titulo', '$mensaje')){//, $cabeceras
+			if(mail($correo, $titulo, $mensaje)){//, $cabeceras
 				echo $correo;
 				echo "<br>mensaje enviado!! a " . $nom ."<br>";
 			}else{
 				echo "error al enviar el mensaje.";
 			}
-			sleep(10);
+			sleep(5);
 		}
 			
 		desconectarBD($db);
