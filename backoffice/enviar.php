@@ -22,7 +22,6 @@
 
 			$nom 			= $registro['nombre'];
 			$correo 		= $registro['email'];
-			$titulo    		= 'Promoción!!!';
 			$cabeceras 		= 'From: webmaster@example.com';
 
 			if(mail($correo, $titulo, $mensaje)){//, $cabeceras
