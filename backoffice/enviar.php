@@ -35,7 +35,7 @@
 	}
 ?>
 
-<form action="index.php?sec=enviar&id<?php echo $_REQUEST['id']?>" method="POST">
+<form action="index.php?sec=enviar&id='<?php echo $_REQUEST['id']?>'" method="POST">
 	<label for=""> Nombre Producto
 		<input type="text" disabled value="<?php echo $_REQUEST['n']?>">
 	</label><br>
