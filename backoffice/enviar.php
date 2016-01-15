@@ -29,7 +29,7 @@
 			}else{
 				echo "error al enviar el mensaje.";
 			}
-			sleep(5);
+			sleep(3);
 		}
 			
 		desconectarBD($db);
