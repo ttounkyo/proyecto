@@ -9,10 +9,10 @@
 		$mensaje = $_POST['textmail'];
 
 		$db = conectarBD();
-		$verproductos 	= "SELECT titulo FROM productos WHERE idproducto = {$id}";
+		$verproductos 	= "SELECT marca FROM productos WHERE idproducto = {$id}";
 		$resul_prod 	= $db->query($verproductos) or die ($db->connect_error. " en la línea " . $db->connect_error);
 		// $rutaimg 	= mysqli_fetch_array($resul_prod)['ruta'];
-		$titulo 		= $resul_prod->fetch_array(MYSQLI_BOTH)['titulo'];
+		$titulo 		= $resul_prod->fetch_array(MYSQLI_BOTH)['marca'];
 
 
 		$cliente		= "SELECT * FROM usuarios WHERE rol='cliente';";
@@ -25,9 +25,9 @@
 			$titulo    		= 'Promoción!!!';
 			$cabeceras 		= 'From: webmaster@example.com';
 
-			if(mail($correo, '$titulo', '$mensaje')){//, $cabeceras
+			if(mail($correo, $titulo, $mensaje)){//, $cabeceras
 				echo $correo;
-				echo "<br>mensaje enviado!! a " . $nom;
+				echo "<br>mensaje enviado!! a " . $nom ."<br>";
 			}else{
 				echo "error al enviar el mensaje.";
 			}
