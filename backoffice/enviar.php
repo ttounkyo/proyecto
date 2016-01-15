@@ -7,7 +7,7 @@
 
 		$id = $_REQUEST['id'];
 		$mensaje = $_POST['textmail'];
-		
+
 		$db = conectarBD();
 		$verproductos 	= "SELECT titulo FROM productos WHERE idproducto = {$id}";
 		$resul_prod 	= $db->query($verproductos) or die ($db->connect_error. " en la línea " . $db->connect_error);
@@ -24,11 +24,10 @@
 			$correo 		= $registro['email'];
 			$para      		= $correo;
 			$titulo    		= 'Promoción!!!';
-			$cabeceras 		= 'From: webmaster@example.com' . "\r\n" .
-			    'Reply-To: webmaster@example.com' . "\r\n" .
-			    'X-Mailer: PHP/' . phpversion();
+			$cabeceras 		= 'From: webmaster@example.com';
 
 			mail($para, $titulo, $mensaje, $cabeceras);
+			echo "mensaje enviado!! a " . $nom;
 		}
 			
 		desconectarBD($db);
