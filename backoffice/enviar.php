@@ -1,7 +1,8 @@
 <h1>Enviamiento de correo</h1>
 <?php
-	require_once ('./PHPMailer-master/class.phpmailer.php');
+
 	require_once('../funciones.php');
+
 	if(isset($_REQUEST['id'])){
 		$id = $_REQUEST['id'];
 		$db = conectarBD();
@@ -14,41 +15,31 @@
 		$result_cli 	= $db->query($cliente) or die ($db->connect_error. " en la línea ");
 		
 		while ($registro = $result_cli->fetch_array(MYSQLI_BOTH)){
-			$nom 			  = $regitro['nombre'];
-			$correo 		  = $regitro['email'];
-			$mensaje 		  = "
-								<html>
-								<head>
-								  <title>Recordatorio de Producto en oferta</title>
-								</head>
-								<body>
-								  <h1>Producto en oferta.</h1>
-								  <h2>".$titulo."</h2>
-								  <p>Mensaje para ".$nom."</p>
-								</body>
-								</html>
-								";
-			echo $mensaje;
+
+			$nom 			= $regitro['nombre'];
+			$correo 		= $regitro['email'];
+			$para      		= 'nobody@example.com';
+			$titulo    		= 'Promoción!!!';
+			$mensaje   		= "
+							<html>
+							<head>
+							  <title>Recordatorio de Producto en oferta</title>
+							</head>
+							<body>
+							  <h1>Producto en oferta.</h1>
+							  <h2>".$titulo."</h2>
+							  <p>Mensaje para ".$nom."</p>
+							</body>
+							</html>
+							";
+			$cabeceras 		= 'From: webmaster@example.com' . "\r\n" .
+			    'Reply-To: webmaster@example.com' . "\r\n" .
+			    'X-Mailer: PHP/' . phpversion();
+
+			mail($para, $titulo, $mensaje, $cabeceras);
 		}
-			$email 			  = new PHPMailer();
-			$email->From      = 'aa.antonio.delgado@gmail.com';
-			$email->FromName  = 'Administrador';
-			$email->Subject   = $mensaje;
-			$email->Body      = "Promoción!!";
-			$email->AddAddress($correo);
-			//$email->AddAddress( 'desti2' );
-
-			// $file_to_attach = $_SERVER['DOCUMENT_ROOT'].$ruta;
-
-			// $email->AddAttachment( $file_to_attach , 'logo.png' );
-
-			//$email->AddAttachment( $_SERVER['DOCUMENT_ROOT']."/img/cristalina.jpg" , 'cristalina' );
-
-			if($email->Send()){
-				echo "mensaje enviado al usuario ";
-			}else{
-				echo "no enviado";
-			}
+			
 		desconectarBD($db);
-}
+
+	}
 ?>
