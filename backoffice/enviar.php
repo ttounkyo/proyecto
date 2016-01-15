@@ -3,8 +3,9 @@
 
 	require_once('../funciones.php');
 
-	if(isset($_REQUEST['id'])){
+	if(isset($_REQUEST['id']) && isset($_REQUEST['textmail'])){
 		$id = $_REQUEST['id'];
+		$mensaje = $_REQUEST['textmail'];
 		$db = conectarBD();
 		$verproductos 	= "SELECT titulo FROM productos WHERE idproducto = {$id}";
 		$resul_prod 	= $db->query($verproductos) or die ($db->connect_error. " en la línea " . $db->connect_error);
@@ -20,19 +21,7 @@
 			$nom 			= $registro['nombre'];
 			$correo 		= $registro['email'];
 			$para      		= $correo;
-			$titulo    		= 'Promoción!!!';
-			$mensaje   		= "
-							<html>
-							<head>
-							  <title>Recordatorio de Producto en oferta</title>
-							</head>
-							<body>
-							  <h1>Producto en oferta.</h1>
-							  <h2>".$titulo."</h2>
-							  <p>Mensaje para ".$nom."</p>
-							</body>
-							</html>
-							";
+			$titulo    		= 'Promoción!!!';s
 			$cabeceras 		= 'From: webmaster@example.com' . "\r\n" .
 			    'Reply-To: webmaster@example.com' . "\r\n" .
 			    'X-Mailer: PHP/' . phpversion();
@@ -44,3 +33,11 @@
 
 	}
 ?>
+
+<form action="index.php?sec=enviar&id<? echo $_REQUEST['id'] ?>" method="POST">
+	<label for=""> Nombre Producto
+		<input type="text" disabled value="<?echo $_REQUEST['n']?>">
+	</label>
+	<textarea name="textmail" cols="30" rows="10">
+	</textarea>
+</form>

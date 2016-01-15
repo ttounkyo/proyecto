@@ -40,12 +40,12 @@
 			echo "<td><img id='imagen' src='".$registro['ruta']."'alt='imagen'></img></td>";
 			echo "<td>".$registro['cantidad']."</td>";
 			echo "<td>".$registro['createdAt']."</td>";
-			echo "<td>".$registro['nombre']."</td>";
+			echo "<td>".$noms."</td>";
 			if($_SESSION['rol']== 'administrador'){
 				echo "<td><a href='index.php?sec=eliminarpro&id=".$id."'><button>Eliminar</button></a></td>";
 				echo "<td><a href='index.php?sec=modificarpro&cant=".$registro['cantidad']."&ctg=".$idcat."&m=".$registro['marca']."&id=".$id."&t=".$registro['titulo']."&p=".$registro['precio']."&d=".$registro['descripcion']."&img=".$registro['ruta']."'><button>Modificar</button></a></td>";
 			}
-			echo "<td><a href='index.php?sec=enviar&id=".$id."'><button>Seleccionar</button></a></td>";
+			echo "<td><a href='index.php?sec=enviar&id=".$id."&n=".$noms."'><button>Seleccionar</button></a></td>";
 			echo "</tr>";		
 		}
 
