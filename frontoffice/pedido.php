@@ -28,7 +28,7 @@
 				while ($registro = mysqli_fetch_array($resultado)){
 					
 						echo "<tr>";
-						echo "<td><img id='imagen' src='../backoffice/".$registro['ruta']."'alt='imagen'></img></td>";
+						echo "<td><img id='imagen' src='../backoffice/".str_replace("../", "", $registro['ruta'])."'alt='imagen'></img></td>";
 						echo "<td class='textupper'>".$registro['titulo']."</td>";
 						echo "<td class='textupper'>".$registro['descripcion']."</td>";
 						echo "<td class='textupper'>".$registro['precio']."</td>";

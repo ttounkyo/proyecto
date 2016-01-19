@@ -11,16 +11,17 @@
 	$result_vpro = $db->query($verproductos) or die ($db->connect_error. " en la línea ");
 	$products='';
 	while ($registro = $result_vpro->fetch_array(MYSQLI_BOTH)){
+
 		$products .='
-		<div class="product">
-			<div class="title">'.$registro['titulo'].'</div>
-			<div class="pic"><img src="../backoffice/'.$registro['ruta'].'" width="128" height="128" alt="'.htmlspecialchars($registro['titulo']).'" /></div>
-			<div class="description">'.$registro['descripcion'].'</div>
-			<div class="price">'.$registro['precio'].'€</div><br>
-			<!--<div class="cantidad">'.$registro['cantidad'].'</div>-->
-			<div class="buton"><button class="btn"><a href="index.php?sec=pedido&id='.$registro["idproducto"].'">Añadir</a></button></div>
-		</div>
-		';
+					<div class="product">
+						<div class="title">'.$registro['titulo'].'</div>
+						<div class="pic"><img src="../backoffice/'.str_replace("../", "", $registro['ruta']).'" width="128" height="128" alt="'.htmlspecialchars($registro['titulo']).'" /></div>
+						<div class="description">'.$registro['descripcion'].'</div>
+						<div class="price">'.$registro['precio'].'€</div><br>
+						<!--<div class="cantidad">'.$registro['cantidad'].'</div>-->
+						<div class="buton"><button class="btn"><a href="index.php?sec=pedido&id='.$registro["idproducto"].'">Añadir</a></button></div>
+					</div>
+					';
 		// Class pedir quedarme con el identificador de producto
 	}
 

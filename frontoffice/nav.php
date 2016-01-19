@@ -8,14 +8,14 @@
 		            echo "<a href='index.php?sec=logout'><span>$nomuser Logout</span></a>";
 		        }else if(isset($_SESSION['usuario'])){
 		        	$nomuser = $_SESSION['usuario'];
-		            echo "<a href='../backoffice/index.php?sec=logout'><span>$nomuser Logout</span></a>";
+		            echo "<a href='../backoffice/principal/index.php?sec=logout'><span>$nomuser Logout</span></a>";
 		        }else{
 
 		        	echo "<span onclick=showmenu()>Login</span>"
 		     ?>
 		     		
 		            <div id="menulog">
-						<form action='../backoffice/login.php' method='POST'>
+						<form action='../backoffice/usuario/login.php' method='POST'>
 							<label>Usuario</label><br><input type='text' name='nomuser'><br>
 							<label>Contraseña</label><br><input type='password' name='pass'><br>
 							<button class='btn' type='submit' name='enviar'>Enviar</button>
@@ -28,7 +28,7 @@
 		<la>
 			<?php
 				if (isset($_SESSION['usuario']) && !isset($_SESSION['usuariofront'])){
-					echo "<a href='../backoffice/index.php'>BACK-OFFICE</a>";
+					echo "<a href='../backoffice/principal/index.php'>BACK-OFFICE</a>";
 
 			    }else if(isset($_SESSION['usuariofront']) && !isset($_SESSION['usuario'])){
 			    	echo "<a stylesheet='display:none;'></a>";

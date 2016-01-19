@@ -14,7 +14,7 @@
 		<title>HOME</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="css/principal.css">
-	
+		<link rel="shortcut icon" href="/imagenes/favicon.ico" type="image/x-icon" />
 		<!-- Librerias añadidas por mi 
 		<script src="js/fastclick.js"></script>
 	    <script src="js/scroll.js"></script>
@@ -37,7 +37,7 @@
 		<section>
 		<div class="breadcrumbs">
 			<?=breadcrumbs();?>
-</div> 
+		</div> 
 			<?php
 				switch ($seccion) {
 					case 'pedido':
@@ -47,13 +47,13 @@
 						require_once('listapedido.php');
 						break;
 					case 'cancelar':
-						unset($_SESSION['pedido']);
 						unset($_SESSION['id']);
 						unset($_SESSION['can']);
+						unset($_SESSION['carrito']);
 						header("location:index.php?sec=patines");
 						break;
 					case 'compra':
-						require_once('compra.php');
+						require_once('./factura/compra.php');
 						break;
 					case 'registro':
 						require_once("registro.php");

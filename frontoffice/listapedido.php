@@ -39,36 +39,37 @@
 			$cantidad	= $_POST['cantidad'];
 			$id      	= $_REQUEST['id'];
 
-			$verproductos = "SELECT * FROM productos JOIN categorias_productos USING (idproducto)
-							JOIN categorias USING(idcategoria) WHERE idproducto='$id' LIMIT 1;";
+			$verproductos = "SELECT * FROM productos WHERE idproducto='$id'";
 			$resultado = mysqli_query($db,$verproductos);
 			
 				while ($registro = mysqli_fetch_array($resultado)){
-					$identi = $registro['idproducto'];
-						$products = '
-							<tr>
-							<td><img id="imagen" src="../backoffice/'.$registro['ruta'].'" alt="imagen"></img></td>
-							<td class="textupper">'.$registro['titulo'].'</td>
-							<td class="textupper">'.$registro['descripcion'].'</td>
-							<td class="textupper">'.$registro['precio'].'</td>
-							<td class="textupper">'.$registro['marca'].'</td>
-							<td>'.$cantidad.'</td>
-							</tr>
-						';
-						// $_SESSION['pedido'] = [ ]
-						$_SESSION['pedido'][] = $products;
-						$_SESSION['id'][] = $identi;
+						$productoscarrito = array("t" => $registro['titulo'], "p"=> $registro['precio'], "d" => $registro['descripcion'],"c"=>$cantidad , "ru"=>$registro['ruta'], "m"=> $registro['marca']);
+						$_SESSION['carrito'][]= $productoscarrito;
+						// $_SESSION['pedido'][] = $products;
+						$_SESSION['id'][] = $registro['idproducto'];
 						$_SESSION['can'][] = $cantidad;
 				}					
 		}
-		
-
 		desconectarBD($db);
  ?>
 <?php
-if(isset($_SESSION['pedido'])){
-	for($i=0;$i<count($_SESSION['pedido']);$i++){
-		echo $_SESSION['pedido'][$i];
+// if(isset($_SESSION['pedido'])){
+// 	for($i=0;$i<count($_SESSION['pedido']);$i++){
+// 		echo $_SESSION['pedido'][$i];
+// 	}
+// }
+
+if(isset($_SESSION['carrito'])){
+	foreach ($_SESSION['carrito'] as $key => $value) {
+		echo '<tr>
+			<td><img id="imagen" src="../backoffice/'.str_replace("../", "", $value['ru']).'" alt="imagen"></img></td>
+			<td class="textupper">'.$value['t'].'</td>
+			<td class="textupper">'.$value['d'].'</td>
+			<td class="textupper">'.$value['p'].'</td>
+			<td class="textupper">'.$value['m'].'</td>
+			<td>'.$value['c'].'</td>
+			</tr>
+		';
 	}
 }
 
