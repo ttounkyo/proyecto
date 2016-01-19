@@ -14,7 +14,7 @@
 		<title>HOME</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="css/principal.css">
-		<link rel="shortcut icon" href="/imagenes/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="./imagenes/favicon.ico" type="image/x-icon" />
 		<!-- Librerias añadidas por mi 
 		<script src="js/fastclick.js"></script>
 	    <script src="js/scroll.js"></script>
