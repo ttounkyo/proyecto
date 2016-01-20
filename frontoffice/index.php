@@ -36,7 +36,7 @@
 		<!-- breadcrumb -->
 		<section>
 		<div class="breadcrumbs">
-			<?=breadcrumbs();?>
+			
 		</div> 
 			<?php
 				switch ($seccion) {
