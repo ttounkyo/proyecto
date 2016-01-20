@@ -37,24 +37,24 @@ if(!function_exists("hash_equals")){
 }
 
 // Mirar lo que devuelve bien los parametros.
-function breadcrumbs($separator = ' &raquo; ', $home = 'Home') {
-    $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
-    $base = 'https' . '://' . $_SERVER['HTTP_HOST'] . '/';
-    $breadcrumbs = array('<a href="'. $base .'">'. $home .'</a>');
+// function breadcrumbs($separator = ' &raquo; ', $home = 'Home') {
+//     $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
+//     $base = 'https' . '://' . $_SERVER['HTTP_HOST'] . '/';
+//     $breadcrumbs = array('<a href="'. $base .'">'. $home .'</a>');
  
-    $last = end(array_keys($path));
+//     $last = end(array_keys($path));
  
-    foreach ($path as $x => $crumb) {
-        $title = ucwords(str_replace(array('.php', '_'), array('', ' '), $crumb));
+//     foreach ($path as $x => $crumb) {
+//         $title = ucwords(str_replace(array('.php', '_'), array('', ' '), $crumb));
  
-        if ($x != $last) {
-            $breadcrumbs[] = '<a href="'. $base . $crumb .'">'. $title .'</a>';
-        } else {
-            $breadcrumbs[] = $title;
-        }
-    }
-    return implode($separator, $breadcrumbs);
-}
+//         if ($x != $last) {
+//             $breadcrumbs[] = '<a href="'. $base . $crumb .'">'. $title .'</a>';
+//         } else {
+//             $breadcrumbs[] = $title;
+//         }
+//     }
+//     return implode($separator, $breadcrumbs);
+// }
 
 function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
     $file = $path.$filename;
