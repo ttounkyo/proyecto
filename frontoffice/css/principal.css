@@ -260,10 +260,10 @@ a{
     .product:hover{
         /* tranformamos el elemento al pasar el mouse por encima al 
            tamaño con scale(). */
-        transform : scale(1.5);
-        -moz-transform : scale(1.5);      /* Firefox */
-        -webkit-transform : scale(1.5);   /* Chrome - Safari */
-        -o-transform : scale(1.5);        /* Opera */
+        transform : scale(1.2);
+        -moz-transform : scale(1.2);      /* Firefox */
+        -webkit-transform : scale(1.2);   /* Chrome - Safari */
+        -o-transform : scale(1.2);        /* Opera */
     }
 
 

@@ -1,4 +1,4 @@
-<form class='usuario' action='../backoffice/altausuario' method='POST'>
+<form class='usuario' action='index.php?sec=altausuario' method='POST'>
 	<h1>Alta de usuarios</h1>
 	<div><label for="nomuser">Nombre de usuario: </label><br>	<input type='text' value='' name='username' /></div>
 	<div><label for="nombre">Nombre: </label><br>	<input type='text' value='' name='nombre' /></div>

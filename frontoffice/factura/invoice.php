@@ -386,7 +386,7 @@ function addLine( $ligne, $tab )
 {
     global $colonnes, $format;
 
-    $ordonnee     = 10;
+    $ordenado     = 10;
     $maxSize      = $ligne;
 
     reset( $colonnes );
@@ -397,11 +397,11 @@ function addLine( $ligne, $tab )
         $length    = $this->GetStringWidth( $texte );
         $tailleTexte = $this->sizeOfText( $texte, $length );
         $formText  = $format[ $lib ];
-        $this->SetXY( $ordonnee, $ligne-1);
-        $this->MultiCell( $longCell, 4 , $texte, 0, $formText);
+        $this->SetXY( $ordenado, $ligne-1);
+        $this->MultiCell( $longCell, 9 , $texte, 0, $formText);
         if ( $maxSize < ($this->GetY()  ) )
             $maxSize = $this->GetY() ;
-        $ordonnee += $pos;
+        $ordenado += $pos;
     }
     return ( $maxSize - $ligne );
 }

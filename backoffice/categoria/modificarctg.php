@@ -3,7 +3,7 @@
 	if(isset($_REQUEST['id']) && isset($_POST['ctg'])){
 		$ctg 	= $_POST['ctg'];
 		$id 	= $_REQUEST['id'];
-		require_once("../../funciones.php");
+		require_once("../funciones.php");
  
 		$db = conectarBD();
 		

@@ -12,7 +12,7 @@
 </form>
 
 	<?php 
-		if(isset($_POST['username']) && isset($_POST['passwd'])){
+		if(isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['passwd'])){
 			$nuser 		= $_REQUEST['username'];
 			$nom 		= $_REQUEST['nombre'];
 			$ape 		= $_POST['apellidos'];
@@ -25,7 +25,7 @@
 			$cont = crypt($pass , uniqid());
 			
 
-			require_once("../../funciones.php");
+			require_once("../funciones.php");
 			$db = conectarBD();
 			if($db->connect_errno > 0){
 			    die('Imposible conectar [' . $db->connect_error . ']');

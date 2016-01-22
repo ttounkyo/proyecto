@@ -10,6 +10,7 @@
 		$metodop 	= $_POST['pago'];
 		$estado  	= $_POST['estado'];
 		if(isset($_SESSION['usuario'])){
+			// Usuario al que se le enviará el MAIL
 			$user  	= $_SESSION['usuario'];
 		}elseif(isset($_SESSION['usuariofront'])){
 			$user  	= $_SESSION['usuariofront'];
@@ -86,11 +87,11 @@ $pdf->addLineFormat($cols);
 
 	$y    = 109;
 	foreach ($_SESSION['carrito'] as $key => $value) {
-		$line = array( "REFERENCIA"    => $value['t'],
-		               "DESIGNACIÓN"  => $value['d'],
-		               "CANTIDAD"     => $value['c'],
-		               "P.UNIDAD. HT"      => "600.00",
-		               "TOTAL  H.T." => "600.00",
+		$line = array( "REFERENCIA"    => $value['titulo'],
+		               "DESIGNACIÓN"  => $value['descripcion'],
+		               "CANTIDAD"     => $value['cantidad'],
+		               "P.UNIDAD. HT"      => $value['precio'] ." ".EURO,
+		               "TOTAL  H.T." => ($value['cantidad'] * $value['precio']) ." ".EURO,
 		               "I.V.A."          => "1" );
 		$size = $pdf->addLine( $y, $line );
 		$y   += $size + 2;
@@ -141,5 +142,7 @@ $pdf->addCadreEurosFrancs();
 ob_end_clean();
 $pdf->Output();
 // ob_end_flush();
-
+unset($_SESSION['id']);
+unset($_SESSION['can']);
+unset($_SESSION['carrito']);
 ?>

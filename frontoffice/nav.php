@@ -11,7 +11,7 @@
 		            echo "<a href='../backoffice/principal/index.php?sec=logout'><span>$nomuser Logout</span></a>";
 		        }else{
 
-		        	echo "<span onclick=showmenu()>Login</span>"
+		        	echo "<button><span onclick=showmenu()>Login</span></button>"
 		     ?>
 		     		
 		            <div id="menulog">

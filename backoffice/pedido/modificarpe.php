@@ -4,7 +4,7 @@
 		$estado 	= $_REQUEST['esta'];
 		$metodo     = $_REQUEST['pago'];
 		$id 	= $_REQUEST['id'];
-		require_once("../../funciones.php");
+		require_once("../funciones.php");
  
 		$db = conectarBD();
 		

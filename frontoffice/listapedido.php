@@ -43,7 +43,7 @@
 			$resultado = mysqli_query($db,$verproductos);
 			
 				while ($registro = mysqli_fetch_array($resultado)){
-						$productoscarrito = array("t" => $registro['titulo'], "p"=> $registro['precio'], "d" => $registro['descripcion'],"c"=>$cantidad , "ru"=>$registro['ruta'], "m"=> $registro['marca']);
+						$productoscarrito = array("titulo" => $registro['titulo'], "precio"=> $registro['precio'], "descripcion" => $registro['descripcion'],"cantidad"=>$cantidad , "ruta"=>$registro['ruta'], "marca"=> $registro['marca']);
 						$_SESSION['carrito'][]= $productoscarrito;
 						// $_SESSION['pedido'][] = $products;
 						$_SESSION['id'][] = $registro['idproducto'];
@@ -62,12 +62,12 @@
 if(isset($_SESSION['carrito'])){
 	foreach ($_SESSION['carrito'] as $key => $value) {
 		echo '<tr>
-			<td><img id="imagen" src="../backoffice/'.str_replace("../", "", $value['ru']).'" alt="imagen"></img></td>
-			<td class="textupper">'.$value['t'].'</td>
-			<td class="textupper">'.$value['d'].'</td>
-			<td class="textupper">'.$value['p'].'</td>
-			<td class="textupper">'.$value['m'].'</td>
-			<td>'.$value['c'].'</td>
+			<td><img id="imagen" src="../backoffice/'.str_replace("../", "", $value['ruta']).'" alt="imagen"></img></td>
+			<td class="textupper">'.$value['titulo'].'</td>
+			<td class="textupper">'.$value['descripcion'].'</td>
+			<td class="textupper">'.$value['precio'].'</td>
+			<td class="textupper">'.$value['marca'].'</td>
+			<td>'.$value['cantidad'].'</td>
 			</tr>
 		';
 	}

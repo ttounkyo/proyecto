@@ -32,5 +32,5 @@ if(isset($_REQUEST['buscar']) || isset($_REQUEST['id'])){
 
 	<h1>Resultados</h1>
 	<div id="lista">
-	<?=$products?>	
+		<?=isset($products) ? $products : null?>
 	</div>

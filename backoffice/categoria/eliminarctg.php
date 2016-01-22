@@ -2,7 +2,7 @@
 	if(isset($_GET['id'])){
 
 			$identificador = $_GET['id'];
-			require_once("../../funciones.php");
+			require_once("../funciones.php");
  
 			$db = conectarBD();
 			

@@ -23,7 +23,7 @@
 		// $rutaimg 	= mysqli_fetch_array($resul_prod)['ruta'];
 		$titulo 		= $resul_prod->fetch_array(MYSQLI_BOTH)['marca'];
 
-
+		// http://wp-a2z.com/oik_api/phpmailermsghtml/
 		$cliente		= "SELECT * FROM usuarios WHERE rol='cliente';";
 		$result_cli 	= $db->query($cliente) or die ($db->connect_error. " en la línea " . $db->connect_error);
 		

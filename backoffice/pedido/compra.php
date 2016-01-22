@@ -1,5 +1,5 @@
 <?php 
-	require_once("../../funciones.php");
+	require_once("../funciones.php");
  
 	$db = conectarBD();
 	if($db->connect_errno > 0){
