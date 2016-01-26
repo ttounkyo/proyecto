@@ -1,11 +1,13 @@
-<?php 
-	session_start();
-	if (!isset($_GET['sec']))
+<?php
+session_start();
+if (!isset($_GET['sec'])) {
 	$seccion = null;
-	else
+} else {
 	$seccion = $_GET['sec'];
-	require_once("../funciones.php");
- ?>
+}
+
+require_once "../funciones.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,83 +34,86 @@
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
-		<!-- Librerias añadidas por mi 
+		<!-- Librerias añadidas por mi
 		<script src="js/fastclick.js"></script>
 	    <script src="js/scroll.js"></script>
 	    <script src="js/fixed-responsive-nav.js"></script>
 		<script src="js/responsive-nav.js"></script>
 		-->
-		
+
 	</head>
 	<body>
 	<!-- Hacer cada archivo contenido de la pagina en otro porque será mucha la complicacion que tendremos
 		Podemos poner en otra carpeta y gestionar el FrontOffice -->
 		<header>
-			<?php require_once("nav.php"); ?>
+			<?php require_once "nav.php";?>
 		</header>
-		
+
 		<!-- aside -->
-		<?php require_once("sidebar.php"); ?>
-		
+		<?php require_once "sidebar.php";?>
+
 		<!-- breadcrumb -->
 		<section>
 		<div class="breadcrumbs">
-			
-		</div> 
+
+		</div>
 			<?php
-				switch ($seccion) {
-					case 'pedido':
-						require_once('pedido.php');
-						break;
-					case 'listapedido':
-						require_once('listapedido.php');
-						break;
-					case 'cancelar':
-						unset($_SESSION['id']);
-						unset($_SESSION['can']);
-						unset($_SESSION['carrito']);
-						header("location:index.php?sec=patines");
-						break;
-					case 'compra':
-						require_once('./factura/compra.php');
-						break;
-					case 'registro':
-						require_once("registro.php");
-						break;
-					case 'altausuario':
-						require_once("../backoffice/usuario/altausuario.php");
-						break;
-					case 'logout':
-						unset($_SESSION['usuariofront']);
-						header("location:index.php");
-						break;
-					case 'buscador':
-						require_once("buscador.php");
-						break;
-					case 'patines':
-						require_once("patines.php");
-						break;
-					case 'accesorios':
-						require_once("accesorios.php");
-						break;
-					case 'marca':
-						require_once("marca.php");
-						break;	
-					case 'galeria':
-						require_once("./galeria/galeria.php");
-						break;			
-					default:
-						require_once("patines.php");
-						break;
-				}
-			?>
+switch ($seccion) {
+case 'pedido':
+	require_once 'pedido.php';
+	break;
+case 'listapedido':
+	require_once 'listapedido.php';
+	break;
+case 'cancelar':
+	unset($_SESSION['id']);
+	unset($_SESSION['can']);
+	unset($_SESSION['carrito']);
+	header("location:index.php?sec=patines");
+	break;
+// case 'compra':
+// 	require_once './factura/compra.php';
+// 	break;
+case 'registro':
+	require_once "registro.php";
+	break;
+case 'altausuario':
+	require_once "../backoffice/usuario/altausuario.php";
+	break;
+case 'logout':
+	unset($_SESSION['usuariofront']);
+	header("location:index.php");
+	break;
+case 'buscador':
+	require_once "buscador.php";
+	break;
+case 'patines':
+	require_once "patines.php";
+	break;
+case 'accesorios':
+	require_once "accesorios.php";
+	break;
+case 'marca':
+	require_once "marca.php";
+	break;
+case 'guardarpdf':
+	require_once "./compra_pdf.php";
+	break;
+case 'galeria':
+	require_once "./galeria/galeria.php";
+	break;
+default:
+	require_once "patines.php";
+	break;
+}
+?>
 		</section>
 		<!-- aside2 -->
-		<?php require_once("sidebar2.php"); ?>
+		<?php require_once "sidebar2.php";?>
 		<!-- footer -->
 		<?php
-			require_once("pie.php");
-		?>
+require_once "pie.php";
+?>
 		<script type="text/javascript" src="js/funciones_index.js"></script>
 	</body>
 </html>
