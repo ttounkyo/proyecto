@@ -11,7 +11,7 @@
 		            echo "<a href='../backoffice/principal/index.php?sec=logout'><span>$nomuser Logout</span></a>";
 		        }else{
 
-		        	echo "<button><span onclick=showmenu()>Login</span></button>"
+		        	echo "<span onclick=showmenu()>Login</span>"
 		     ?>
 		     		
 		            <div id="menulog">
@@ -50,5 +50,6 @@
 		<la>Ofertas</la>
 		<la>Personaliza</la>
 		<a href="index.php?sec=listapedido"><la>Carrito</la></a>
+		<a href="index.php?sec=galeria"><la>Galeria</la></a>
 	</ul>
 </nav>

@@ -93,7 +93,10 @@
 						break;
 					case 'marca':
 						require_once("marca.php");
-						break;				
+						break;	
+					case 'galeria':
+						require_once("./galeria/galeria.php");
+						break;			
 					default:
 						require_once("patines.php");
 						break;
