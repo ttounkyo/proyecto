@@ -100,7 +100,7 @@ case 'guardarpdf':
 	require_once "./compra_pdf.php";
 	break;
 case 'galeria':
-	require_once "./galeria/galeria.php";
+	require_once "./galeria/imgGaleria.php";
 	break;
 default:
 	require_once "patines.php";
