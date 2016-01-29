@@ -90,6 +90,8 @@
 body{
 	margin: 0 auto;
 }
+
+
 header{
 	/*margin: .5em .5em 0 .5em;*/
 	/*width: 99%;*/
@@ -181,13 +183,108 @@ ul{
 }
 
 
+/*Mejorar css */
+.equals {
+    display: table;
+}
+
+.row {
+    display: table-row;
+}
+
+/*sidebar*/
+.buscador2{
+	display: none;
+}
+aside{
+	vertical-align: top;
+/*	float: left;*/
+    background-color: #625452;
+    width: 313px;
+    /*min-height: 550px;*/
+     height: 500px; 
+    /*margin-left: .5em;*/
+	display: table-cell;
+}
+aside .busc{
+	margin-left: 25px;
+    color: #C88657;
+    font-family: 'playfair_displaybold';
+}
+
+
+ul.lista li {
+	color:  #C88657;
+	font-family: 'arvoregular';
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+ul.lista {
+    width: 180px;
+    list-style: none;
+    margin-left: -7px;
+}
+/*ul.lista li {
+	border-bottom: 1px solid #7C7C7C;
+	border-top: 1px solid #FFF;
+	background: #F4F4F4;
+}*/
+ul.lista li a {
+    padding: .2em 0 .2em 1.3em;
+    display: block;
+    text-decoration: none;
+    color: #C88657;
+    font-family: 'arvobold';
+}
+
+/*Pner imagen*/
+/*ul.lista li {
+	list-style-position: inside;
+	list-style-image: url('flecha_inactiva.png');
+}*/
+ul.lista li:hover{
+	background: #E3E3E3;/*
+	list-style-position: inside;
+	list-style-image: url('flecha_activa.png');*/
+}
+ul.lista li:active a{
+	background-color:  #00C3F4;
+	-moz-box-shadow:    inset 0 0 10px #47FB00;
+	-webkit-box-shadow: inset 0 0 10px #47FB00;
+	box-shadow:         inset 0 0 10px #47FB00;
+	color: #FFFFFF;
+	list-style-position: inside;
+	list-style-image: url('flecha_activa.png');
+}
+
+
+/*Botones*/
+.btn {
+    border-radius: 4px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    background: #8b969e;
+    padding: 3px 15px 3px 15px;
+    margin-top: -3px;
+    text-decoration: blink;
+}
+
+.btn:hover {
+  background: #356380;
+  text-decoration: none;
+}
+
+
 
 /*Fin*/
 section{	
-	float: left;
-	margin: 10px;
-	width:71%;
+	/*float: left;*/
+	padding: 10px;
+	width:1500px;
 	/*max-width: 72%;*/
+	display: table-cell;
 }
 .breadcrumbs{
 	display: block;
@@ -314,89 +411,6 @@ a{
     }
 
 
-/*sidebar*/
-.buscador2{
-	display: none;
-}
-aside{
-	float: left;
-    background-color: #625452;
-    width: 293px;
-    min-height: 550px;
-    /* height: 500px; */
-    /*margin-left: .5em;*/
-
-}
-aside .busc{
-	margin-left: 25px;
-    color: #C88657;
-    font-family: 'playfair_displaybold';
-}
-
-
-ul.lista li {
-	color:  #C88657;
-	font-family: 'arvoregular';
-	text-decoration: none;
-	text-transform: uppercase;
-}
-
-ul.lista {
-    width: 180px;
-    list-style: none;
-    margin-left: -7px;
-}
-/*ul.lista li {
-	border-bottom: 1px solid #7C7C7C;
-	border-top: 1px solid #FFF;
-	background: #F4F4F4;
-}*/
-ul.lista li a {
-    padding: .2em 0 .2em 1.3em;
-    display: block;
-    text-decoration: none;
-    color: #C88657;
-    font-family: 'arvobold';
-}
-
-/*Pner imagen*/
-/*ul.lista li {
-	list-style-position: inside;
-	list-style-image: url('flecha_inactiva.png');
-}*/
-ul.lista li:hover{
-	background: #E3E3E3;/*
-	list-style-position: inside;
-	list-style-image: url('flecha_activa.png');*/
-}
-ul.lista li:active a{
-	background-color:  #00C3F4;
-	-moz-box-shadow:    inset 0 0 10px #47FB00;
-	-webkit-box-shadow: inset 0 0 10px #47FB00;
-	box-shadow:         inset 0 0 10px #47FB00;
-	color: #FFFFFF;
-	list-style-position: inside;
-	list-style-image: url('flecha_activa.png');
-}
-
-
-/*Botones*/
-.btn {
-    border-radius: 4px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 15px;
-    background: #8b969e;
-    padding: 3px 15px 3px 15px;
-    margin-top: -3px;
-    text-decoration: blink;
-}
-
-.btn:hover {
-  background: #356380;
-  text-decoration: none;
-}
-
 
 /*Listar pedidos*/
 img#imagen{
@@ -451,6 +465,8 @@ div .imgGaleria{
 	width: 300px;
 	height: 300px;
 	float: left;
+	border-radius: 20px;
+    margin: 5px;
 }
 
 /*mejoras http://www.456bereastreet.com/archive/200405/equal_height_boxes_with_css/*/

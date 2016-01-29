@@ -45,13 +45,15 @@ require_once "../funciones.php";
 		<header>
 			<?php require_once "nav.php";?>
 		</header>
-		<!-- aside -->
-		<?php require_once "sidebar.php";?>
-		<!-- breadcrumb -->
-		<section>
-			<div class="breadcrumbs">
-			</div>
-			<?php
+		<div class="equals">
+			<div class="row">
+				<!-- aside -->
+				<?php require_once "sidebar.php";?>
+				<!-- breadcrumb -->
+				<section>
+					<div class="breadcrumbs">
+					</div>
+					<?php
 switch ($seccion) {
 case 'pedido':
 	require_once 'pedido.php';
@@ -104,13 +106,13 @@ default:
 	break;
 }
 ?>
-		</section>
-		<!-- aside2 -->
-		<?php require_once "sidebar2.php";?>
-		<!-- footer -->
-		<?php
-require_once "pie.php";
-?>
+				</section>
+				<!-- aside2 -->
+				<?php require_once "sidebar2.php";?>
+				<!-- footer -->
+			</div>
+		</div>
+		<?php require_once "pie.php";?>
 		<script type="text/javascript" src="js/funciones_index.js"></script>
 	</body>
 </html>

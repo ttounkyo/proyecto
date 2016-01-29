@@ -20,13 +20,8 @@ function showFiles($path) {
 		echo "<img class='imgGaleria' src='" . $path . "/" . $files[$i] . "'></img>";
 		echo "</div>";
 	}
-	?>
-
-
-<?php
 }
 
 $path = "galeria/imagen";
 showFiles($path);
-
 ?>
