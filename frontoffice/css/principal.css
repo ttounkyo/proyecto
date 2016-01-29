@@ -91,7 +91,7 @@ body{
 	margin: 0 auto;
 }
 header{
-	margin: .5em .5em 0 .5em;
+	/*margin: .5em .5em 0 .5em;*/
 	/*width: 99%;*/
 	min-height: 150px;
 	background-color: #483E3D;
@@ -213,7 +213,7 @@ img.redessociales{
 footer{
 	clear: both;
 	background-color: #483E3D;
-	margin: 0em 0.5em 0em 0.5em;
+	/*margin: 0em 0.5em 0em 0.5em;*/
 	min-height: 135px;
 }
 footer div{
@@ -324,7 +324,7 @@ aside{
     width: 293px;
     min-height: 550px;
     /* height: 500px; */
-    margin-left: .5em;
+    /*margin-left: .5em;*/
 
 }
 aside .busc{
@@ -452,6 +452,18 @@ div .imgGaleria{
 	height: 300px;
 	float: left;
 }
+
+/*mejoras http://www.456bereastreet.com/archive/200405/equal_height_boxes_with_css/*/
+/*videos.php*/
+.vid{
+	background-color: #483E3D;
+	float: left;
+	margin: .5em;
+	border-radius: 20px;
+}
+
+
+
 @media screen and (max-width: 800px) {
 	.buscador{
 		display: none;
@@ -464,7 +476,7 @@ div .imgGaleria{
 	}
 
 	footer{
-		margin: .5em .5em 0 .5em;
+		/*margin: .5em .5em 0 .5em;*/
 		min-height: 368px;
 	}
 	footer div{
@@ -479,7 +491,7 @@ div .imgGaleria{
 		text-align: center;
 		color: white;
 		text-align: center;
-		margin: 5%;
+		/*margin: 5%;*/
 	}
 	img#menu{
 		display: block;

@@ -28,4 +28,5 @@ function showFiles($path) {
 
 $path = "galeria/imagen";
 showFiles($path);
+
 ?>

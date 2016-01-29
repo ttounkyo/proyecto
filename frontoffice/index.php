@@ -5,10 +5,8 @@ if (!isset($_GET['sec'])) {
 } else {
 	$seccion = $_GET['sec'];
 }
-
 require_once "../funciones.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -36,27 +34,23 @@ require_once "../funciones.php";
 		<meta name="theme-color" content="#ffffff">
 		<!-- Librerias añadidas por mi
 		<script src="js/fastclick.js"></script>
-	    <script src="js/scroll.js"></script>
-	    <script src="js/fixed-responsive-nav.js"></script>
+		<script src="js/scroll.js"></script>
+		<script src="js/fixed-responsive-nav.js"></script>
 		<script src="js/responsive-nav.js"></script>
 		-->
-
 	</head>
 	<body>
-	<!-- Hacer cada archivo contenido de la pagina en otro porque será mucha la complicacion que tendremos
+		<!-- Hacer cada archivo contenido de la pagina en otro porque será mucha la complicacion que tendremos
 		Podemos poner en otra carpeta y gestionar el FrontOffice -->
 		<header>
 			<?php require_once "nav.php";?>
 		</header>
-
 		<!-- aside -->
 		<?php require_once "sidebar.php";?>
-
 		<!-- breadcrumb -->
 		<section>
-		<div class="breadcrumbs">
-
-		</div>
+			<div class="breadcrumbs">
+			</div>
 			<?php
 switch ($seccion) {
 case 'pedido':
@@ -99,8 +93,11 @@ case 'marca':
 case 'guardarpdf':
 	require_once "./compra_pdf.php";
 	break;
-case 'galeria':
+case 'imagenes':
 	require_once "./galeria/imgGaleria.php";
+	break;
+case 'videos':
+	require_once "./galeria/videos/videos.php";
 	break;
 default:
 	require_once "patines.php";

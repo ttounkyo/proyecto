@@ -54,10 +54,10 @@ if (isset($_SESSION['usuario']) && !isset($_SESSION['usuariofront'])) {
 		<la><a href="#">Ofertas</a></la>
 		<la><a href="#">Personaliza</a></la>
 		<la><a href="index.php?sec=listapedido">Carrito</a></la>
-		<la><a href="index.php?sec=galeria">Galeria</a>
+		<la><a href="#">Galeria</a>
 			<ul>
 				<li><a href="index.php?sec=imagenes">Imagenes</a></li>
-				<li><a href="index.php?sec=videos">Videos</a></li>
+				<li><a href="index.php?sec=videos">Videos y sonido</a></li>
 			</ul>
 		</la>
 	</ul>

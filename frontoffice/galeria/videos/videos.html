@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=10"/>
+</head>
+<body>
+<section>
+    <!--
+    <article>
+        MP3: 
+        <audio src="test_cbr.mp3" controls autoplay loop preload="auto"></audio>
+    </article>
+    <article>
+        OGG:
+        <audio src="test_cbr.ogg" controls autoplay loop preload="metadata"></audio>
+    </article>
+    <article>
+        WAV: 
+        <audio src="test_cbr.wav" controls autoplay loop preload="auto"></audio>
+    </article>-->
+    <article>
+        (MP3, OGG) canvia ordre i WAV:
+        <audio id="audios"controls="controls" preload="none">
+            <source src="test_cbr.ogg" type="audio/mpeg" />
+            <source src="test_cbr.mp3" type="audio/ogg" />
+            <source src="test_cbr.wav" type="audio/wav" />
+            Archivo de audio NO soportado
+        </audio>
+                                <div>
+                        <button onclick="document.getElementById('audios').play()">Play</button>
+                        <button onclick="document.getElementById('audios').pause()">Pause</button>    
+                        <button onclick="document.getElementById('audios').volume+=0.1">Volumen +</button>    
+                        <button onclick="document.getElementById('audios').volume-=0.1">Volumen -</button>
+                        </div>
+    </article>
+
+        <article>
+            WEBM:
+            <video width="425" height="350"  controls>
+                <source src="oceans-clip.webm" type="video/webm" />
+            </video>
+        </article>
+        <article>
+            MP4:
+            <video width="425" height="350" controls>
+                <source src="oceans-clip.mp4" type="video/mp4" />
+            </video>
+        </article>
+        <article>
+            OGV:
+            <video width="425" height="350"  controls>
+                <source src="oceans-clip.ogv" type="video/ogg" />
+            </video>
+        </article>
+
+<!-- Ejemplo de video con etiqueta video compatible en cualquier navegador-->
+        <article>
+            <video width="425" height="350"  controls>
+                <source src="oceans-clip.webm" type="video/webm" />
+                <source src="oceans-clip.mp4" type="video/mp4" />
+                <source src="oceans-clip.ogv" type="video/ogg" />
+                
+
+                    <object data="oceans-clip.swf" type="application/x-shockwave-flash" width="425" height="350">
+                        <param name="movie" value="oceans-clip.swf">
+                        <embed type="application/x-shockwave-flash" width="425" height="350" src="oceans-clip.swf" />
+                    </object>
+
+            </video>
+        </article>
+<!-- Ejemplo de video con iframe youtube-->
+
+        <article>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/N975e0LMKRg?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+        </article>
+
+<!-- Ejemplo de video con youtube y object-->
+        <article>
+            <object width="425" height="350">
+                <param name="movie" value="https://www.youtube.com/embed/N975e0LMKRg"></param>
+                <param name="wmode" value="transparent"></param>
+                <embed src="http://www.youtube.com/v/c6fR_mp8gag" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed>
+            </object>
+        </article>
+        <article>
+<!-- Ejemplo video con controles personalizados -->
+                                        
+                        <video id="video" src="oceans-clip.mp4" controls type='video/mp4;codecs="avc1,mp4a"' width="640" height="480"></video>
+                        <div>
+                        <button onclick="document.getElementById('video').play()">Play</button>
+                        <button onclick="document.getElementById('video').pause()">Pause</button>    
+                        <button onclick="document.getElementById('video').volume+=0.1">Volumen +</button>    
+                        <button onclick="document.getElementById('video').volume-=0.1">Volumen -</button>
+                        </div>
+                        
+
+
+            </article>
+        
+          <article>
+<!-- Ejemplo video con controles personalizados -->
+                                        
+                        <video id="videox" src="oceans-clip.webm" type='video/webm' width="640" height="480"></video>
+                        <div>
+                        <button onclick="document.getElementById('videox').play()">Play</button>
+                        <button onclick="document.getElementById('videox').pause()">Pause</button>    
+                        <button onclick="document.getElementById('videox').volume+=0.1">Volumen +</button>    
+                        <button onclick="document.getElementById('videox').volume-=0.1">Volumen -</button>
+                        </div>
+                        
+
+
+            </article>      
+<section>
+</body>
+</html>
