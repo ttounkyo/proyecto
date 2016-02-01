@@ -36,7 +36,12 @@ if (isset($session)) {
 	/* ---- header location after session ----*/
 	header("Location: index.php");
 } else {
-	$loginUrl = $helper->getLoginUrl();
+	$permissions = array(
+		'email',
+		'user_location',
+		'user_birthday',
+	);
+	$loginUrl = $helper->getLoginUrl($permissions);
 	header("Location: " . $loginUrl);
 }
 ?>
