@@ -45,8 +45,8 @@ require_once "../funciones.php";
 		<header>
 			<?php require_once "nav.php";?>
 		</header>
-		<!-- <div class="equals"> -->
-			<!-- <div class="row"> -->
+		<div class="equals">
+			<div class="row">
 				<!-- aside -->
 				<?php require_once "sidebar.php";?>
 				<!-- breadcrumb -->
@@ -115,8 +115,8 @@ default:
 				<!-- aside2 -->
 				<?php require_once "sidebar2.php";?>
 				<!-- footer -->
-<!-- 			</div>
-		</div> -->
+			</div>
+		</div>
 		<?php require_once "pie.php";?>
 		<script type="text/javascript" src="js/funciones_index.js"></script>
 	</body>
