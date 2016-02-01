@@ -83,7 +83,7 @@ case 'logout':
 	header("location:index.php");
 	break;
 case 'facebook':
-	require_once "./fb/index.php";
+	require_once "./fb/fbconfig.php";
 	break;
 case 'buscador':
 	require_once "buscador.php";
