@@ -82,6 +82,9 @@ case 'logout':
 	unset($_SESSION['usuariofront']);
 	header("location:index.php");
 	break;
+case 'facebook':
+	require_once "./fb/index.php";
+	break;
 case 'buscador':
 	require_once "buscador.php";
 	break;

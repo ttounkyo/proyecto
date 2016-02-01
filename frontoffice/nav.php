@@ -21,6 +21,7 @@ if (isset($_SESSION['usuariofront'])) {
 							<label>Usuario</label><br><input type='text' name='nomuser'><br>
 							<label>Contraseña</label><br><input type='password' name='pass'><br>
 							<button class='btn' type='submit' name='enviar'>Enviar</button>
+							<button class="btn" href='index.php?sec=faceboof'>Facebook</button>
 						</form>
 					</div>
 			<?php
