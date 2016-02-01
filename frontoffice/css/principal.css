@@ -103,6 +103,7 @@ img#logo{
 	position: relative;
 	margin-top: 2em;
 	margin-left: 1em;
+	margin: 1em;
 }
 
 ul.log{
@@ -471,6 +472,9 @@ div .imgGaleria{
 
 /*mejoras http://www.456bereastreet.com/archive/200405/equal_height_boxes_with_css/*/
 /*videos.php*/
+.contenedor{
+	background-color: red;
+}
 .vid{
 	background-color: #483E3D;
 	float: left;
@@ -488,6 +492,11 @@ iframe{
 	width: 400px;
 	height: 330px;
 	margin: 11.5px;
+}
+
+/*Audio!!*/
+.aud{
+
 }
 
 @media screen and (max-width: 800px) {

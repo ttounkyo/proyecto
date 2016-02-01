@@ -8,3 +8,5 @@ El usuario antonio ha accedido el día. 16/01/20 16:13:19 Satisfactoriamente
 El usuario  ha accedido el día. 16/01/20 16:56:44 Incorrectamente.
 El usuario gnru ha accedido el día. 16/01/20 16:12:45 Satisfactoriamente
 El usuario antonio ha accedido el día. 16/01/26 18:24:09 Satisfactoriamente
+El usuario boss ha accedido el día. 16/01/29 20:51:05 Satisfactoriamente
+El usuario boss ha accedido el día. 16/01/29 21:53:28 Satisfactoriamente

@@ -34,7 +34,8 @@ td {
 }
 -->
 </style>
- <page backtop="7mm" backbottom="7mm" backleft="10mm" backright="10mm">
+ <!-- <page backtop="7mm" backbottom="7mm" backleft="10mm" backright="10mm"> -->
+    <page>
       <page_header>
           <img src="./imagenes/logo.png" alt="logo">
       </page_header>

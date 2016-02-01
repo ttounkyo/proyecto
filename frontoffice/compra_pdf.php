@@ -10,24 +10,24 @@
  * @copyright 2016 Laurent MINGUET
  */
 require_once "../html2pdf/vendor/autoload.php";
-
+// ini_set("session.auto-start", 0);
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Html2Pdf;
 
 try {
+	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
 	ob_clean();
 	ob_start();
 	include dirname(__FILE__) . './compra_aux.php';
 	//echo "holaalkjsdnlkajsd";
 	$content = ob_get_contents();
-	ob_end_clean();
-	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
+	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
-	$html2pdf->Output('recibo.pdf');
+	$html2pdf->Output('recibo.pdf', "D");
+	ob_end_clean();
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
 	echo $formatter->getHtmlMessage();
 }
-
 ?>
