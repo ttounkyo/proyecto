@@ -64,7 +64,7 @@ td {
 if (isset($_SESSION['carrito'])) {
 	foreach ($_SESSION['carrito'] as $key => $value) {
 		?>
-		<tr>
+        		<tr>
 			<td><img id="imagen" src="../backoffice/<?=$value['ruta']?>" alt="imagen"></td>
 			<td class="textupper"><?=$value['titulo']?></td>
 			<td class="textupper"><?=$value['descripcion']?></td>
@@ -72,7 +72,7 @@ if (isset($_SESSION['carrito'])) {
 			<td class="textupper"><?=$value['marca']?></td>
 			<td><?=$value['cantidad']?></td>
 		</tr>
-		<?php
+<?php
 }
 }
 ?>

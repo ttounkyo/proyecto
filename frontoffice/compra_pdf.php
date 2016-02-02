@@ -17,15 +17,16 @@ use Spipu\Html2Pdf\Html2Pdf;
 
 try {
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
-	ob_clean();
 	ob_start();
 	include dirname(__FILE__) . './compra_aux.php';
 	//echo "holaalkjsdnlkajsd";
 	$content = ob_get_contents();
 	// $content = ob_get_clean();
-	$html2pdf->writeHTML($content);
-	$html2pdf->Output('recibo.pdf', "D");
 	ob_end_clean();
+	$html2pdf->writeHTML($content);
+
+	$html2pdf->Output('recibo.pdf', "D");
+
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
 	echo $formatter->getHtmlMessage();

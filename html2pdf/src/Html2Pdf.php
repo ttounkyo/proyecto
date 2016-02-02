@@ -435,7 +435,7 @@ class Html2Pdf {
 	 */
 	public function Output($name = '', $dest = false) {
 		// close the pdf and clean up
-		ob_clean();
+		// ob_clean();
 		$this->_cleanUp();
 
 		// if on debug mode

@@ -1,11 +1,13 @@
-<?php
+﻿<?php
 session_start();
+require_once "../funciones.php";
+
 if (!isset($_GET['sec'])) {
 	$seccion = null;
 } else {
 	$seccion = $_GET['sec'];
 }
-require_once "../funciones.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,24 +45,32 @@ require_once "../funciones.php";
 		<!-- Hacer cada archivo contenido de la pagina en otro porque será mucha la complicacion que tendremos
 		Podemos poner en otra carpeta y gestionar el FrontOffice -->
 		<header>
-			<?php require_once "nav.php";?>
-		</header>
+<?php
+require_once "nav.php";
+?>
+</header>
 		<div class="equals">
-			<div class="row">
-				<!-- aside -->
-				<?php require_once "sidebar.php";?>
-				<!-- breadcrumb -->
-				<section>
+			<div class="row"><!-- aside -->
+<?php
+require_once "sidebar.php";
+// ob_get_flush();
+
+?>
+
+				<section><!-- breadcrumb -->
 					<div class="breadcrumbs">
 						hola
 					</div>
-					<?php
+<?php
 switch ($seccion) {
 case 'pedido':
 	require_once 'pedido.php';
 	break;
 case 'listapedido':
 	require_once 'listapedido.php';
+	break;
+case 'destroy':
+	session_destroy();
 	break;
 case 'cancelar':
 	unset($_SESSION['id']);
@@ -69,14 +79,8 @@ case 'cancelar':
 
 	//header("location:index.php?sec=patines");
 	break;
-case 'compra':
-	require_once './factura/compra.php';
-	break;
 case 'registro':
 	require_once "registro.php";
-	break;
-case 'altausuario':
-	require_once "../backoffice/usuario/altausuario.php";
 	break;
 case 'logout':
 	unset($_SESSION['usuariofront']);
@@ -97,27 +101,29 @@ case 'accesorios':
 case 'marca':
 	require_once "marca.php";
 	break;
-case 'guardarpdf':
-	require_once "./compra_pdf.php";
-	break;
 case 'imagenes':
 	require_once "./galeria/imgGaleria.php";
 	break;
 case 'videos':
 	require_once "./galeria/videos/videos.php";
 	break;
+case 'compra':
+	require_once './factura/compra.php';
+	break;
+case 'guardarpdf':
+	require_once "./compra_pdf.php";
+	break;
 default:
 	require_once "patines.php";
 	break;
 }
 ?>
-				</section>
-				<!-- aside2 -->
-				<?php require_once "sidebar2.php";?>
-				<!-- footer -->
+			</section>
 			</div>
 		</div>
-		<?php require_once "pie.php";?>
+<?php
+require_once "pie.php";
+?>
 		<script type="text/javascript" src="js/funciones_index.js"></script>
 	</body>
 </html>

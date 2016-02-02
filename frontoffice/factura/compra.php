@@ -48,7 +48,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']) && isset($
 }
 // (c) Xavier Nicolay
 // Exemple de génération de devis/facture PDF
-
+ob_get_clean();
 require 'invoice.php';
 
 $pdf = new PDF_Invoice('P', 'mm', 'A4');
@@ -135,7 +135,5 @@ $params = array("RemiseGlobale" => 1,
 
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
-ob_start();
 $pdf->Output();
-ob_end_flush();
 ?>

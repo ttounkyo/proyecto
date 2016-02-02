@@ -1,12 +1,11 @@
- <?php
+<?php
 require_once "../funciones.php";
 
 $db = conectarBD();
 if ((empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) && !empty($_REQUEST['id'])) {
 
 	?>
-
-<form action="index.php?sec=compra&id=<?php echo $_REQUEST['id'] ?>" method="POST">
+	<form action="index.php?sec=compra&id=<?php echo $_REQUEST['id'] ?>" method="POST">
  	<div>
  		<label for="">Metodo de pago.</label>
  		<br>
@@ -33,7 +32,6 @@ if ((empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($
 	<th>Marca</th>
 	<th>Cantidad</th>
 	</tr>
-
 <?php
 if (isset($_REQUEST['id'])) {
 		$cantidad = $_POST['cantidad'];
@@ -77,20 +75,18 @@ if (isset($_REQUEST['id'])) {
  	<button class="btn"><a href="index.php?sec=patines">Seguir pidiendo</a></button>
  	<button class="btn"><a href="index.php?sec=cancelar">Cancelar Pedido</a></button>
  	<button class="btn"><a href="index.php?sec=guardarpdf">Guardar</a></button>
-	<?php
+<?php
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 		?>
 			<button class="btn" type="submit">Comprar</button>
-			<?php
+<?php
 } else {
 		?>
-			<span onclick="showmenu()" class="btn">Tiene que iniciar session para comprar :)</span>
-			<?php
+		<span onclick="showmenu()" class="btn">Tiene que iniciar session para comprar :)</span>
+<?php
 }
 	?>
-
-
-</form>
+	</form>
 
 <?php
 } else if (empty($_REQUEST['id'])) {
