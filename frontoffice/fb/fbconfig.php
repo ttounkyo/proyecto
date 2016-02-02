@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 // added in v4.0.0
 require_once 'autoload.php';
 use Facebook\FacebookSession;

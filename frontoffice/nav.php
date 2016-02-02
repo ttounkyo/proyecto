@@ -22,7 +22,7 @@ if (isset($_SESSION['usuariofront'])) {
 							<label>Contraseña</label><br><input type='password' name='pass'><br>
 							<button class='btn' type='submit' name='enviar'>Enviar</button>
 						</form>
-						<a class="btn" href="index.php?sec=facebook">Facebook</a>
+						<a class="btn" href="./fb/fbconfig.php">Facebook</a>
 					</div>
 			<?php
 }
