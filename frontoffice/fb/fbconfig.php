@@ -27,12 +27,16 @@ if (isset($session)) {
 	// get response
 	$graphObject = $response->getGraphObject();
 	$fbid = $graphObject->getProperty('id'); // To Get Facebook ID
+	$fbuname = $graphObject->getProperty('username'); // To Get Facebook Username
 	$fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
 	$femail = $graphObject->getProperty('email'); // To Get Facebook email ID
 	/* ---- Session Variables -----*/
-	$_SESSION['FBID'] = $fbid;
-	$_SESSION['FULLNAME'] = $fbfullname;
-	$_SESSION['EMAIL'] = $femail;
+	echo "<br><br>";
+	echo $_SESSION['FBID'] = $fbid;
+	echo $_SESSION['USERNAME'] = $fbuname;
+	echo $_SESSION['FULLNAME'] = $fbfullname;
+	echo $_SESSION['EMAIL'] = $femail;
+	echo "<br><br>";
 	/* ---- header location after session ----*/
 	header("Location: index.php");
 } else {
