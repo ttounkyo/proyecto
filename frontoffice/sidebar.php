@@ -14,7 +14,8 @@ $resultado = $db->query($query) or die($db->connect_error . " en la línea ");
 	<h1>CATEGORIAS</h1>
 </div>
 
-<ul class="lista"><?php
+<ul class="lista">
+<?php
 while ($row = $resultado->fetch_array(MYSQLI_BOTH)) {
 	echo "<li><a href=\"index.php?sec=buscador&id=" . $row['nombre'] . "\">" . $row['nombre'] . "</a></li>";
 }

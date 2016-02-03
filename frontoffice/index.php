@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 session_start();
 require_once "../funciones.php";
 
@@ -36,7 +36,7 @@ if (!isset($_GET['sec'])) {
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
-		<!-- Librerias añadidas por mi
+		<!-- Librerias aÃ±adidas por mi
 		<script src="js/fastclick.js"></script>
 		<script src="js/scroll.js"></script>
 		<script src="js/fixed-responsive-nav.js"></script>
@@ -44,7 +44,7 @@ if (!isset($_GET['sec'])) {
 		-->
 	</head>
 	<body>
-		<!-- Hacer cada archivo contenido de la pagina en otro porque será mucha la complicacion que tendremos
+		<!-- Hacer cada archivo contenido de la pagina en otro porque serÃ¡ mucha la complicacion que tendremos
 		Podemos poner en otra carpeta y gestionar el FrontOffice -->
 		<header>
 <?php
