@@ -63,6 +63,7 @@ require_once "sidebar.php";
 						hola
 					</div>
 <?php
+ob_get_flush();
 switch ($seccion) {
 case 'pedido':
 	require_once 'pedido.php';
