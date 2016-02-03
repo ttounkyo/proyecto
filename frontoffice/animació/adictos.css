@@ -1,0 +1,182 @@
+/*ANIMACIÓ MOSQUES*/
+@-webkit-keyframes mosca {
+ 
+from {
+      left: -200px;
+	  opacity: 1;
+      }
+ 
+to {
+      left: 700px;
+      opacity: 1;
+    }
+	 
+ }
+ 
+@-webkit-keyframes mosca2 {
+from {
+      left: 700px;
+	  opacity: 1;
+      }
+to {
+      left: -500px;
+      opacity: 1;
+    }
+}
+  
+#mosca {
+	position:relative;
+	-webkit-animation-name: mosca;
+	-webkit-animation-duration: 6s;
+	-webkit-animation-iteration-count: 2;
+	-webkit-animation-direction: right;
+	-webkit-animation-timing-function: ease-in;
+	float: left;
+	right: 60px;
+}
+ 
+#mosca2{
+	-webkit-animation-name: mosca2;
+	-webkit-animation-duration: 8s;
+	-webkit-animation-iteration-count: 2;
+	-webkit-animation-direction: left;
+	-webkit-animation-timing-function: ease-in;
+	float: right;
+	position: relative;
+	left: 60px;
+}
+
+
+/*ANIMACIÓ CONFETI*/
+@-webkit-keyframes confetis{
+		   	from {
+				top: -300px;
+				opacity: 0;
+			}
+			to {
+				top: 100px;
+				opacity: 1;
+			}
+		}
+ 
+@-webkit-keyframes confeti{
+    0%   { -webkit-transform: rotate(0deg) translate(0px, 0px);}
+	100% { -webkit-transform: rotate(0deg) translate(0px, 0px);}
+}
+#confeti div {
+	top: 110px;
+	-webkit-animation-name: confeti, confetis;
+	-webkit-animation-iteration-count: 2;
+	-webkit-animation-direction: normal;
+	-webkit-animation-timing-function: ease-in;
+		}
+	
+.confetis {	
+			position: absolute;	
+		}
+.confetis.f1 {
+			-webkit-animation-duration: 5s;
+		}
+.confetis.f2 {
+			-webkit-animation-duration: 10s;	
+		}
+.confetis.f3 {
+			-webkit-animation-duration: 7s;	
+		}
+
+
+
+
+/* ANIMACIÓ BRAÇ */
+@-webkit-keyframes brazo {
+	0% {	 
+		-webkit-transform: rotate(0deg) translate(0px,0px);
+	}
+	100% {
+		-webkit-transform: rotate(-20deg) translate(-15px,30px);	
+	}
+}
+ 
+#brazoizquierdo {
+	position: relative;
+	top:0px;
+	left:0px;
+	width:0px;
+	-webkit-animation-name: brazo;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: ease-in;
+	float: left;
+}
+
+/* ANIMACIÓ TEXT */
+@-webkit-keyframes movimiento-diagonal {
+   from {
+      left: 130px; top: -50px;
+	  opacity: 1;
+   }
+   
+   to {
+      left: 100px; top: 30px;
+	  opacity: 0.5;
+   }
+}   
+ 
+#anim {
+	text-shadow: rgba(255, 255, 255, .9) 0px 0px 5px;
+	-webkit-animation-name: movimiento-diagonal;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: alternate; /*para que vuelva a su posicion inicial */
+	width: 300px;
+	color: #FFF;
+	position: relative;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 25px;
+	font-weight: bolder;
+	text-align: center;
+	left: 130px;
+	top: 20px;
+	background-color: rgba(255, 255, 255, .9) 0px 0px 5px;
+} 
+
+
+/* ALTRES ELEMENTS*/
+
+#container {
+	width: 500px;
+	height: 99px;
+	background-image: url(fondoreb.png);
+	/*background-image: url(../imagenes/fondo.png);*/
+	background-repeat: no-repeat;
+	moz-box-shadow: 3px 3px 10px #000;
+	-webkit-box-shadow: 3px 3px 10px #000;
+	box-shadow: 3px 3px 10px #000;
+	overflow: hidden;
+	position: absolute;
+}
+ 
+#container:hover {
+	width: 500px;
+	height: 99px;
+	background-image: url(fondo.png);
+	/*background-image: url(../imagenes/fondo.png);*/
+	background-repeat: no-repeat;
+	/*moz-box-shadow: 3px 3px 10px #000;
+	-webkit-box-shadow: 3px 3px 10px #000;
+	box-shadow: 3px 3px 10px #000;*/
+	overflow: hidden;
+	position: absolute;
+}
+ 
+#containerprincipal {
+	width: 500px;
+	height: 99px;
+	border: 2px solid #000;
+	}
+ 
+#situacion {
+	position: relative;
+	float: left;
+} 

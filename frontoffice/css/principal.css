@@ -62,12 +62,12 @@
 /*Hijos de las categorias*/
 @font-face {
     font-family: 'arvoregular';
-    src: url('arvo-regular-webfont.eot');
-    src: url('arvo-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('arvo-regular-webfont.woff2') format('woff2'),
-         url('arvo-regular-webfont.woff') format('woff'),
-         url('arvo-regular-webfont.ttf') format('truetype'),
-         url('arvo-regular-webfont.svg#arvoregular') format('svg');
+    src: url('../fonts/arvo/arvo-regular-webfont.eot');
+    src: url('../fonts/arvo/arvo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arvo/arvo-regular-webfont.woff2') format('woff2'),
+         url('../fonts/arvo/arvo-regular-webfont.woff') format('woff'),
+         url('../fonts/arvo/arvo-regular-webfont.ttf') format('truetype'),
+         url('../fonts/arvo/arvo-regular-webfont.svg#arvoregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -76,12 +76,12 @@
 /*Padres*/
 @font-face {
     font-family: 'arvobold';
-    src: url('arvo-bold-webfont.eot');
-    src: url('arvo-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('arvo-bold-webfont.woff2') format('woff2'),
-         url('arvo-bold-webfont.woff') format('woff'),
-         url('arvo-bold-webfont.ttf') format('truetype'),
-         url('arvo-bold-webfont.svg#arvobold') format('svg');
+    src: url('../fonts/arvo/arvo-bold-webfont.eot');
+    src: url('../fonts/arvo/arvo-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/arvo/arvo-bold-webfont.woff2') format('woff2'),
+         url('../fonts/arvo/arvo-bold-webfont.woff') format('woff'),
+         url('../fonts/arvo/arvo-bold-webfont.ttf') format('truetype'),
+         url('../fonts/arvo/arvo-bold-webfont.svg#arvobold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -153,7 +153,6 @@ ul{
 
 .nav la a {
 	position: relative;
-	padding:0px 18px;
 	font-size: 25px;
 	text-transform: uppercase;
 	display: inline-block;
@@ -303,10 +302,13 @@ section{
 
 /*Footer*/
 img.redessociales{
-	width: 22px;
+    margin-top: -8px;
+    width: 22px;
     float: right;
-    margin-left: 5px;
-    margin-right: 8px;
+    /* align-items: center; */
+    margin-left: 8px;
+    /* position: absolute; */
+    margin-right: 16px;
 }
 footer{
 	clear: both;

@@ -1,0 +1,57 @@
+/*ANIMACIÓ patinador*/
+@-webkit-keyframes patinador {
+ 
+from {
+      left: -200px;
+	  opacity: 1;
+      }
+ 
+to {
+      left: 700px;
+      opacity: 1;
+    }
+	 
+ }
+ 
+@-webkit-keyframes banco {
+ 
+from {
+      left: 700px;
+	  opacity: 1;
+      }
+ 
+to {
+      left: -700px;
+      opacity: 1;
+    }
+	 
+ }
+
+#banner{
+	color:red;
+	background-color: blue;
+	width: 1000px;
+	height: 130px;
+}
+
+#patinador {
+	position:relative;
+	-webkit-animation-name: patinador;
+	-webkit-animation-duration: 6s;
+	-webkit-animation-iteration-count: 2;
+	-webkit-animation-direction: right;
+	-webkit-animation-timing-function: ease-in;
+	float: left;
+	right: 60px;
+}
+
+#banco {
+	position:relative;
+	-webkit-animation-name: banco;
+	-webkit-animation-duration: 6s;
+	-webkit-animation-iteration-count: 2;
+	-webkit-animation-direction: right;
+	-webkit-animation-timing-function: ease-in;
+	float: left;
+	right: 60px;
+}

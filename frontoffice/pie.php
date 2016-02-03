@@ -26,9 +26,9 @@
 	</div>
 	<span>
 		© 1996-2015, ttounkyo.com, Inc. o afiliados. Todos los derechos reservados.
-	
-	<a href="facebook.com"><img class="redessociales" src="imagenes/face.png" alt="logo"></a>
-	<a href="facebook.com"><img class="redessociales" src="imagenes/insta.png" alt="logo"></a>
-	<a href="facebook.com"><img class="redessociales" src="imagenes/twitter.png" alt="logo"></a>
+
+	<a href="#"><img class="redessociales" src="imagenes/face.png" alt="logo"></a>
+	<a href="#"><img class="redessociales" src="imagenes/insta.png" alt="logo"></a>
+	<a href="#"><img class="redessociales" src="imagenes/twitter.png" alt="logo"></a>
 	</span>
 </footer>

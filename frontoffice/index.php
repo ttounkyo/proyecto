@@ -1,4 +1,4 @@
-ï»¿<?php
+<?php
 session_start();
 require_once "../funciones.php";
 
@@ -16,6 +16,8 @@ if (!isset($_GET['sec'])) {
 		<title>HOME</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="css/principal.css">
+		<link rel="stylesheet" href="./lightbox2/dist/css/lightbox.css" >
+		<link rel="stylesheet" href="./lightbox2/dist/css/lightbox.min.css">
 		<link rel="shortcut icon" href="./imagenes/favicon.ico" type="image/x-icon" />
 		<link rel="apple-touch-icon" sizes="57x57" href="./imagenes/apps/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="./imagenes/apps/apple-icon-60x60.png">
@@ -34,7 +36,7 @@ if (!isset($_GET['sec'])) {
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
-		<!-- Librerias aÃ±adidas por mi
+		<!-- Librerias añadidas por mi
 		<script src="js/fastclick.js"></script>
 		<script src="js/scroll.js"></script>
 		<script src="js/fixed-responsive-nav.js"></script>
@@ -42,7 +44,7 @@ if (!isset($_GET['sec'])) {
 		-->
 	</head>
 	<body>
-		<!-- Hacer cada archivo contenido de la pagina en otro porque serÃ¡ mucha la complicacion que tendremos
+		<!-- Hacer cada archivo contenido de la pagina en otro porque será mucha la complicacion que tendremos
 		Podemos poner en otra carpeta y gestionar el FrontOffice -->
 		<header>
 <?php
@@ -51,12 +53,11 @@ require_once "nav.php";
 </header>
 		<div class="equals">
 			<div class="row"><!-- aside -->
+<aside class="buscador">
 <?php
 require_once "sidebar.php";
-// ob_get_flush();
-
 ?>
-
+</aside>
 				<section><!-- breadcrumb -->
 					<div class="breadcrumbs">
 						hola
@@ -111,7 +112,7 @@ case 'compra':
 	require_once './factura/compra.php';
 	break;
 case 'guardarpdf':
-	require_once "./compra_pdf.php";
+	require_once "compra_pdf.php";
 	break;
 default:
 	require_once "patines.php";
@@ -124,6 +125,9 @@ default:
 <?php
 require_once "pie.php";
 ?>
-		<script type="text/javascript" src="js/funciones_index.js"></script>
+
+		<script type="text/javascript" src="js/funciones_index.js"/>
+		<script src="./lightbox2/dist/js/lightbox.js"/>
+		<script src="./lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
 	</body>
 </html>
