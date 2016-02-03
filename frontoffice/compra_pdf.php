@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Html2Pdf Library - example
  *
