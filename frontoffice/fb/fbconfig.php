@@ -2,17 +2,10 @@
 session_start();
 // added in v4.0.0
 require_once 'autoload.php';
-use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
-use Facebook\FacebookResponse;
-use Facebook\FacebookSDKException;
 use Facebook\FacebookRequestException;
-use Facebook\FacebookAuthorizationException;
-use Facebook\GraphObject;
-use Facebook\Entities\AccessToken;
-use Facebook\HttpClients\FacebookCurlHttpClient;
-use Facebook\HttpClients\FacebookHttpable;
+use Facebook\FacebookSession;
 
 // init app with app id and secret
 FacebookSession::setDefaultApplication('1731751890388215', '4e064db0ea2c37c6d9198d866a9b047e');
@@ -46,7 +39,7 @@ if (isset($session)) {
 	echo $_SESSION['EMAIL'] = $femail;
 	echo "<br><br>";
 	/* ---- header location after session ----*/
-	header("Location: index.php");
+	header("Location: ../index.php?sec=userfb");
 } else {
 	$permissions = array(
 		'email',

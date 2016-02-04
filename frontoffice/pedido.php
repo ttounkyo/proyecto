@@ -58,8 +58,8 @@ if (isset($_REQUEST['id'])) {
  	<?php if ($cantidad <= 0) {
 
 		?>
- 		<span class="btn">No puede pedir este articulo</span>
- 		<?php } else {?>
+		<span class="btn">No puede pedir este articulo</span>
+<?php } else {?>
 	<button class="btn" type="submit">Pedir</button>
 
 <?php

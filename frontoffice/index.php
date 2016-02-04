@@ -91,6 +91,9 @@ case 'logout':
 case 'facebook':
 	require_once "./fb/fbconfig.php";
 	break;
+case 'userfb':
+	echo "usuario Registrado";
+	break;
 case 'buscador':
 	require_once "buscador.php";
 	break;

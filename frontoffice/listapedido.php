@@ -2,7 +2,7 @@
 require_once "../funciones.php";
 
 $db = conectarBD();
-if ((empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']))) {
+if ((isset($_SESSION['usuariofront']) || isset($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) && isset($_REQUEST['id'])) {
 
 	?>
 	<form action="index.php?sec=compra" method="POST">
@@ -90,7 +90,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 	</form>
 
 <?php
-} else if (empty($_REQUEST['id'])) {
+} else if (empty($_REQUEST['id']) && empty($_SESSION['carrito'])) {
 	echo "<h1>No hay nada en el carrito :)</h1>";
 }
 
