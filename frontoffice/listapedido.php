@@ -2,10 +2,10 @@
 require_once "../funciones.php";
 
 $db = conectarBD();
-if ((empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) && !empty($_REQUEST['id'])) {
+if ((empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']))) {
 
 	?>
-	<form action="index.php?sec=compra&id=<?php echo $_REQUEST['id'] ?>" method="POST">
+	<form action="index.php?sec=compra" method="POST">
  	<div>
  		<label for="">Metodo de pago.</label>
  		<br>
@@ -57,6 +57,7 @@ if (isset($_REQUEST['id'])) {
 	// }
 
 	if (isset($_SESSION['carrito'])) {
+		echo "hola";
 		foreach ($_SESSION['carrito'] as $key => $value) {
 			echo '<tr>
 			<td><img id="imagen" src="../backoffice/' . $value['ruta'] . '" alt="imagen"></td>

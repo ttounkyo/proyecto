@@ -1,7 +1,7 @@
 <h1>Compras</h1>
 
 <?php
-if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']) && isset($_REQUEST['id'])) {
+if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 
 	require_once "../funciones.php";
 	$db = conectarBD();
@@ -17,7 +17,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']) && isset($
 	}
 
 	// $cantidad	= $_POST['cantidad'];
-	// $id      	= $_REQUEST['id'];
+	// $i
 	$i = 0;
 	$j = 0;
 	while ($i < count($_SESSION['id']) && $j < count($_SESSION['can'])) {
