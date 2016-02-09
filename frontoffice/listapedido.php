@@ -4,7 +4,7 @@ require_once "../funciones.php";
 $db = conectarBD();
 if ((isset($_SESSION['usuariofront']) || isset($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']))) {
 
-?>
+	?>
 	<form action="index.php?sec=compra" method="POST">
  	<div>
  		<label for="">Metodo de pago.</label>
@@ -71,22 +71,22 @@ if (isset($_REQUEST['id'])) {
 		}
 	}
 
-?>
+	?>
  </table>
  	<button class="btn"><a href="index.php?sec=patines">Seguir pidiendo</a></button>
  	<button class="btn"><a href="index.php?sec=cancelar">Cancelar Pedido</a></button>
- 	<button class="btn"><a href="index.php?sec=guardarpdf">Guardar</a></button>
+ 	<button class="btn"><a href="index.php?sec=guardarpdf">Guardar HTML</a></button>
 <?php
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
-?>
-			<button class="btn" type="submit">Comprar</button>
+		?>
+			<button class="btn" type="submit"><a href="index.php?sec=comprapdf"></a>Comprar PDF</button>
 <?php
 } else {
-?>
+		?>
 		<span onclick="showmenu()" class="btn">Tiene que iniciar session para comprar :)</span>
 <?php
 }
-?>
+	?>
 	</form>
 
 <?php

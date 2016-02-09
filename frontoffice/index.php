@@ -111,6 +111,9 @@ case 'imagenes':
 case 'videos':
 	require_once "./galeria/videos/videos.php";
 	break;
+// case 'comprapdf':
+// 	require_once './factura/compra.php';
+// 	break;
 case 'compra':
 	require_once './factura/compra.php';
 	break;

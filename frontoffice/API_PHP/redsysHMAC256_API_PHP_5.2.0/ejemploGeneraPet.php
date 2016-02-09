@@ -10,10 +10,10 @@
 	$terminal="871";
 	$moneda="978";
 	$trans="0";
-	$url="";
+	$url="http://ttounkyo-ttounkyo.rhcloud.com/frontoffice/index.php";
 	$urlOKKO="";
-	$id=time();
-	$amount="145";
+	$id=;// id pedido time()
+	$amount="145"; // Cantidad
 	
 	// Se Rellenan los campos
 	$miObj->setParameter("DS_MERCHANT_AMOUNT",$amount);

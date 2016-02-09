@@ -119,17 +119,17 @@ $pdf->addCadreTVAs();
 //                  "Remarque" => "texte"              // texte
 $tot_prods = array(array("px_unit" => $preu_final, "qte" => 1, "tva" => 1),
 	array("px_unit" => 10, "qte" => 1, "tva" => 1));
-$tab_tva = array("1" => 19.6,
+$tab_tva = array("1" => 21.0,
 	"2" => 5.5);
 $params = array("RemiseGlobale" => 1,
 	"remise_tva" => 1, // {la remise s'applique sur ce code TVA}
 	"remise" => 0, // {montant de la remise}
-	"remise_percent" => 10, // {pourcentage de remise sur ce montant de TVA}
+	"remise_percent" => 10, // porcentaje de descuento sobre el importe del IVA
 	"FraisPort" => 1,
-	"portTTC" => 10, // montant des frais de ports TTC
+	"portTTC" => 0, //importe de los costes de envío IVA
 	// par defaut la TVA = 19.6 %
 	"portHT" => 0, // montant des frais de ports HT
-	"portTVA" => 19.6, // valeur de la TVA a appliquer sur le montant HT
+	"portTVA" => 21.0, // valor del IVA que se aplicará a la cantidad neta
 	"AccompteExige" => 1,
 	"accompte" => 0, // montant de l'acompte (TTC)
 	"accompte_percent" => 15, // pourcentage d'acompte (TTC)
