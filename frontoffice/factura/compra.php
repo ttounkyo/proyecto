@@ -29,6 +29,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 
 	$query = "INSERT INTO pedidos(idmetodopago,estado,username)
 				VALUES ('$metodop','$estado','$user');";
+	// al cancelar el pedido hay que eliminar lo que has hecho
 	$result_vpro = $db->query($query) or die($db->connect_error . " en la línea ");
 
 	$querypedido = "SELECT MAX(idpedido) AS 'maxpedido' FROM pedidos WHERE username = '$user'";
@@ -82,7 +83,7 @@ $cols = array("REFERENCIA" => "L",
 	"I.V.A." => "C");
 $pdf->addLineFormat($cols);
 $pdf->addLineFormat($cols);
-
+$preu_final = 0;
 $y = 109;
 foreach ($_SESSION['carrito'] as $key => $value) {
 	$line = array("REFERENCIA" => $value['titulo'],
@@ -93,6 +94,7 @@ foreach ($_SESSION['carrito'] as $key => $value) {
 		"I.V.A." => "1");
 	$size = $pdf->addLine($y, $line);
 	$y += $size + 2;
+	$preu_final += ($value['cantidad'] * $value['precio']);
 }
 
 $pdf->addCadreTVAs();
@@ -115,7 +117,7 @@ $pdf->addCadreTVAs();
 //                      "accompte"         => value    // montant de l'acompte (TTC)
 //                      "accompte_percent" => percent  // pourcentage d'acompte (TTC)
 //                  "Remarque" => "texte"              // texte
-$tot_prods = array(array("px_unit" => 600, "qte" => 1, "tva" => 1),
+$tot_prods = array(array("px_unit" => $preu_final, "qte" => 1, "tva" => 1),
 	array("px_unit" => 10, "qte" => 1, "tva" => 1));
 $tab_tva = array("1" => 19.6,
 	"2" => 5.5);

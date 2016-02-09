@@ -1,10 +1,10 @@
-<a href="index.php"><img id="logo" src="imagenes/logo.png" alt="logo"></a>
+﻿<a href="index.php"><img id="logo" src="imagenes/logo.png" alt="logo"></a>
 <div class="login">
 
 <nav>
 	<ul class="log">
 		<la id="login">
-			 <?php
+<?php
 if (isset($_SESSION['usuariofront'])) {
 	$nomuser = $_SESSION['usuariofront'];
 	echo "<a href='index.php?sec=logout'><span>$nomuser Logout</span></a>";
@@ -12,24 +12,23 @@ if (isset($_SESSION['usuariofront'])) {
 	$nomuser = $_SESSION['usuario'];
 	echo "<a href='../backoffice/principal/index.php?sec=logout'><span>$nomuser Logout</span></a>";
 } else {
+	echo "<span onclick=showmenu()>Login</span>";
+?>
 
-	echo "<span onclick=showmenu()>Login</span>"
-	?>
-
-		            <div id="menulog">
-						<form action='../backoffice/usuario/login.php' method='POST'>
-							<label>Usuario</label><br><input type='text' name='nomuser'><br>
-							<label>Contraseña</label><br><input type='password' name='pass'><br>
-							<button class='btn' type='submit' name='enviar'>Enviar</button>
-						</form>
-						<a class="btn" href="./fb/fbconfig.php">Facebook</a>
-					</div>
-			<?php
+	<div id="menulog">
+		<form action='../backoffice/usuario/login.php' method='POST'>
+			<label>Usuario</label><br><input type='text' name='nomuser'><br>
+			<label>Contraseña</label><br><input type='password' name='pass'><br>
+			<button class='btn' type='submit' name='enviar'>Enviar</button>
+		</form>
+		<a class="btn" href="./fb/fbconfig.php">Facebook</a>
+	</div>
+<?php
 }
 ?>
 		</la>
 		<la>
-			<?php
+<?php
 if (isset($_SESSION['usuario']) && !isset($_SESSION['usuariofront'])) {
 	echo "<a href='../backoffice/principal/index.php'>BACK-OFFICE</a>";
 
@@ -39,7 +38,6 @@ if (isset($_SESSION['usuario']) && !isset($_SESSION['usuariofront'])) {
 	echo "<a href='index.php?sec=registro'>Registrate</a>";
 }
 ?>
-
 		</la>
 		<la><a href="#">Idioma</a></la>
 	</ul>

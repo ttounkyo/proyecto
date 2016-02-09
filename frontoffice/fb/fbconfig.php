@@ -39,7 +39,7 @@ if (isset($session)) {
 	echo $_SESSION['EMAIL'] = $femail;
 	echo "<br><br>";
 	/* ---- header location after session ----*/
-	header("Location: ../index.php?sec=userfb");
+	header("Location: usuariofb.php");
 } else {
 	$permissions = array(
 		'email',

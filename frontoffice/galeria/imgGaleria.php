@@ -18,7 +18,7 @@ function showFiles($path) {
 	for ($i = 0; $i < count($files); $i++) {
 		echo "<div>";
 		echo '<a class="example-image-link" href="' . $path . "/" . $files[$i] . '" data-lightbox="example-set">
-		<img class="example-image" src="' . $path . "/" . $files[$i] . '" alt="" width="300px" height="300px"/>
+		<img class="posi" class="example-image" src="' . $path . "/" . $files[$i] . '" alt="" width="300px" height="300px"/>
 		</a>';
 		echo "</div>";
 	}

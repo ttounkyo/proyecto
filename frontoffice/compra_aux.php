@@ -1,4 +1,4 @@
-<style type="text/css">
+﻿<style type="text/css">
 <!--
 table{
     border: 1px solid black;
@@ -39,9 +39,6 @@ td {
       <page_header>
           <img src="./imagenes/logo.png" alt="logo">
       </page_header>
-      <page_footer>
-           Page footer
-      </page_footer>
 
     <table>
 <!--         <thead>
@@ -60,11 +57,10 @@ td {
 		<th>Cantidad</th>
 		</tr>
 <?php
-
 if (isset($_SESSION['carrito'])) {
 	foreach ($_SESSION['carrito'] as $key => $value) {
 		?>
-        		<tr>
+        <tr>
 			<td><img id="imagen" src="../backoffice/<?=$value['ruta']?>" alt="imagen"></td>
 			<td class="textupper"><?=$value['titulo']?></td>
 			<td class="textupper"><?=$value['descripcion']?></td>
@@ -84,4 +80,9 @@ if (isset($_SESSION['carrito'])) {
             </tr>
         </tfoot> -->
     </table>
- </page>
+
+
+      <page_footer>
+           Page footer
+      </page_footer>
+</page>

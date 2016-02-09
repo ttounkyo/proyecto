@@ -24,7 +24,7 @@ try {
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
-	// ob_end_clean();
+	ob_end_clean();
 	$html2pdf->Output('recibo.pdf');
 
 } catch (Html2PdfException $e) {

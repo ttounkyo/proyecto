@@ -16,8 +16,8 @@ if (!isset($_GET['sec'])) {
 		<title>HOME</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="css/principal.css">
-		<link rel="stylesheet" href="./lightbox2/dist/css/lightbox.css" >
-		<link rel="stylesheet" href="./lightbox2/dist/css/lightbox.min.css">
+		<link rel="stylesheet" href="lightbox2/dist/css/lightbox.min.css">
+
 		<link rel="shortcut icon" href="./imagenes/favicon.ico" type="image/x-icon" />
 		<link rel="apple-touch-icon" sizes="57x57" href="./imagenes/apps/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="./imagenes/apps/apple-icon-60x60.png">
@@ -63,7 +63,6 @@ require_once "sidebar.php";
 						hola
 					</div>
 <?php
-ob_get_flush();
 switch ($seccion) {
 case 'pedido':
 	require_once 'pedido.php';
@@ -86,7 +85,7 @@ case 'registro':
 	break;
 case 'logout':
 	unset($_SESSION['usuariofront']);
-	header("location:index.php");
+	header("location:index.php?=patines");
 	break;
 case 'facebook':
 	require_once "./fb/fbconfig.php";
@@ -130,8 +129,7 @@ default:
 require_once "pie.php";
 ?>
 
-		<script type="text/javascript" src="js/funciones_index.js"/>
-		<script src="./lightbox2/dist/js/lightbox.js"/>
-		<script src="./lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+		<script type="text/javascript" src="js/funciones_index.js"></script>
+		<script src="lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
 	</body>
 </html>
