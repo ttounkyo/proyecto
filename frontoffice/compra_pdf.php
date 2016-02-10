@@ -18,7 +18,7 @@ use Spipu\Html2Pdf\Html2Pdf;
 try {
 	//ob_clean();
 	ob_start();
-	include dirname(__FILE__) . './compra_aux.php';
+	include 'compra_aux.php';
 	$content = ob_get_clean();
 
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
