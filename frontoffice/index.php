@@ -74,8 +74,6 @@ case 'destroy':
 	session_destroy();
 	break;
 case 'cancelar':
-	unset($_SESSION['id']);
-	unset($_SESSION['can']);
 	unset($_SESSION['carrito']);
 
 	//header("location:index.php?sec=patines");
@@ -111,12 +109,12 @@ case 'imagenes':
 case 'videos':
 	require_once "./galeria/videos/videos.php";
 	break;
-// case 'comprapdf':
-// 	require_once './factura/compra.php';
-// 	break;
 case 'compra':
-	require_once 'api_php/redsys/ejemploGeneraPet.php';
+	require_once './factura/compra.php';
 	break;
+// case 'compra':
+// 	require_once 'api_php/redsys/generapedido.php';
+// 	break;
 case 'guardarpdf':
 	require_once "compra_pdf.php";
 	break;

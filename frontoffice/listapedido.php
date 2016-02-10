@@ -41,11 +41,8 @@ if (isset($_REQUEST['id'])) {
 		$resultado = mysqli_query($db, $verproductos);
 
 		while ($registro = mysqli_fetch_array($resultado)) {
-			$productoscarrito = array("titulo" => $registro['titulo'], "precio" => $registro['precio'], "descripcion" => $registro['descripcion'], "cantidad" => $cantidad, "ruta" => str_replace("../", "", $registro['ruta']), "marca" => $registro['marca']);
+			$productoscarrito = array("id" => $registro['idproducto'], "titulo" => $registro['titulo'], "precio" => $registro['precio'], "descripcion" => $registro['descripcion'], "cantidad" => $cantidad, "ruta" => str_replace("../", "", $registro['ruta']), "marca" => $registro['marca']);
 			$_SESSION['carrito'][] = $productoscarrito;
-			// $_SESSION['pedido'][] = $products;
-			$_SESSION['id'][] = $registro['idproducto'];
-			$_SESSION['can'][] = $cantidad;
 		}
 	}
 	desconectarBD($db);

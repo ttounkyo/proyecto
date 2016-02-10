@@ -16,31 +16,23 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 		$user = $_SESSION['usuariofront'];
 	}
 
-	// $cantidad	= $_POST['cantidad'];
-	// $i
-	$i = 0;
-	$j = 0;
-	while ($i < count($_SESSION['id']) && $j < count($_SESSION['can'])) {
-		$actu = "UPDATE productos SET cantidad = cantidad - " . $_SESSION['can'][$j] . " WHERE idproducto = '" . $_SESSION['id'][$i] . "';";
-		$res = $db->query($actu) or die($db->connect_error . " en la línea ");
-		$i++;
-		$j++;
+	foreach ($_SESSION['carrito'] as $key => $value) {
+		$actu = "UPDATE productos SET cantidad = cantidad - " . $value['cantidad'] . " WHERE idproducto = '" . $value['id'] . "';";
+		mysqli_query($db, $actu);
 	}
 
 	$query = "INSERT INTO pedidos(idmetodopago,estado,username)
 				VALUES ('$metodop','$estado','$user');";
 	// al cancelar el pedido hay que eliminar lo que has hecho
-	$result_vpro = $db->query($query) or die($db->connect_error . " en la línea ");
+	$result_vpro = $db->query($query) or die($db->connect_error . " en la línea " . $db->connect_errno);
 
 	$querypedido = "SELECT MAX(idpedido) AS 'maxpedido' FROM pedidos WHERE username = '$user'";
 	$resultado = mysqli_query($db, $querypedido);
 	$registro = mysqli_fetch_array($resultado)['maxpedido'];
-	$i = 0;
-	while ($i < count($_SESSION['id'])) {
-		$query = "INSERT INTO pedidos_has_productos
-	 		VALUES ('$registro','" . $_SESSION['id'][$i] . "');";
+
+	foreach ($_SESSION['carrito'] as $key => $value) {
+		$query = "INSERT INTO pedidos_has_productos VALUES ('$registro','" . $value['id'] . "');";
 		mysqli_query($db, $query);
-		$i++;
 	}
 
 	//header('location:index.php?sec=cancelar');
