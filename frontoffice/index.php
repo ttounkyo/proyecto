@@ -115,7 +115,7 @@ case 'videos':
 // 	require_once './factura/compra.php';
 // 	break;
 case 'compra':
-	require_once './factura/compra.php';
+	require_once './api_php/redsys/ejemploGeneraPet.php';
 	break;
 case 'guardarpdf':
 	require_once "compra_pdf.php";

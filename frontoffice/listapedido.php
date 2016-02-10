@@ -79,7 +79,7 @@ if (isset($_REQUEST['id'])) {
 <?php
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 		?>
-			<button class="btn" type="submit"><a href="index.php?sec=comprapdf"></a>Comprar PDF</button>
+			<button class="btn" type="submit"><a href="index.php?sec=compra"></a>Comprar PDF</button>
 <?php
 } else {
 		?>
