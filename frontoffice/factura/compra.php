@@ -16,11 +16,6 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 		$user = $_SESSION['usuariofront'];
 	}
 
-	foreach ($_SESSION['carrito'] as $key => $value) {
-		$actu = "UPDATE productos SET cantidad = cantidad - " . $value['cantidad'] . " WHERE idproducto = '" . $value['id'] . "';";
-		mysqli_query($db, $actu);
-	}
-
 	$query = "INSERT INTO pedidos(idmetodopago,estado,username)
 				VALUES ('$metodop','$estado','$user');";
 	// al cancelar el pedido hay que eliminar lo que has hecho
@@ -30,11 +25,12 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 	$resultado = mysqli_query($db, $querypedido);
 	$registro = mysqli_fetch_array($resultado)['maxpedido'];
 
-	foreach ($_SESSION['carrito'] as $key => $value) {
+	foreach ($_SESSION['carrito'] as $value) {
+		$actu = "UPDATE productos SET cantidad = cantidad - " . $value['cantidad'] . " WHERE idproducto = '" . $value['id'] . "';";
+		mysqli_query($db, $actu);
 		$query = "INSERT INTO pedidos_has_productos VALUES ('$registro','" . $value['id'] . "');";
 		mysqli_query($db, $query);
 	}
-
 	//header('location:index.php?sec=cancelar');
 	desconectarBD($db);
 
