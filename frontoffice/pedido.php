@@ -9,9 +9,9 @@ if (empty($_SESSION['usuariofront']) || empty($_SESSION['usuario']) || !empty($_
 
 <table id="listadopro">
 	<tr>
-	<th>Imagen</th>
-	<th>Titulo</th>
-	<th>Descripcion</th>
+	<th>Imagen </th>
+	<th>Titulo </th>
+	<th>Descripcion </th>
 	<th>Precio</th>
 	<th>Marca</th>
 	<th>Cantidad</th>
