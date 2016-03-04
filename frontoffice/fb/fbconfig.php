@@ -46,13 +46,13 @@ if (isset($session)) {
 	/* ---- header location after session ----*/
 	require_once "../../funciones.php";
 
-	echo $fbfullname;
+	echo "user: " . $fbuname . " Nombre " . $fbfullname . " mail " . $femail;
 	$db = conectarBD();
 	if ($db->connect_errno > 0) {
 		die('Imposible conectar [' . $db->connect_error . ']');
 	}
 
-	$count = "SELECT COUNT(*) AS numero FROM usuarios WHERE email = '$femail';";
+	$count = "SELECT COUNT(*) AS numero FROM usuarios WHERE email = '{$femail}';";
 	$result = $db->query($count);
 	$row = $result->fetch_array(MYSQL_BOTH)['numero'];
 
@@ -66,7 +66,7 @@ if (isset($session)) {
 			echo "Usuario añadido";
 		} else {
 			echo "Error el usuario ya existe en la base de datos!";
-			die($db->connect_error . " en la línea ");
+			die($db->connect_error . " en la línea " . $db->connect_errno);
 		}
 	} else {
 		echo "Ya esta registrado a olvidado su contraseña";
