@@ -52,9 +52,9 @@ if (isset($session)) {
 		die('Imposible conectar [' . $db->connect_error . ']');
 	}
 
-	$count = "SELECT COUNT(*) FROM usuarios WHERE email = '$femail';";
+	$count = "SELECT COUNT(*) AS numero FROM usuarios WHERE email = '$femail';";
 	$result = $db->query($count);
-	$row = $result->fetch_array(MYSQL_BOTH);
+	$row = $result->fetch_array(MYSQL_BOTH)['numero'];
 	echo "ljnlajks" . $row;
 	$cont = "56706V.vDo81k";
 
