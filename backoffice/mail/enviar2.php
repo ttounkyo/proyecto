@@ -28,8 +28,7 @@ if (isset($_REQUEST['id'])) {
 		$nom = $regitro['nombre'];
 		$correo = $regitro['email'];
 
-		$mensaje = "
-							<html>
+		$email->msgHTML("	<html>
 							<head>
 							  <title>Recordatorio de Producto en oferta</title>
 							</head>
@@ -39,7 +38,7 @@ if (isset($_REQUEST['id'])) {
 							  <p>Mensaje para " . $nom . "</p>
 							</body>
 							</html>
-							";
+							");
 		$email->Body = $mensaje;
 
 		$email->AddAddress($correo);

@@ -5,7 +5,7 @@ require_once '../../funciones.php';
 
 if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 
-	$id = $_REQUEST['id'];
+	$uid = $_REQUEST['id'];
 	$mensaje = $_POST['textmail'];
 	$emessage = "--" . $uid . "\n";
 	$emessage .= "Content-type:text/html; charset=iso-8859-1\n";
