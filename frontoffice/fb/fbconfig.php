@@ -35,19 +35,17 @@ if (isset($session)) {
 	// get response
 	$graphObject = $response->getGraphObject();
 	var_dump($graphObject);
-	$fbid = $graphObject->getProperty('id'); // To Get Facebook ID
-	$fbuname = $graphObject->getProperty('username'); // To Get Facebook Username
-	$fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
+	$fbuname = $graphObject->getProperty('first_name'); // To Get Facebook Username
+	$fblastname = $graphObject->getProperty('last_name'); // To Get Facebook full name
+	$fbuser = $fbuname . $fblastname;
 	$femail = $graphObject->getProperty('email'); // To Get Facebook email ID
 	/* ---- Session Variables -----*/
-	$_SESSION['FBID'] = $fbid;
-	$_SESSION['USERNAME'] = $fbuname;
-	$_SESSION['FULLNAME'] = $fbfullname;
-	$_SESSION['EMAIL'] = $femail;
+
+	$_SESSION['USERNAME'] = $fbuser;
 	/* ---- header location after session ----*/
 	require_once "../../funciones.php";
 
-	echo "user: " . $fbuname . " Nombre " . $fbfullname . " mail " . $femail;
+	echo "user: " . $fbuser . " Nombre " . $fbuname . " apellidos " . $fblastname . " mail " . $femail;
 	$db = conectarBD();
 	if ($db->connect_errno > 0) {
 		die('Imposible conectar [' . $db->connect_error . ']');
@@ -58,8 +56,8 @@ if (isset($session)) {
 	$row = $result->fetch_array(MYSQL_BOTH)['numero'];
 
 	if ($row == 0) {
-		$query = "INSERT INTO usuarios(username,nombre,email)
-			VALUES ('$fbuname','$fbfullname','$femail');";
+		$query = "INSERT INTO usuarios(username,nombre,apellidos,email)
+			VALUES ('$fbuser','$fbuname','$fblastname','$femail');";
 
 		if ($resul = $db->query($query)) {
 			echo "Usuario añadido";
