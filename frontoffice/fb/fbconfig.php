@@ -37,12 +37,9 @@ if (isset($session)) {
 	var_dump($graphObject);
 	$fbuname = $graphObject->getProperty('first_name'); // To Get Facebook Username
 	$fblastname = $graphObject->getProperty('last_name'); // To Get Facebook full name
-	$fbuser = $fbuname . $fblastname;
+	$fbuser = ($fbuname . $fblastname);
 	$femail = $graphObject->getProperty('email'); // To Get Facebook email ID
-	/* ---- Session Variables -----*/
 
-	$_SESSION['USERNAME'] = $fbuser;
-	/* ---- header location after session ----*/
 	require_once "../../funciones.php";
 
 	echo "user: " . $fbuser . " Nombre " . $fbuname . " apellidos " . $fblastname . " mail " . $femail;
@@ -60,14 +57,15 @@ if (isset($session)) {
 			VALUES ('$fbuser','$fbuname','$fblastname','$femail');";
 
 		if ($resul = $db->query($query)) {
-			echo "Usuario añadido";
+			$_SESSION['usuariofront'] = $fbuser;
+			header('location:../index.php');
 		} else {
 			echo "Error el usuario ya existe en la base de datos!";
 			die($db->connect_error . " en la línea " . $db->connect_errno);
 		}
 	} else {
 		echo "Ya esta registrado a olvidado su contraseña";
-		header("http://ttounkyo-ttounkyo.rhcloud.com/");
+		// header("http://ttounkyo-ttounkyo.rhcloud.com/");
 	}
 
 	desconectarBD($db);
