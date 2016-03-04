@@ -39,14 +39,42 @@ if (isset($session)) {
 	$fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
 	$femail = $graphObject->getProperty('email'); // To Get Facebook email ID
 	/* ---- Session Variables -----*/
-	echo "<br><br>";
-	echo $_SESSION['FBID'] = $fbid;
-	echo $_SESSION['USERNAME'] = $fbuname;
-	echo $_SESSION['FULLNAME'] = $fbfullname;
-	echo $_SESSION['EMAIL'] = $femail;
-	echo "<br><br>";
+	$_SESSION['FBID'] = $fbid;
+	$_SESSION['USERNAME'] = $fbuname;
+	$_SESSION['FULLNAME'] = $fbfullname;
+	$_SESSION['EMAIL'] = $femail;
 	/* ---- header location after session ----*/
-	header("Location: usuariofb.php");
+	require_once "../../funciones.php";
+
+	echo $fbfullname;
+	$db = conectarBD();
+	if ($db->connect_errno > 0) {
+		die('Imposible conectar [' . $db->connect_error . ']');
+	}
+
+	$count = "SELECT COUNT(*) FROM usuarios WHERE email = '$femail';";
+	$result = $db->query($count);
+	$row = $result->fetch_array(MYSQL_BOTH);
+	echo "ljnlajks" . $row;
+	$cont = "56706V.vDo81k";
+
+	if ($row == 0) {
+		$query = "INSERT INTO usuarios(username,nombre,email,password)
+			VALUES ('$fbuname','$fbfullname','$femail','$cont');";
+
+		if ($resul = $db->query($query)) {
+			echo "Usuario añadido";
+		} else {
+			echo "Error el usuario ya existe en la base de datos!";
+			die($db->connect_error . " en la línea ");
+		}
+	} else {
+		echo "Ya esta registrado a olvidado su contraseña";
+		header("http://ttounkyo-ttounkyo.rhcloud.com/");
+	}
+
+	desconectarBD($db);
+
 } else {
 	$permissions = array(
 		'email',
