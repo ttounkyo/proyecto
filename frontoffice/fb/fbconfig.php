@@ -57,14 +57,14 @@ if (isset($session)) {
 			VALUES ('$fbuser','$fbuname','$fblastname','$femail');";
 
 		if ($resul = $db->query($query)) {
-			$_SESSION['usuario'] = $fbuser;
+			$_SESSION['usuariofront'] = $fbuser;
 			header('http://ttounkyo-ttounkyo.rhcloud.com');
 		} /* else {
 			echo "Error el usuario ya existe en la base de datos!";
 			die($db->connect_error . " en la línea " . $db->connect_errno);
 		}*/
 	} else {
-		$_SESSION['usuario'] = $fbuser;
+		$_SESSION['usuariofront'] = $fbuser;
 		header("http://ttounkyo-ttounkyo.rhcloud.com");
 	}
 
