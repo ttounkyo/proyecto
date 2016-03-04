@@ -1,8 +1,7 @@
 ﻿<?php
 session_start();
 // added in v4.0.0
-require_once 'autoload.php';
-use Facebook\FacebookSession;
+require_once 'autoload.php';use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
 use Facebook\FacebookResponse;
@@ -34,6 +33,7 @@ if (isset($session)) {
 	$response = $request->execute();
 	// get response
 	$graphObject = $response->getGraphObject();
+	var_dump($graphObject);
 	$fbid = $graphObject->getProperty('id'); // To Get Facebook ID
 	$fbuname = $graphObject->getProperty('username'); // To Get Facebook Username
 	$fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
@@ -56,11 +56,9 @@ if (isset($session)) {
 	$result = $db->query($count);
 	$row = $result->fetch_array(MYSQL_BOTH)['numero'];
 
-	$cont = "56706V.vDo81k";
-
 	if ($row == 0) {
-		$query = "INSERT INTO usuarios(username,nombre,email,password)
-			VALUES ($fbuname,$fbfullname,$femail,$cont);";
+		$query = "INSERT INTO usuarios(username,nombre,email)
+			VALUES ('$fbuname','$fbfullname','$femail');";
 
 		if ($resul = $db->query($query)) {
 			echo "Usuario añadido";
