@@ -28,25 +28,16 @@ if (isset($_REQUEST['id'])) {
 		$nom = $regitro['nombre'];
 		$correo = $regitro['email'];
 
-		$email->msgHTML("	<html>
-							<head>
-							  <title>Recordatorio de Producto en oferta</title>
-							</head>
-							<body>
-							  <h1>Producto en oferta.</h1>
-							  <h2>" . $titulo . "</h2>
-							  <p>Mensaje para " . $nom . "</p>
-							</body>
-							</html>
-							");
+		$email->MsgHTML("<h1>" . $nomP . "</h1><p>" . $descr . "</p><br>" . $text . "<br><h2>Preu: " . $preu . "</h2>
+		<b><em>Descompte: " . $descompte . "</em></b>");
 		$email->Body = $mensaje;
 
 		$email->AddAddress($correo);
 		//$email->AddAddress( 'desti2' );
 
-		// $file_to_attach = $_SERVER['DOCUMENT_ROOT'].$ruta;
+		$file_to_attach = $_SERVER['DOCUMENT_ROOT'] . $ruta;
 
-		// $email->AddAttachment( $file_to_attach , 'logo.png' );
+		$email->AddAttachment($file_to_attach, 'logo.png');
 
 		//$email->AddAttachment( $_SERVER['DOCUMENT_ROOT']."/img/cristalina.jpg" , 'cristalina' );
 
