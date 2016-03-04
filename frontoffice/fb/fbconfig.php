@@ -55,12 +55,12 @@ if (isset($session)) {
 	$count = "SELECT COUNT(*) AS numero FROM usuarios WHERE email = '$femail';";
 	$result = $db->query($count);
 	$row = $result->fetch_array(MYSQL_BOTH)['numero'];
-	echo "ljnlajks" . $row;
+
 	$cont = "56706V.vDo81k";
 
 	if ($row == 0) {
 		$query = "INSERT INTO usuarios(username,nombre,email,password)
-			VALUES ('$fbuname','$fbfullname','$femail','$cont');";
+			VALUES ($fbuname,$fbfullname,$femail,$cont);";
 
 		if ($resul = $db->query($query)) {
 			echo "Usuario añadido";
