@@ -1,7 +1,8 @@
 ﻿<?php
 session_start();
 // added in v4.0.0
-require_once 'autoload.php';use Facebook\FacebookSession;
+require_once 'autoload.php';
+use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
 use Facebook\FacebookResponse;
@@ -29,7 +30,7 @@ try {
 // see if we have a session
 if (isset($session)) {
 	// graph api request for user data
-	$request = new FacebookRequest($session, 'GET', '/me');
+	$request = new FacebookRequest($session, 'GET', '/me?fields=first_name,last_name,gender,birthday,email,location');
 	$response = $request->execute();
 	// get response
 	$graphObject = $response->getGraphObject();
