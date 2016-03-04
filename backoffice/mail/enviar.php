@@ -15,7 +15,7 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 	$emessage .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\n"; // use different content types here
 	$emessage .= "Content-Transfer-Encoding: base64\n";
 	$emessage .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\n\n";
-	$emessage .= $content . "\n\n";
+	$emessage .= $mensaje . "\n\n";
 	$emessage .= "--" . $uid . "--";
 	$db = conectarBD();
 	$verproductos = "SELECT marca FROM productos WHERE idproducto = {$id}";
@@ -31,7 +31,7 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 		$correo = $registro['email'];
 		$cabeceras = 'From: webmaster@example.com';
 
-		if (mail($correo, $titulo, $mensaje, $cabeceras)) {
+		if (mail($correo, $titulo, $emessage, $cabeceras)) {
 //,
 			echo "<br>mensaje enviado!! a " . $nom . "<br>";
 		} else {
