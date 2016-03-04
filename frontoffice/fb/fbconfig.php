@@ -2,17 +2,10 @@
 session_start();
 // added in v4.0.0
 require_once 'autoload.php';
-use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
-use Facebook\FacebookResponse;
-use Facebook\FacebookSDKException;
 use Facebook\FacebookRequestException;
-use Facebook\FacebookAuthorizationException;
-use Facebook\GraphObject;
-use Facebook\Entities\AccessToken;
-use Facebook\HttpClients\FacebookCurlHttpClient;
-use Facebook\HttpClients\FacebookHttpable;
+use Facebook\FacebookSession;
 
 // init app with app id and secret
 FacebookSession::setDefaultApplication('1731751890388215', '4e064db0ea2c37c6d9198d866a9b047e');
@@ -42,7 +35,7 @@ if (isset($session)) {
 
 	require_once "../../funciones.php";
 
-	echo "user: " . $fbuser . " Nombre " . $fbuname . " apellidos " . $fblastname . " mail " . $femail;
+	// echo "user: " . $fbuser . " Nombre " . $fbuname . " apellidos " . $fblastname . " mail " . $femail;
 	$db = conectarBD();
 	if ($db->connect_errno > 0) {
 		die('Imposible conectar [' . $db->connect_error . ']');
@@ -58,14 +51,14 @@ if (isset($session)) {
 
 		if ($resul = $db->query($query)) {
 			$_SESSION['usuariofront'] = $fbuser;
-			header('http://ttounkyo-ttounkyo.rhcloud.com');
+			header('Location: http://ttounkyo-ttounkyo.rhcloud.com');
 		} /* else {
 			echo "Error el usuario ya existe en la base de datos!";
 			die($db->connect_error . " en la línea " . $db->connect_errno);
 		}*/
 	} else {
 		$_SESSION['usuariofront'] = $fbuser;
-		header("http://ttounkyo-ttounkyo.rhcloud.com");
+		header("Location: http://ttounkyo-ttounkyo.rhcloud.com");
 	}
 
 	desconectarBD($db);
