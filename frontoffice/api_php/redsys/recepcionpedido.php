@@ -20,7 +20,7 @@ if (!empty($_POST)) {
 
 	if ($firma === $signatureRecibida) {
 		echo "FIRMA OK";
-		require_once '../../factura/compra.php';
+		require_once './factura/compra.php';
 	} else {
 		echo "FIRMA KO";
 	}
