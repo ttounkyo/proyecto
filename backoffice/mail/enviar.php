@@ -1,41 +1,60 @@
-<h1>Enviamiento de correo</h1>
 <?php
 
+require_once './PHPMailer-master/class.phpmailer.php';
 require_once '../../funciones.php';
+require_once './PHPMailerAutoload.php';
 
 if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 
 	$uid = $_REQUEST['id'];
 	$mensaje = $_POST['textmail'];
-	$emessage = "--" . $uid . "\n";
-	$emessage .= "Content-type:text/html; charset=iso-8859-1\n";
-	$emessage .= "Content-Transfer-Encoding: 7bit\n\n";
-	$emessage .= $message . "\n\n";
-	$emessage .= "--" . $uid . "\n";
-	$emessage .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\n"; // use different content types here
-	$emessage .= "Content-Transfer-Encoding: base64\n";
-	$emessage .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\n\n";
-	$emessage .= $mensaje . "\n\n";
-	$emessage .= "--" . $uid . "--";
-	$db = conectarBD();
-	$verproductos = "SELECT marca FROM productos WHERE idproducto = {$id}";
-	$resul_prod = $db->query($verproductos) or die($db->connect_error . " en la línea " . $db->connect_error);
 
-	$titulo = $resul_prod->fetch_array(MYSQLI_BOTH)['marca'];
+	$db = conectarBD();
+	$verproductos = "SELECT marca,ruta FROM productos WHERE idproducto = {$id}";
+	$resul_prod = $db->query($verproductos) or die($db->connect_error . " en la línea " . $db->connect_errno);
+	$marca = $resul_prod->fetch_array(MYSQLI_BOTH)['marca'];
+	$imagen = $resul_prod->fetch_array(MYSQLI_BOTH)['ruta'];
+
 	$cliente = "SELECT * FROM usuarios WHERE rol='cliente';";
-	$result_cli = $db->query($cliente) or die($db->connect_error . " en la línea " . $db->connect_error);
+	$result_cli = $db->query($cliente) or die($db->connect_error . " en la línea " . $db->connect_errno);
 
 	while ($registro = $result_cli->fetch_array(MYSQLI_BOTH)) {
 
 		$nom = $registro['nombre'];
-		$correo = $registro['email'];
-		$cabeceras = 'From: webmaster@example.com';
+		$correocliente = $registro['email'];
+		$cabeceras = 'webmaster@example.com';
 
-		if (mail($correo, $titulo, $emessage, $cabeceras)) {
-//,
-			echo "<br>mensaje enviado!! a " . $nom . "<br>";
+		$correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
+
+		//Usamos el SetFrom para decirle al script quien envia el correo
+		$correo->SetFrom($cabeceras, "Mi Codigo PHP");
+
+		//Usamos el AddReplyTo para decirle al script a quien tiene que responder el correo
+		$correo->AddReplyTo("me@micodigophp.com", "Mi Codigo PHP");
+
+		//Usamos el AddAddress para agregar un destinatario
+		$correo->AddAddress($correocliente);
+
+		//Ponemos el asunto del mensaje
+		$correo->Subject = "Oferta";
+
+		/*
+			 * Si deseamos enviar un correo con formato HTML utilizaremos MsgHTML:
+			 * $correo->MsgHTML("<strong>Mi Mensaje en HTML</strong>");
+			 * Si deseamos enviarlo en texto plano, haremos lo siguiente:
+			 * $correo->IsHTML(false);
+			 * $correo->Body = "Mi mensaje en Texto Plano";
+		*/
+		$correo->MsgHTML("<h1>" . $nomP . "</h1><p>" . $descr . "</p><br>" . $text . "<br><h2>Preu: " . $preu . "</h2><b><em>Descompte: " . $descompte . "</em></b>");
+
+		//Si deseamos agregar un archivo adjunto utilizamos AddAttachment
+		$correo->AddAttachment($imagen);
+
+		//Enviamos el correo
+		if (!$correo->Send()) {
+			echo "Hubo un error: " . $correo->ErrorInfo;
 		} else {
-			echo "error al enviar el mensaje.";
+			echo "Mensaje enviado con exito.";
 		}
 		sleep(3);
 	}

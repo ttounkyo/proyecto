@@ -13,7 +13,7 @@ if (isset($_REQUEST['id'])) {
 	$titulo = mysqli_fetch_array($resul_prod)['titulo'];
 
 	$cliente = "SELECT * FROM usuarios WHERE rol='cliente';";
-	$result_cli = $db->query($cliente) or die($db->connect_error . " en la línea ");
+	$result_cli = $db->query($cliente) or die($db->connect_error . " en la línea " . $db->connect_errno);
 
 	$email = new PHPMailer();
 
