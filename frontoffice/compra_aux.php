@@ -1,12 +1,11 @@
 ﻿<style type="text/css">
 <!--
  page_header{
-    min-height: 150px;
     backcolor: #483E3D;
 }
 table#listadopro {
    /* font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
-    font-size: 11px;
+    font-size: 15px;
     margin: 45px;
     /* width: 238px; */
     /* text-align: left; */
@@ -19,7 +18,7 @@ p{
     text-align: center;
 }
 th {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: normal;
     padding: 3px;
     background-color: white;
@@ -33,7 +32,7 @@ tr{
 }
 
 td {
-    padding: 11px;
+    padding: 14px;
     background-color: white;
     color: #52625A;
     font-size: 10px;
@@ -41,14 +40,14 @@ td {
 }
 
 img#imagen {
-    width: 99px;
-    height: 93px;
+    width: 109px;
+    height: 103px;
 }
 
 -->
 </style>
-    <page>
-    <page_header>
+    <page backtop="7mm" backbottom="7mm" backleft="10mm" backright="10mm">
+    <page_header backcolor="#483E3D" backtop="20mm">
           <img src="./imagenes/logo.png" alt="logo">
     </page_header>
       <br><br><br><br>
@@ -70,7 +69,7 @@ if (isset($_SESSION['carrito'])) {
 			<td><img id="imagen" src="../backoffice/<?=$value['ruta']?>" alt="imagen"></td>
 			<td class="textupper"><?=$value['titulo']?></td>
 			<td class="textupper"><?=$value['descripcion']?></td>
-			<td class="textupper"><?=$value['precio']?></td>
+			<td class="textupper"><?=$value['precio']?> €</td>
 			<td class="textupper"><?=$value['marca']?></td>
 			<td><?=$value['cantidad']?></td>
 		</tr>
