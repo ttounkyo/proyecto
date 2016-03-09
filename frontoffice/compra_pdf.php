@@ -15,9 +15,8 @@ try {
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
-
 	ob_end_clean();
-	$html2pdf->Output('recibo.pdf');
+	$html2pdf->Output();
 
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
