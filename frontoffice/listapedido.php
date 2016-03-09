@@ -65,7 +65,7 @@ if (isset($_REQUEST['id'])) {
 			<td>' . $value['cantidad'] . '</td>
 			</tr>
 		';
-			$cantidad += $value['precio'];
+			$cantidad += ($value['precio'] * $value['cantidad']);
 		}
 	}
 
