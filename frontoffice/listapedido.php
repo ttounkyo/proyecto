@@ -76,8 +76,51 @@ if (isset($_REQUEST['id'])) {
  	<button class="btn"><a href="compra_pdf.php">Guardar HTML</a></button>
 <?php
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
+
+		// Se incluye la librería
+		include './api_php/redsys/apiRedsys.php';
+// Se crea Objeto
+		$miObj = new RedsysAPI;
+
+// Valores de entrada
+		$fuc = "TTOUNKYO";
+		$terminal = "871";
+		$moneda = "978";
+		$trans = "0";
+		$url = "http://ttounkyo-ttounkyo.rhcloud.com/frontoffice/";
+		$urlOKKO = "http://ttounkyo-ttounkyo.rhcloud.com/frontoffice/api_php/redsys/recepcionpedido.php";
+		$id = time(); // id pedido time()
+		$amount = $_REQUEST['cant'] . "00"; // Cantidad
+
+// Se Rellenan los campos
+		$miObj->setParameter("DS_MERCHANT_AMOUNT", $amount);
+		$miObj->setParameter("DS_MERCHANT_ORDER", strval($id));
+		$miObj->setParameter("DS_MERCHANT_MERCHANTCODE", $fuc);
+		$miObj->setParameter("DS_MERCHANT_CURRENCY", $moneda);
+		$miObj->setParameter("DS_MERCHANT_TRANSACTIONTYPE", $trans);
+		$miObj->setParameter("DS_MERCHANT_TERMINAL", $terminal);
+		$miObj->setParameter("DS_MERCHANT_MERCHANTURL", $url);
+		$miObj->setParameter("DS_MERCHANT_URLOK", $urlOKKO);
+		$miObj->setParameter("DS_MERCHANT_URLKO", $urlOKKO);
+
+//Datos de configuración
+		$version = "HMAC_SHA256_V1";
+		$kc = 'Mk9m98IfEblmPfrpsawt7BmxObt98Jev'; //Clave recuperada de CANALES
+		// Se generan los parámetros de la petición
+		$request = "";
+		$params = $miObj->createMerchantParameters();
+		$signature = $miObj->createMerchantSignature($kc);
+
 		?>
-			<button class="btn" type="submit"><a href='index.php?sec=compra&cant=<?=$cantidad?>'>Comprar PDF/PP</a></button>
+
+<form name="frm" action="http://jguasch.esy.es/redsys/lacaixa.php" method="POST" target="_blank">
+<input type="hidden" name="Ds_SignatureVersion" value="<?php echo $version; ?>"/></br>
+ <input type="hidden" name="Ds_MerchantParameters" value="<?php echo $params; ?>"/></br>
+<input type="hidden" name="Ds_Signature" value="<?php echo $signature; ?>"/></br>
+<button class="btn" type="submit"><a href='index.php?sec=compra&cant=<?=$cantidad?>'>Comprar PDF/PP</a></button>
+</form>
+
+
 <?php
 } else {
 		?>
