@@ -20,7 +20,7 @@ if (!empty($_POST)) {
 
 	if ($firma === $signatureRecibida) {
 		echo "FIRMA OK";
-		include '../../factura/compra.php';
+		header("location:index.php?sec=compra2");
 	} else {
 		echo "FIRMA KO";
 	}

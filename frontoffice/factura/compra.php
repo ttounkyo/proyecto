@@ -1,6 +1,4 @@
-﻿<h1>Compras</h1>
-
-<?php
+﻿<?php
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 	require_once "../funciones.php";
 	require_once '../backoffice/PHPMailer-master/class.phpmailer.php';
@@ -151,5 +149,8 @@ if (!$correo->Send()) {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 
 }
-
+unset($_SESSION['carrito']);
 ?>
+
+<h1>Compras</h1>
+<p>Compra realizada con exito</p>
