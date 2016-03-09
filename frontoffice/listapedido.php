@@ -6,10 +6,10 @@ if (empty($_SESSION['usuariofront']) || empty($_SESSION['usuario'])) {
 
 	?>
 	<form action="index.php?sec=compra" method="POST">
- 	<div>
+	<h1>Realizar pedido!</h1>
+ 	<!-- <div>
  		<label for="">Metodo de pago.</label>
- 		<br>
- 		<select name="pago">
+ 		<br> <select name="pago">
 		  <option value="paypal">PayPal</option>
 		  <option value="mastercard">MasterCard</option>
 		  <option value="visa" selected>Visa</option>
@@ -20,7 +20,7 @@ if (empty($_SESSION['usuariofront']) || empty($_SESSION['usuario'])) {
  		<label for="">Estado</label>
  		<br>
  		<input type="text" name="estado" value="Pedido">
- 	</div>
+ 	</div> -->
 
 
 <table id="listadopro">

@@ -6,8 +6,8 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 	$db = conectarBD();
 	if ($db->connect_errno > 0) {die('Imposible conectar [' . $db->connect_error . ']');}
 
-	$metodop = $_POST['pago'];
-	$estado = $_POST['estado'];
+	$metodop = "ingreso banco";
+	$estado = "pedido";
 	if (isset($_SESSION['usuario'])) {
 		// Usuario al que se le enviará el MAIL
 		$user = $_SESSION['usuario'];
