@@ -31,7 +31,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 	$username = $datos['username'];
 	$direccion = $datos['direccion'];
 	$email = $datos['email'];
-	echo "Correo" . $email . " electronico<br>";
+	// echo "Correo" . $email . " electronico<br>";
 
 	foreach ($_SESSION['carrito'] as $value) {
 		$actu = "UPDATE productos SET cantidad = cantidad - " . $value['cantidad'] . " WHERE idproducto = '" . $value['id'] . "';";
@@ -147,7 +147,7 @@ if (!$correo->Send()) {
 	echo "Hubo un error: " . $correo->ErrorInfo . "<br>";
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
-
+	header("location: index.php?sec=cancelar");
 }
 ?>
 
