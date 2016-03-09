@@ -19,13 +19,14 @@ try {
 	//ob_clean();
 	ob_start();
 	include 'compra_aux.php';
-	// $content = ob_get_clean();
-	$content = ob_get_contents();
+	$content = ob_get_clean();
+
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
-	ob_end_clean();
-	$html2pdf->Output();
+
+	// ob_end_clean();
+	$html2pdf->Output('recibo.pdf');
 
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
