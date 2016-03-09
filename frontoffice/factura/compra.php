@@ -122,4 +122,5 @@ $pdf->addCadreEurosFrancs();
 ob_get_clean();
 $destino = "./facturas/factura" . $registro . ".pdf";
 $pdf->Output($destino, "M");
+
 ?>
