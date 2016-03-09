@@ -4,7 +4,7 @@ table{
     border: 1px solid black;
 }
 table#listadopro {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+   /* font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
     font-size: 7px;
     margin: 45px;
     /* width: 238px; */
