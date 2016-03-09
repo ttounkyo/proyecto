@@ -1,4 +1,4 @@
-﻿<page backtop="-297mm" backbottom="7mm" backleft="10mm" backright="10mm">
+﻿<page>
     <page_header>
         <table class="page_header">
             <tr>
