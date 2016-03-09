@@ -109,13 +109,13 @@ case 'imagenes':
 case 'videos':
 	require_once "./galeria/videos/videos.php";
 	break;
-case 'compra2':
+case 'compra':
 	require_once './factura/compra.php';
 	//header("location:index.php?sec=patines");
 	break;
-case 'compra':
-	require_once 'api_php/redsys/generapedido.php';
-	break;
+// case 'compra':
+// 	require_once 'api_php/redsys/generapedido.php';
+// 	break;
 case 'guardarpdf':
 	require_once "compra_pdf.php";
 	break;
