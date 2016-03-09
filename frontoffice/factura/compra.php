@@ -48,7 +48,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 // (c) Xavier Nicolay
 // Exemple de génération de devis/facture PDF
 //ob_clean();
-require 'invoice.php';
+require '../factura/invoice.php';
 //ob_get_clean();
 $pdf = new PDF_Invoice('P', 'mm', 'A4');
 $pdf->AddPage();
