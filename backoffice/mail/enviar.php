@@ -50,7 +50,10 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 			 * $correo->IsHTML(false);
 			 * $correo->Body = "Mi mensaje en Texto Plano";
 		*/
-		$correo->MsgHTML("<h1>" . $nom . "</h1><p>" . $marca . "</p><br>" . $mensaje . "<br><h2>Preu: " . $precio . "€</h2><b><em>Descompte: " . $rango . "</em></b>");
+		$correo->MsgHTML("
+<img src='../../frontoffice/imagenes/logo.png' alt='logo'>
+<h1> " . $nom . "</h1><p>" . $marca . "</p><br>" . $mensaje . "<br><h2>Preu:  " . $precio . " €</h2><b><em>Descompte: " . $rango . "%</em></b>
+");
 
 		//Si deseamos agregar un archivo adjunto utilizamos AddAttachment
 		$correo->AddAttachment($imagen);
