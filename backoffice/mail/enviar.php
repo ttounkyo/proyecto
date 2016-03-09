@@ -24,25 +24,25 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 	$result_cli = $db->query($cliente) or die($db->connect_error . " en la línea " . $db->connect_errno);
 
 	$correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
-	$correo->IsSMTP();
-	$correo->SMTPAuth = true;
-	$correo->SMTPSecure = 'tls';
-	$correo->Host = "smtp.gmail.com";
-	$correo->Port = 587;
-	$correo->Username = "ttounkyo@gmail.com";
-	$correo->Password = "ttounkyodaw2016";
+	// $correo->IsSMTP();
+	// $correo->SMTPAuth = true;
+	// $correo->SMTPSecure = 'tls';
+	// $correo->Host = "smtp.gmail.com";
+	// $correo->Port = 587;
+	// $correo->Username = "ttounkyo@gmail.com";
+	// $correo->Password = "ttounkyodaw2016";
 
 	while ($registro = $result_cli->fetch_array(MYSQLI_BOTH)) {
 
 		$nom = $registro['nombre'];
 		$correocliente = $registro['email'];
-		$cabeceras = 'webmaster@example.com';
+		$cabeceras = 'ttounkyo@gmail.com';
 
 		//Usamos el SetFrom para decirle al script quien envia el correo
-		$correo->SetFrom("ttounkyo@gmail.com", "Cuenta de administrador");
+		$correo->SetFrom($cabeceras, "Cuenta de administrador");
 
 		//Usamos el AddReplyTo para decirle al script a quien tiene que responder el correo
-		$correo->AddReplyTo("ttounkyo@gmail.com", "Cuenta de administrador");
+		$correo->AddReplyTo($cabeceras, "Cuenta de administrador");
 
 		//Usamos el AddAddress para agregar un destinatario
 		$correo->AddAddress($correocliente);
