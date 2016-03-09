@@ -1,8 +1,8 @@
 <?php
 
-require_once './PHPMailer-master/class.phpmailer.php';
+require_once '../PHPMailer-master/class.phpmailer.php';
 require_once '../../funciones.php';
-require_once './PHPMailerAutoload.php';
+require_once '../PHPMailer-master/PHPMailerAutoload.php';
 
 if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 
