@@ -19,8 +19,8 @@ try {
 	//ob_clean();
 	ob_start();
 	include 'compra_aux.php';
-	$content = ob_get_clean();
-
+	// $content = ob_get_clean();
+	$content = ob_get_contents();
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);

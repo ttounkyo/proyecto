@@ -147,7 +147,7 @@ if (!$correo->Send()) {
 	echo "Hubo un error: " . $correo->ErrorInfo . "<br>";
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
-	header("location: index.php?sec=cancelar");
+	header("location:index.php?sec=cancelar");
 }
 ?>
 
