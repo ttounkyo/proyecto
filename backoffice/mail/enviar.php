@@ -10,7 +10,7 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 	$mensaje = $_POST['textmail'];
 
 	$db = conectarBD();
-	$verproductos = "SELECT marca,ruta FROM productos WHERE idproducto = {$id}";
+	$verproductos = "SELECT marca,ruta FROM productos WHERE idproducto ='$id'";
 	$resul_prod = $db->query($verproductos) or die($db->connect_error . " en la línea " . $db->connect_errno);
 	$marca = $resul_prod->fetch_array(MYSQLI_BOTH)['marca'];
 	$imagen = $resul_prod->fetch_array(MYSQLI_BOTH)['ruta'];
