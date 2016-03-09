@@ -6,19 +6,19 @@ require_once '../PHPMailer-master/PHPMailerAutoload.php';
 
 if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 
-	$uid = $_REQUEST['id'];
+	$id = $_REQUEST['id'];
 	$mensaje = $_POST['textmail'];
 	$rango = $_POST['amountRange'];
 
 	$db = conectarBD();
-	$verproductos = "SELECT marca,ruta,precio AS datos FROM productos WHERE idproducto ='$id'";
+	$verproductos = "SELECT * FROM productos WHERE idproducto ='$id'";
 	$resul_prod = $db->query($verproductos) or die($db->connect_error . " en la línea " . $db->connect_errno);
-	$marca = $resul_prod->fetch_array(MYSQLI_BOTH)['datos']['marca'];
-	echo $marca;
-	$imagen = $resul_prod->fetch_array(MYSQLI_BOTH)['datos']['ruta'];
-	echo $imagen;
-	$precio = $resul_prod->fetch_array(MYSQLI_BOTH)['datos']['precio'];
-	echo $precio . "<br><br><br>";
+
+	$datos = $resul_prod->fetch_array(MYSQLI_BOTH);
+	$marca = $datos['marca'];
+	$precio = $datos['precio'];
+	$imagen = $datos['ruta'];
+	// echo $marca, $precio, $imagen;
 
 	$cliente = "SELECT * FROM usuarios WHERE rol='cliente';";
 	$result_cli = $db->query($cliente) or die($db->connect_error . " en la línea " . $db->connect_errno);
@@ -57,9 +57,9 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 
 		//Enviamos el correo
 		if (!$correo->Send()) {
-			echo "Hubo un error: " . $correo->ErrorInfo;
+			echo "Hubo un error: " . $correo->ErrorInfo . "<br>";
 		} else {
-			echo "Mensaje enviado con exito." . $nom;
+			echo "Mensaje enviado con exito a " . $nom . "<br>";
 		}
 		sleep(3);
 	}
