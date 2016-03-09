@@ -98,24 +98,24 @@ foreach ($_SESSION['carrito'] as $key => $value) {
 $pdf->addCadreTVAs();
 
 $tot_prods = array(array("px_unit" => $preu_final, "qte" => 1, "tva" => 1),
-	array("px_unit" => 10, "qte" => 1, "tva" => 1));
+	array("px_unit" => 0, "qte" => 1, "tva" => 1));
 $tab_tva = array(
 	"1" => 21.0,
 	"2" => 5.5);
 $params = array(
-	"RemiseGlobale" => 0,
-	"remise_tva" => 0, // {la remise s'applique sur ce code TVA}
+	"RemiseGlobale" => 1,
+	"remise_tva" => 1, // {la remise s'applique sur ce code TVA}
 	"remise" => 0, // {montant de la remise}
-	"remise_percent" => 0, // porcentaje de descuento sobre el importe del IVA
+	"remise_percent" => 10, // porcentaje de descuento sobre el importe del IVA
 	"FraisPort" => 1,
 	"portTTC" => 0, //importe de los costes de envío IVA
 	// par defaut la TVA = 19.6 %
 	"portHT" => 0, // montant des frais de ports HT
 	"portTVA" => 21.0, // valor del IVA que se aplicará a la cantidad neta
-	"AccompteExige" => 0,
+	"AccompteExige" => 1,
 	"accompte" => 0, // montant de l'acompte (TTC)
-	"accompte_percent" => 0, // pourcentage d'acompte (TTC)
-	"Remarque" => "A ver si hay descuento");
+	"accompte_percent" => 15, // pourcentage d'acompte (TTC)
+	"Remarque" => "Avec un acompte, svp...");
 
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
