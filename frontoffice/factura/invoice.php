@@ -292,7 +292,7 @@ class PDF_Invoice extends FPDF {
 		$this->RoundedRect($r1, $y1, ($r2 - $r1), ($y2 - $y1), 2.5, 'D');
 		$this->Line($r1, $mid, $r2, $mid);
 		$this->SetXY($r1 + 16, $y1 + 1);
-		$this->Cell(40, 4, "NIF Intracommunautaire", '', '', "C");
+		$this->Cell(40, 4, "Nº Pedido", '', '', "C");
 		$this->SetFont("Arial", "", 10);
 		$this->SetXY($r1 + 16, $y1 + 5);
 		$this->Cell(40, 5, $tva, '', '', "C");
@@ -423,8 +423,8 @@ class PDF_Invoice extends FPDF {
 		$this->SetX($r1 + 63);
 		$this->Cell(10, 4, "% IVA");
 		$this->SetX($r1 + 78);
-		$this->Cell(10, 4, "GASTOS");
-		$this->SetX($r1 + 100);
+		// $this->Cell(10, 4, "GASTOS");
+		// $this->SetX($r1 + 100);
 		$this->Cell(10, 4, "TOTAUX");
 		$this->SetFont("Arial", "B", 6);
 		$this->SetXY($r1 + 93, $y2 - 8);

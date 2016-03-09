@@ -115,7 +115,7 @@ $params = array(
 	"AccompteExige" => 1,
 	"accompte" => 0, // montant de l'acompte (TTC)
 	"accompte_percent" => 15, // pourcentage d'acompte (TTC)
-	"Remarque" => "Avec un acompte, svp...");
+	"Remarque" => "Descuento del 15% en todos nuestros productos");
 
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
