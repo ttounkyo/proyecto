@@ -48,12 +48,12 @@ $pdf->addSociete("TTOUNKYO",
 	"Calle Ignacio Walis s/n\n");
 $pdf->fact_dev("Divisa", "001 ");
 $pdf->temporaire("FACTURA");
-$pdf->addDate("18/01/2016");
+$pdf->addDate(date('d/m/Y'));
 $pdf->addClient("CL01");
 $pdf->addPageNumber("1");
 $pdf->addClientAdresse("Ste\nM. XXXX\n3ème étage\n33, rue d'ailleurs\n75000 PARIS");
 $pdf->addReglement("Cheque a recepción de factura");
-$pdf->addVencimiento("03/12/2003");
+$pdf->addVencimiento(date('d/m/Y', strtotime('+one year')));
 $pdf->addNumNif("FR888777666");
 $pdf->addReference("Devis ... du ....");
 $cols = array("REFERENCIA" => 23,
@@ -125,6 +125,6 @@ $params = array("RemiseGlobale" => 1,
 
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
-ob_get_clean();
+// ob_get_clean();
 $pdf->Output();
 ?>
