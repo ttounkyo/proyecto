@@ -34,6 +34,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 	$username = $datos['username'];
 	$direccion = $datos['direccion'];
 	$email = $datos['email'];
+	echo "Correo".$email" electronico<br>";
 
 	foreach ($_SESSION['carrito'] as $value) {
 		$actu = "UPDATE productos SET cantidad = cantidad - " . $value['cantidad'] . " WHERE idproducto = '" . $value['id'] . "';";
@@ -131,9 +132,6 @@ $destino = "factura/control/factura" . $registro . ".pdf";
 $pdf->Output($destino, "F");
 
 $correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
-
-$nom = $registro['nombre'];
-$correocliente = $registro['email'];
 $cabeceras = 'ttounkyo@gmail.com';
 
 //Usamos el SetFrom para decirle al script quien envia el correo
@@ -163,9 +161,9 @@ $correo->AddAttachment($destino);
 
 //Enviamos el correo
 if (!$correo->Send()) {
-	echo "Hubo un error: " . $correo->ErrorInfo . "<br>";
+	echo "Hubo un error: " . $correo->ErrorInfo . $email. "<br>";
 } else {
-	echo "Mensaje enviado con exito a " . $nom . "<br>";
+	echo "Mensaje enviado con exito a " . $username . "<br>";
 	header("location: index.php?sec=patines");
 }
 
