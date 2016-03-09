@@ -56,6 +56,15 @@ height: 103px;
 
         </table>
     </page_header>
+    <page_footer>
+        <p>
+            © 1996-2015, ttounkyo.com, Inc. o afiliados. Todos los derechos reservados.<br>
+            ¿Necesitas ayuda?<br>
+            Localizar o gestionar compras<br>
+            Tarifas y políticas de envío<br>
+            Devolver o reemplazar productos<br>
+        </p>
+    </page_footer>
     <br><br><br><br><br><br>
     <table id="listadopro">
         <tr class="algo">
@@ -71,7 +80,7 @@ if (isset($_SESSION['carrito'])) {
 	foreach ($_SESSION['carrito'] as $key => $value) {
 		?>
         <tr class="algo">
-            <td><img id="imagen" src="../backoffice/<?=$value['ruta']?>" alt="imagen"></td>
+            <td><img id="imagen" src="../backoffice/<?=$value['ruta']?>" alt="imagen" /></td>
             <td><?=$value['titulo']?></td>
             <td><?=$value['descripcion']?></td>
             <td><?=$value['precio']?> €</td>
@@ -83,13 +92,5 @@ if (isset($_SESSION['carrito'])) {
 }
 ?>
     </table>
-    <page_footer>
-        <p>
-            © 1996-2015, ttounkyo.com, Inc. o afiliados. Todos los derechos reservados.<br>
-            ¿Necesitas ayuda?<br>
-            Localizar o gestionar compras<br>
-            Tarifas y políticas de envío<br>
-            Devolver o reemplazar productos<br>
-        </p>
-    </page_footer>
+
 </page>
