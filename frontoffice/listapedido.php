@@ -90,7 +90,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 		$url = "http://ttounkyo-ttounkyo.rhcloud.com/frontoffice/";
 		$urlOKKO = "http://ttounkyo-ttounkyo.rhcloud.com/frontoffice/api_php/redsys/recepcionpedido.php";
 		$id = time(); // id pedido time()
-		$amount = $_REQUEST['cant'] . "00"; // Cantidad
+		$amount = $cantidad . "00"; // Cantidad
 
 // Se Rellenan los campos
 		$miObj->setParameter("DS_MERCHANT_AMOUNT", $amount);
@@ -117,7 +117,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 <input type="hidden" name="Ds_SignatureVersion" value="<?php echo $version; ?>"/></br>
  <input type="hidden" name="Ds_MerchantParameters" value="<?php echo $params; ?>"/></br>
 <input type="hidden" name="Ds_Signature" value="<?php echo $signature; ?>"/></br>
-<button class="btn" type="submit"><a href='index.php?sec=compra&cant=<?=$cantidad?>'>Comprar PDF/PP</a></button>
+<button class="btn" type="submit"><a href='index.php?sec=compra'>Comprar PDF/PP</a></button>
 </form>
 
 
