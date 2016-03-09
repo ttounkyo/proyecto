@@ -165,5 +165,5 @@ if (!$correo->Send()) {
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 }
-header("location:index.php?sec=patines");
+header("location:../index.php?sec=patines");
 ?>
