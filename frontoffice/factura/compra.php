@@ -25,10 +25,10 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 	$resultado = mysqli_query($db, $querypedido);
 	$registro = mysqli_fetch_array($resultado)['maxpedido'];
 
-	$queryuser = "SELECT * FROM usuarios WHERE username = '$user'";
+	$queryuser = "SELECT direccion AS 'dire' FROM usuarios WHERE username = '$user'";
 	$res_user = mysqli_query($db, $queryuser);
-	$direccion = mysqli_fetch_array($res_user)['direccion'];
-	$username = mysqli_fetch_array($res_user)['username'];
+	$direccion = mysqli_fetch_array($res_user)['dire'];
+	$username = mysqli_fetch_array($res_user)['dire'];
 
 	foreach ($_SESSION['carrito'] as $value) {
 		$actu = "UPDATE productos SET cantidad = cantidad - " . $value['cantidad'] . " WHERE idproducto = '" . $value['id'] . "';";
