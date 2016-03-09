@@ -29,8 +29,8 @@ border: 2px solid #e3e3e3;
 /* border-bottom: 1px solid #fff; */
 color: black;
 }
-tr{
-border: 2px solid #e3e3e3;
+tr.algo{
+border: 2px solid #E3E3E3;
 }
 td {
 padding: 14px;
@@ -58,7 +58,7 @@ height: 103px;
     </page_header>
     <br><br><br><br>
     <table id="listadopro">
-        <tr>
+        <tr class="algo">
             <th>Imagen</th>
             <th>Titulo</th>
             <th>Descripcion</th>
@@ -70,7 +70,7 @@ height: 103px;
 if (isset($_SESSION['carrito'])) {
 	foreach ($_SESSION['carrito'] as $key => $value) {
 		?>
-        <tr>
+        <tr class="algo">
             <td><img id="imagen" src="../backoffice/<?=$value['ruta']?>" alt="imagen"></td>
             <td><?=$value['titulo']?></td>
             <td><?=$value['descripcion']?></td>

@@ -1,6 +1,11 @@
 <style type="text/css">
 <!--
-    table.page_header {width: 100%; border: none; background-color: #DDDDFF; border-bottom: solid 1mm #AAAADD; padding: 2mm }
+    table.page_header {
+width: 100%;
+min-height: 150px;
+background-color: #483E3D;
+padding: 2mm
+}
     table.page_footer {width: 100%; border: none; background-color: #DDDDFF; border-top: solid 1mm #AAAADD; padding: 2mm}
     h1 {color: #000033}
     h2 {color: #000055}
@@ -18,6 +23,7 @@
             <tr>
                 <td style="width: 100%; text-align: left">
                     Exemple d'utilisation des bookmarks
+                     <img src="../../../frontoffice/imagenes/logo.png" alt="logo">
                 </td>
             </tr>
         </table>
