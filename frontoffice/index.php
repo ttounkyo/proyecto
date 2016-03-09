@@ -84,7 +84,7 @@ case 'registro':
 case 'logout':
 	unset($_SESSION['usuariofront']);
 	unset($_SESSION['carrito']);
-	header("location:index.php?=patines");
+	header("location:index.php?sec=patines");
 	break;
 case 'facebook':
 	require_once "./fb/fbconfig.php";
