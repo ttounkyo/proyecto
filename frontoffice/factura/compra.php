@@ -120,5 +120,5 @@ $params = array(
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
 ob_get_clean();
-$pdf->Output();
+$pdf->Output("facturas/factura" . $registro . ".pdf", "F");
 ?>

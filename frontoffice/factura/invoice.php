@@ -430,7 +430,7 @@ class PDF_Invoice extends FPDF {
 		$this->SetXY($r1 + 93, $y2 - 8);
 		$this->Cell(6, 0, "H.T.   :");
 		$this->SetXY($r1 + 93, $y2 - 3);
-		$this->Cell(6, 0, "T.V.A. :");
+		$this->Cell(6, 0, "I.V.A. :");
 	}
 
 	function addCadreEurosFrancs() {
