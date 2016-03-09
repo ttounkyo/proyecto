@@ -48,7 +48,12 @@ height: 103px;
 <page backtop="7mm" backbottom="7mm" backleft="10mm" backright="10mm">
     <page_header>
         <table class="page_header">
-            <img src="./imagenes/logo.png" alt="logo">
+            <tr>
+                <td style="width: 100%; text-align: left">
+                    <img src="./imagenes/logo.png" alt="logo">
+                </td>
+            </tr>
+
         </table>
     </page_header>
     <br><br><br><br>
