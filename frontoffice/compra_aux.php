@@ -2,12 +2,11 @@
 <!--
  page_header{
     min-height: 150px;
-    background-color: #483E3D;
-    overflow: hidden;
+    backcolor: #483E3D;
 }
 table#listadopro {
    /* font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
-    font-size: 7px;
+    font-size: 11px;
     margin: 45px;
     /* width: 238px; */
     /* text-align: left; */
@@ -20,7 +19,7 @@ p{
     text-align: center;
 }
 th {
-    font-size: 9px;
+    font-size: 13px;
     font-weight: normal;
     padding: 3px;
     background-color: white;
@@ -34,7 +33,7 @@ tr{
 }
 
 td {
-    padding: 8px;
+    padding: 11px;
     background-color: white;
     color: #52625A;
     font-size: 10px;
@@ -42,8 +41,8 @@ td {
 }
 
 img#imagen {
-    width: 79px;
-    height: 73px;
+    width: 99px;
+    height: 93px;
 }
 
 -->
@@ -52,7 +51,7 @@ img#imagen {
     <page_header>
           <img src="./imagenes/logo.png" alt="logo">
     </page_header>
-      <br><br><br>
+      <br><br><br><br>
 
     <table id="listadopro">
         <tr>
@@ -82,8 +81,9 @@ if (isset($_SESSION['carrito'])) {
     </table>
 
     <page_footer>
-        <span>© 1996-2015, ttounkyo.com, Inc. o afiliados. Todos los derechos reservados.</span><br>
+
            <p>
+        © 1996-2015, ttounkyo.com, Inc. o afiliados. Todos los derechos reservados.<br>
         ¿Necesitas ayuda?<br>
         Localizar o gestionar compras<br>
         Tarifas y políticas de envío<br>
