@@ -133,37 +133,24 @@ $pdf->Output($destino, "F");
 
 $correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
 $cabeceras = 'ttounkyo@gmail.com';
-
 //Usamos el SetFrom para decirle al script quien envia el correo
 $correo->SetFrom($cabeceras, "Cuenta de administrador");
-
 //Usamos el AddReplyTo para decirle al script a quien tiene que responder el correo
 $correo->AddReplyTo($cabeceras, "Cuenta de administrador");
-
 //Usamos el AddAddress para agregar un destinatario
 $correo->AddAddress($email);
-
 //Ponemos el asunto del mensaje
 $correo->Subject = "Factura";
-
-/*
- * Si deseamos enviar un correo con formato HTML utilizaremos MsgHTML:
- * $correo->MsgHTML("<strong>Mi Mensaje en HTML</strong>");
- * Si deseamos enviarlo en texto plano, haremos lo siguiente:
- * $correo->IsHTML(false);
- * $correo->Body = "Mi mensaje en Texto Plano";
- */
 $correo->IsHTML(false);
 $correo->Body = "Gracias por comprar nuestros productos";
-
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
 $correo->AddAttachment($destino);
-
 //Enviamos el correo
 if (!$correo->Send()) {
-	echo "Hubo un error: " . $correo->ErrorInfo . $email . "<br>";
+	echo "Hubo un error: " . $correo->ErrorInfo . "<br>";
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
+
 }
-header("location:../index.php?sec=patines");
+
 ?>
