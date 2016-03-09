@@ -29,9 +29,9 @@ border: 2px solid #e3e3e3;
 /* border-bottom: 1px solid #fff; */
 color: black;
 }
-/*tr.algo{
+tr.algo{
 border: 2px solid #E3E3E3;
-}*/
+}
 td {
 padding: 14px;
 background-color: white;
@@ -56,7 +56,7 @@ height: 103px;
 
         </table>
     </page_header>
-    <br><br><br><br>
+    <br><br><br><br><br><br>
     <table id="listadopro">
         <tr class="algo">
             <th>Imagen</th>
