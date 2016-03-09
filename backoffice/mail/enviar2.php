@@ -10,7 +10,6 @@ if (isset($_REQUEST['id'])) {
 	$db = conectarBD();
 	$verproductos = "SELECT titulo FROM productos WHERE idproducto = '$id";
 	$resul_prod = mysqli_query($db, $verproductos);
-	// $rutaimg 	= mysqli_fetch_array($resul_prod)['ruta'];
 	$titulo = mysqli_fetch_array($resul_prod)['titulo'];
 
 	$cliente = "SELECT * FROM usuarios WHERE rol='cliente';";
@@ -27,6 +26,7 @@ if (isset($_REQUEST['id'])) {
 
 		$nom = $regitro['nombre'];
 		$correo = $regitro['email'];
+		$ruta = $regitro['ruta'];
 
 		$email->MsgHTML("<h1>" . $nomP . "</h1><p>" . $descr . "</p><br>" . $text . "<br><h2>Preu: " . $preu . "</h2>
 		<b><em>Descompte: " . $descompte . "</em></b>");
@@ -37,7 +37,7 @@ if (isset($_REQUEST['id'])) {
 
 		$file_to_attach = $_SERVER['DOCUMENT_ROOT'] . $ruta;
 
-		$email->AddAttachment($file_to_attach, 'logo.png');
+		$email->AddAttachment($file_to_attach, 'logo');
 
 		//$email->AddAttachment( $_SERVER['DOCUMENT_ROOT']."/img/cristalina.jpg" , 'cristalina' );
 
@@ -49,40 +49,5 @@ if (isset($_REQUEST['id'])) {
 	}
 
 	desconectarBD($db);
-
-	$mail = new PHPMailer;
-
-	//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
-	$mail->isSMTP(); // Set mailer to use SMTP
-	$mail->Host = 'smtp1.example.com;smtp2.example.com'; // Specify main and backup SMTP servers
-	$mail->SMTPAuth = true; // Enable SMTP authentication
-	$mail->Username = 'user@example.com'; // SMTP username
-	$mail->Password = 'secret'; // SMTP password
-	$mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
-	$mail->Port = 587; // TCP port to connect to
-
-	$mail->setFrom('from@example.com', 'Mailer');
-	$mail->addAddress('joe@example.net', 'Joe User'); // Add a recipient
-	$mail->addAddress('ellen@example.com'); // Name is optional
-	$mail->addReplyTo('info@example.com', 'Information');
-	$mail->addCC('cc@example.com');
-	$mail->addBCC('bcc@example.com');
-
-	$mail->addAttachment('/var/tmp/file.tar.gz'); // Add attachments
-	$mail->addAttachment('/tmp/image.jpg', 'new.jpg'); // Optional name
-	$mail->isHTML(true); // Set email format to HTML
-
-	$mail->Subject = 'Here is the subject';
-	$mail->Body = 'This is the HTML message body <b>in bold!</b>';
-	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-	if (!$mail->send()) {
-		echo 'Message could not be sent.';
-		echo 'Mailer Error: ' . $mail->ErrorInfo;
-	} else {
-		echo 'Message has been sent';
-	}
-
 }
 ?>

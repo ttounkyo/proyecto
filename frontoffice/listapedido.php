@@ -2,7 +2,7 @@
 require_once "../funciones.php";
 
 $db = conectarBD();
-if ((isset($_SESSION['usuariofront']) || isset($_SESSION['usuario']) || !empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario']))) {
+if (empty($_SESSION['usuariofront']) || empty($_SESSION['usuario'])) {
 
 	?>
 	<form action="index.php?sec=compra" method="POST">

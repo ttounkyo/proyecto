@@ -83,6 +83,7 @@ case 'registro':
 	break;
 case 'logout':
 	unset($_SESSION['usuariofront']);
+	unset($_SESSION['carrito']);
 	header("location:index.php?=patines");
 	break;
 case 'facebook':
