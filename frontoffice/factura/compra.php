@@ -123,6 +123,10 @@ $params = array(
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
 ob_get_clean();
+if (!is_dir("./factura/control")) {
+	// Miram si el directori ja existeix i si no el cream
+	mkdir("./factura/control");
+}
 $destino = "factura/control/factura" . $registro . ".pdf";
 $pdf->Output($destino, "F");
 
@@ -145,12 +149,12 @@ $correo->AddAddress($email);
 $correo->Subject = "Factura";
 
 /*
-		 * Si deseamos enviar un correo con formato HTML utilizaremos MsgHTML:
-		 * $correo->MsgHTML("<strong>Mi Mensaje en HTML</strong>");
-		 * Si deseamos enviarlo en texto plano, haremos lo siguiente:
-		 * $correo->IsHTML(false);
-		 * $correo->Body = "Mi mensaje en Texto Plano";
-	*/
+ * Si deseamos enviar un correo con formato HTML utilizaremos MsgHTML:
+ * $correo->MsgHTML("<strong>Mi Mensaje en HTML</strong>");
+ * Si deseamos enviarlo en texto plano, haremos lo siguiente:
+ * $correo->IsHTML(false);
+ * $correo->Body = "Mi mensaje en Texto Plano";
+ */
 $correo->IsHTML(false);
 $correo->Body = "Gracias por comprar nuestros productos";
 
