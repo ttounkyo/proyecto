@@ -11,13 +11,13 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 	$rango = $_POST['amountRange'];
 
 	$db = conectarBD();
-	$verproductos = "SELECT marca,ruta,precio FROM productos WHERE idproducto ='$id'";
+	$verproductos = "SELECT marca,ruta,precio AS datos FROM productos WHERE idproducto ='$id'";
 	$resul_prod = $db->query($verproductos) or die($db->connect_error . " en la línea " . $db->connect_errno);
-	$marca = $resul_prod->fetch_array(MYSQLI_BOTH)['marca'];
+	$marca = $resul_prod->fetch_array(MYSQLI_BOTH)['datos']['marca'];
 	echo $marca;
-	$imagen = $resul_prod->fetch_array(MYSQLI_BOTH)['ruta'];
+	$imagen = $resul_prod->fetch_array(MYSQLI_BOTH)['datos']['ruta'];
 	echo $imagen;
-	$precio = $resul_prod->fetch_array(MYSQLI_BOTH)['precio'];
+	$precio = $resul_prod->fetch_array(MYSQLI_BOTH)['datos']['precio'];
 	echo $precio . "<br><br><br>";
 
 	$cliente = "SELECT * FROM usuarios WHERE rol='cliente';";
