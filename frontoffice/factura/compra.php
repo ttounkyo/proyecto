@@ -31,6 +31,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 	$datos = $resul_prod->fetch_array(MYSQLI_BOTH);
 	$username = $datos['username'];
 	$direccion = $datos['direccion'];
+	$email = $datos['email'];
 
 	foreach ($_SESSION['carrito'] as $value) {
 		$actu = "UPDATE productos SET cantidad = cantidad - " . $value['cantidad'] . " WHERE idproducto = '" . $value['id'] . "';";
@@ -120,7 +121,7 @@ $params = array(
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
 ob_get_clean();
-$destino = "./facturas/factura" . $registro . ".pdf";
-$pdf->Output($destino, "D");
+$destino = "factura/control/factura" . $registro . ".pdf";
+$pdf->Output($destino, "F");
 
 ?>
