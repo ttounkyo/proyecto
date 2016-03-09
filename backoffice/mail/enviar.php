@@ -54,7 +54,7 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 		if (!$correo->Send()) {
 			echo "Hubo un error: " . $correo->ErrorInfo;
 		} else {
-			echo "Mensaje enviado con exito.";
+			echo "Mensaje enviado con exito." . $nom;
 		}
 		sleep(3);
 	}
