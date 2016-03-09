@@ -59,18 +59,20 @@ $pdf->addDate(date('d/m/Y'));
 $pdf->addClient($username);
 $pdf->addPageNumber("1");
 $pdf->addClientAdresse($direccion);
-$pdf->addReglement("Cheque a recepción de factura");
+$pdf->addReglement("Compra atraves de tarjeta");
 $pdf->addVencimiento(date('d/m/Y', strtotime('+1 year')));
-$pdf->addNumNif("FR888777666");
-$pdf->addReference("Devis ... du ....");
-$cols = array("REFERENCIA" => 23,
+$pdf->addNumNif($registro);
+$pdf->addReference("Detalle de la compra");
+$cols = array(
+	"REFERENCIA" => 23,
 	"DESIGNACIÓN" => 78,
 	"CANTIDAD" => 22,
 	"P.UNIDAD. HT" => 26,
 	"TOTAL  H.T." => 30,
 	"I.V.A." => 11);
 $pdf->addCols($cols);
-$cols = array("REFERENCIA" => "L",
+$cols = array(
+	"REFERENCIA" => "L",
 	"DESIGNACIÓN" => "L",
 	"CANTIDAD" => "C",
 	"P.UNIDAD. HT" => "R",
@@ -81,7 +83,8 @@ $pdf->addLineFormat($cols);
 $preu_final = 0;
 $y = 109;
 foreach ($_SESSION['carrito'] as $key => $value) {
-	$line = array("REFERENCIA" => $value['titulo'],
+	$line = array(
+		"REFERENCIA" => $value['titulo'],
 		"DESIGNACIÓN" => $value['descripcion'],
 		"CANTIDAD" => $value['cantidad'],
 		"P.UNIDAD. HT" => $value['precio'] . " " . EURO,
@@ -94,41 +97,25 @@ foreach ($_SESSION['carrito'] as $key => $value) {
 
 $pdf->addCadreTVAs();
 
-// invoice = array( "px_unit" => value,
-//                  "qte"     => qte,
-//                  "tva"     => code_tva );
-// tab_tva = array( "1"       => 19.6,
-//                  "2"       => 5.5, ... );
-// params  = array( "RemiseGlobale" => [0|1],
-//                      "remise_tva"     => [1|2...],  // {la remise s'applique sur ce code TVA}
-//                      "remise"         => value,     // {montant de la remise}
-//                      "remise_percent" => percent,   // {pourcentage de remise sur ce montant de TVA}
-//                  "FraisPort"     => [0|1],
-//                      "portTTC"        => value,     // montant des frais de ports TTC
-//                                                     // par defaut la TVA = 19.6 %
-//                      "portHT"         => value,     // montant des frais de ports HT
-//                      "portTVA"        => tva_value, // valeur de la TVA a appliquer sur le montant HT
-//                  "AccompteExige" => [0|1],
-//                      "accompte"         => value    // montant de l'acompte (TTC)
-//                      "accompte_percent" => percent  // pourcentage d'acompte (TTC)
-//                  "Remarque" => "texte"              // texte
 $tot_prods = array(array("px_unit" => $preu_final, "qte" => 1, "tva" => 1),
 	array("px_unit" => 10, "qte" => 1, "tva" => 1));
-$tab_tva = array("1" => 21.0,
+$tab_tva = array(
+	"1" => 21.0,
 	"2" => 5.5);
-$params = array("RemiseGlobale" => 1,
-	"remise_tva" => 1, // {la remise s'applique sur ce code TVA}
+$params = array(
+	"RemiseGlobale" => 0,
+	"remise_tva" => 0, // {la remise s'applique sur ce code TVA}
 	"remise" => 0, // {montant de la remise}
-	"remise_percent" => 10, // porcentaje de descuento sobre el importe del IVA
+	"remise_percent" => 0, // porcentaje de descuento sobre el importe del IVA
 	"FraisPort" => 1,
 	"portTTC" => 0, //importe de los costes de envío IVA
 	// par defaut la TVA = 19.6 %
 	"portHT" => 0, // montant des frais de ports HT
 	"portTVA" => 21.0, // valor del IVA que se aplicará a la cantidad neta
-	"AccompteExige" => 1,
+	"AccompteExige" => 0,
 	"accompte" => 0, // montant de l'acompte (TTC)
-	"accompte_percent" => 15, // pourcentage d'acompte (TTC)
-	"Remarque" => "Avec un acompte, svp...");
+	"accompte_percent" => 0, // pourcentage d'acompte (TTC)
+	"Remarque" => "A ver si hay descuento");
 
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
