@@ -149,7 +149,6 @@ if (!$correo->Send()) {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 
 }
-unset($_SESSION['carrito']);
 ?>
 
 <h1>Compras</h1>

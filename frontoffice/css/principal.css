@@ -461,7 +461,7 @@ tr:hover td {
     background-color:#E8912B;
     font-size: 21px;
     color: #52625A;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 div .posi{
