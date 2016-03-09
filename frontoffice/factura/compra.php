@@ -25,6 +25,11 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 	$resultado = mysqli_query($db, $querypedido);
 	$registro = mysqli_fetch_array($resultado)['maxpedido'];
 
+	$queryuser = "SELECT * FROM usuarios WHERE username = '$user'";
+	$res_user = mysqli_query($db, $queryuser);
+	$direccion = mysqli_fetch_array($res_user)['direccion'];
+	$username = mysqli_fetch_array($res_user)['username'];
+
 	foreach ($_SESSION['carrito'] as $value) {
 		$actu = "UPDATE productos SET cantidad = cantidad - " . $value['cantidad'] . " WHERE idproducto = '" . $value['id'] . "';";
 		mysqli_query($db, $actu);
@@ -49,11 +54,11 @@ $pdf->addSociete("TTOUNKYO",
 $pdf->fact_dev("Divisa", "001 ");
 $pdf->temporaire("FACTURA");
 $pdf->addDate(date('d/m/Y'));
-$pdf->addClient("CL01");
+$pdf->addClient($username);
 $pdf->addPageNumber("1");
-$pdf->addClientAdresse("Ste\nM. XXXX\n3ème étage\n33, rue d'ailleurs\n75000 PARIS");
+$pdf->addClientAdresse($direccion);
 $pdf->addReglement("Cheque a recepción de factura");
-$pdf->addVencimiento(date('d/m/Y', strtotime('+one year')));
+$pdf->addVencimiento(date('d/m/Y', strtotime('+1 year')));
 $pdf->addNumNif("FR888777666");
 $pdf->addReference("Devis ... du ....");
 $cols = array("REFERENCIA" => 23,
