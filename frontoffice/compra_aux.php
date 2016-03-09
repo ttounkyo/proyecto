@@ -1,6 +1,6 @@
 ﻿<style type="text/css">
 <!--
-header{
+ page_header{
     min-height: 150px;
     background-color: #483E3D;
     overflow: hidden;
@@ -49,9 +49,9 @@ img#imagen {
 -->
 </style>
     <page>
-      <header>
+    <page_header>
           <img src="./imagenes/logo.png" alt="logo">
-      </header>
+    </page_header>
       <br><br><br>
 
     <table id="listadopro">
@@ -81,14 +81,13 @@ if (isset($_SESSION['carrito'])) {
 ?>
     </table>
 
-
-      <footer>
-           <span>© 1996-2015, ttounkyo.com, Inc. o afiliados. Todos los derechos reservados.</span><br>
+    <page_footer>
+        <span>© 1996-2015, ttounkyo.com, Inc. o afiliados. Todos los derechos reservados.</span><br>
            <p>
         ¿Necesitas ayuda?<br>
         Localizar o gestionar compras<br>
         Tarifas y políticas de envío<br>
         Devolver o reemplazar productos<br>
         </p>
-      </footer>
+    </page_footer>
 </page>
