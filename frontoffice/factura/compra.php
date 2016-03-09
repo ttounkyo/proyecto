@@ -125,6 +125,6 @@ $params = array("RemiseGlobale" => 1,
 
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
-// ob_get_clean();
+ob_get_clean();
 $pdf->Output();
 ?>
