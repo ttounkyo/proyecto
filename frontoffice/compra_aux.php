@@ -29,9 +29,9 @@ border: 2px solid #e3e3e3;
 /* border-bottom: 1px solid #fff; */
 color: black;
 }
-tr.algo{
+/*tr.algo{
 border: 2px solid #E3E3E3;
-}
+}*/
 td {
 padding: 14px;
 background-color: white;
