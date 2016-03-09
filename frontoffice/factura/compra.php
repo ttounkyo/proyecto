@@ -123,5 +123,5 @@ $pdf->addCadreEurosFrancs();
 ob_get_clean();
 $destino = "factura/control/factura" . $registro . ".pdf";
 $pdf->Output($destino, "F");
-
+header("location: index.php?sec=patines");
 ?>
