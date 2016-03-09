@@ -73,7 +73,7 @@ if (isset($_REQUEST['id'])) {
  </table>
  	<button class="btn"><a href="index.php?sec=patines">Seguir pidiendo</a></button>
  	<button class="btn"><a href="index.php?sec=cancelar">Cancelar Pedido</a></button>
- 	<button class="btn"><a href="index.php?sec=guardarpdf">Guardar HTML</a></button>
+ 	<button class="btn"><a href="compra_pdf.php">Guardar HTML</a></button>
 <?php
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 		?>

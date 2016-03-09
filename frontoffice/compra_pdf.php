@@ -1,14 +1,5 @@
 ﻿<?php
-/**
- * Html2Pdf Library - example
- *
- * HTML => PDF converter
- * distributed under the LGPL License
- *
- * @package   Html2pdf
- * @author    Laurent MINGUET <webmaster@html2pdf.fr>
- * @copyright 2016 Laurent MINGUET
- */
+session_start();
 require_once "../html2pdf/vendor/autoload.php";
 // ini_set("session.auto-start", 0);
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
