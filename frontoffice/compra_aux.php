@@ -3,22 +3,23 @@
 table{
     border: 1px solid black;
 }
-table{
-    font-size: 12px;
+table#listadopro {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 7px;
     margin: 45px;
-    width: 480px;
-    text-align: left;
+    /* width: 238px; */
+    /* text-align: left; */
     border-collapse: collapse;
 }
 
 th {
-	font-size: 19px;
+    font-size: 9px;
     font-weight: normal;
-    padding: 8px;
-    background-color: #C88657;
+    padding: 3px;
+    background-color: white;
     border: 2px solid #e3e3e3;
     /* border-bottom: 1px solid #fff; */
-    color: #52625A;
+    color: black;
 }
 
 tr{
@@ -27,11 +28,17 @@ tr{
 
 td {
     padding: 8px;
-    background-color: #C88657;
+    background-color: white;
     color: #52625A;
-    font-size: 21px;
+    font-size: 10px;
     border: 2px solid #e3e3e3;
 }
+
+img#imagen {
+    width: 79px;
+    height: 73px;
+}
+
 -->
 </style>
  <!-- <page backtop="7mm" backbottom="7mm" backleft="10mm" backright="10mm"> -->
@@ -40,7 +47,7 @@ td {
           <img src="./imagenes/logo.png" alt="logo">
       </page_header>
 
-    <table>
+    <table id="listadopro">
 <!--         <thead>
             <tr>
                 <th>Header 1</th>

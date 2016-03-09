@@ -1,4 +1,4 @@
-<h1>Compras</h1>
+﻿<h1>Compras</h1>
 
 <?php
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
