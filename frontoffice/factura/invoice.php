@@ -451,8 +451,8 @@ class PDF_Invoice extends FPDF {
 		$this->SetFont("Arial", "B", 6);
 		$this->SetXY($r1, $y1 + 5);
 		$this->Cell(20, 4, "TOTAL TTC", 0, 0, "C");
-		$this->SetXY($r1, $y1 + 10);
-		$this->Cell(20, 4, "DEPÓSITO", 0, 0, "C");
+		// $this->SetXY($r1, $y1 + 10);
+		// $this->Cell(20, 4, "DEPÓSITO", 0, 0, "C");
 		$this->SetXY($r1, $y1 + 15);
 		$this->Cell(20, 4, "NETO A PAGAR", 0, 0, "C");
 	}
@@ -638,16 +638,20 @@ class PDF_Invoice extends FPDF {
 		$this->SetFont("Arial", "", 8);
 		$this->SetXY($re, $y1 + 5);
 		$this->Cell(17, 4, sprintf("%0.2F", $totalTTC), '', '', 'R');
-		$this->SetXY($re, $y1 + 10);
-		$this->Cell(17, 4, sprintf("%0.2F", $accompteTTC), '', '', 'R');
+		// $this->SetXY($re, $y1 + 10);
+		// $this->Cell(17, 4, sprintf("%0.2F", $accompteTTC), '', '', 'R');
+		// $this->SetXY($re, $y1 + 14.8);
+		// $this->Cell(17, 4, sprintf("%0.2F", $totalTTC - $accompteTTC), '', '', 'R');
 		$this->SetXY($re, $y1 + 14.8);
-		$this->Cell(17, 4, sprintf("%0.2F", $totalTTC - $accompteTTC), '', '', 'R');
+		$this->Cell(17, 4, sprintf("%0.2F", $totalTTC), '', '', 'R');
 		$this->SetXY($rf, $y1 + 5);
 		$this->Cell(17, 4, sprintf("%0.2F", $totalTTC * EURO_VAL), '', '', 'R');
-		$this->SetXY($rf, $y1 + 10);
-		$this->Cell(17, 4, sprintf("%0.2F", $accompteTTC * EURO_VAL), '', '', 'R');
+		// $this->SetXY($rf, $y1 + 10);
+		// $this->Cell(17, 4, sprintf("%0.2F", $accompteTTC * EURO_VAL), '', '', 'R');
+		// $this->SetXY($rf, $y1 + 14.8);
+		// $this->Cell(17, 4, sprintf("%0.2F", ($totalTTC - $accompteTTC) * EURO_VAL), '', '', 'R');
 		$this->SetXY($rf, $y1 + 14.8);
-		$this->Cell(17, 4, sprintf("%0.2F", ($totalTTC - $accompteTTC) * EURO_VAL), '', '', 'R');
+		$this->Cell(17, 4, sprintf("%0.2F", ($totalTTC) * EURO_VAL), '', '', 'R');
 	}
 
 // add a watermark (temporary estimate, DUPLICATA...)
