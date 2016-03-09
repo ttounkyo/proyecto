@@ -52,9 +52,9 @@ if (isset($_REQUEST['id'])) {
 	// 		echo $_SESSION['pedido'][$i];
 	// 	}
 	// }
-
+	$cantidad = 0;
 	if (isset($_SESSION['carrito'])) {
-		echo "hola";
+
 		foreach ($_SESSION['carrito'] as $key => $value) {
 			echo '<tr>
 			<td><img id="imagen" src="../backoffice/' . $value['ruta'] . '" alt="imagen"></td>
@@ -65,6 +65,7 @@ if (isset($_REQUEST['id'])) {
 			<td>' . $value['cantidad'] . '</td>
 			</tr>
 		';
+			$cantidad += $value['precio'];
 		}
 	}
 
@@ -76,7 +77,7 @@ if (isset($_REQUEST['id'])) {
 <?php
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 		?>
-			<button class="btn" type="submit"><a href="index.php?sec=compra"></a>Comprar PDF</button>
+			<button class="btn" type="submit"><a href='index.php?sec=compra&cant=<?=$cantidad?>'>Comprar PDF/PP</a></button>
 <?php
 } else {
 		?>

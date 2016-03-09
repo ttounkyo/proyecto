@@ -2,7 +2,6 @@
 
 <?php
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
-
 	require_once "../funciones.php";
 	require_once '../backoffice/PHPMailer-master/class.phpmailer.php';
 	require_once '../backoffice/PHPMailer-master/PHPMailerAutoload.php';

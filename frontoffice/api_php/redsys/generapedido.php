@@ -6,14 +6,14 @@ include 'apiRedsys.php';
 $miObj = new RedsysAPI;
 
 // Valores de entrada
-$fuc = "999008881";
+$fuc = "TTOUNKYO";
 $terminal = "871";
 $moneda = "978";
 $trans = "0";
 $url = "";
 $urlOKKO = "http://ttounkyo-ttounkyo.rhcloud.com/frontoffice/api_php/redsys/recepcionpedido.php";
 $id = time(); // id pedido time()
-$amount = "145"; // Cantidad
+$amount = $_REQUEST['cant'] . "00"; // Cantidad
 
 // Se Rellenan los campos
 $miObj->setParameter("DS_MERCHANT_AMOUNT", $amount);
