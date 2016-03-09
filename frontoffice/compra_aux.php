@@ -1,7 +1,9 @@
 ﻿<style type="text/css">
 <!--
-table{
-    border: 1px solid black;
+page_header{
+    min-height: 150px;
+    background-color: #483E3D;
+    overflow: hidden;
 }
 table#listadopro {
    /* font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
@@ -46,6 +48,7 @@ img#imagen {
       <page_header>
           <img src="./imagenes/logo.png" alt="logo">
       </page_header>
+      <br><br>
 
     <table id="listadopro">
 <!--         <thead>
