@@ -142,6 +142,7 @@ $correo->IsHTML(false);
 $correo->Body = "Gracias por comprar nuestros productos";
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
 $correo->AddAttachment($destino);
+
 //Enviamos el correo
 if (!$correo->Send()) {
 	echo "Hubo un error: " . $correo->ErrorInfo . "<br>";
@@ -150,6 +151,7 @@ if (!$correo->Send()) {
 	unset($_SESSION['carrito']);
 	header("location:index.php?sec=patines");
 }
+
 ?>
 
 <h1>Compras</h1>
