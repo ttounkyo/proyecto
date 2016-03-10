@@ -3,7 +3,7 @@ require_once "./vendor/autoload.php";
 require_once "../funciones.php";
 
 $server = new soap_server();
-$server->configureWSDL('productosopa', 'urn:ProductModelo', 'http://localhost/DAW/DEWS/hola/frontoffice/producto_controlador.php');
+$server->configureWSDL('productosopa', 'urn:ProductModelo', 'http://ttounkyo-ttounkyo.rhcloud.com/frontoffice/soap/producto_controlador.php');
 $server->wsdl->schemaTargetNamespaces = 'urn:ProductModelo';
 
 // categoria

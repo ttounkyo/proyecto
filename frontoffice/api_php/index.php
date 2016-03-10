@@ -28,8 +28,8 @@ class PaternHandler {
 	}
 }
 Toro::serve(array(
-	"/DAW/DEWS/hola/frontoffice/api_php/" => "MainHandler",
-	"/DAW/DEWS/hola/frontoffice/api_php/:string" => "PaternHandler",
+	"/frontoffice/api_php/" => "MainHandler",
+	"/frontoffice/api_php/:string" => "PaternHandler",
 ));
 
 ?>

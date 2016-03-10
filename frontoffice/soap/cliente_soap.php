@@ -25,7 +25,8 @@ require_once "./vendor/autoload.php";
 // 		print_r($result);
 // 	}
 // }
-$cliente2 = new nusoap_client("http://localhost/DAW/DEWS/hola/frontoffice/producto_controlador.php?wsdl", true);
+// $cliente2 = new nusoap_client("http://localhost/DAW/DEWS/hola/frontoffice/producto_controlador.php?wsdl", true);
+$cliente2 = new nusoap_client("http://http://ttounkyo-ttounkyo.rhcloud.com/frontoffice/soap/producto_controlador.php?wsdl", true);
 
 $error = $cliente2->getError();
 
