@@ -7,8 +7,9 @@ ToroHook::add("404", function () {
 
 class MainHandler {
 	function get() {
+
 		$db = conectarBD();
-		$r = $db->query("SELECT * FROM pedidos NATURAL JOIN pedidos_has_productos");
+		$r = $db->query("SELECT * FROM pedidos NATURAL JOIN pedidos_has_productos WHERE username ='antonio' GROUP BY idpedido");
 		$pedidos = array();
 		while ($row = $r->fetch_assoc()) {
 			array_push($pedidos, $row);
@@ -19,7 +20,7 @@ class MainHandler {
 class PaternHandler {
 	function get($patern) {
 		$db = conectarBD();
-		$r = $db->query("SELECT * FROM pedidos NATURAL JOIN pedidos_has_productos where username = '{$patern}'");
+		$r = $db->query("SELECT * FROM pedidos NATURAL JOIN pedidos_has_productos WHERE username ='{$patern}' GROUP BY idpedido");
 		$pedidos = array();
 		while ($row = $r->fetch_assoc()) {
 			array_push($pedidos, $row);
@@ -28,8 +29,8 @@ class PaternHandler {
 	}
 }
 Toro::serve(array(
-	"/frontoffice/api_php/" => "MainHandler",
-	"/frontoffice/api_php/:string" => "PaternHandler",
+	"/" => "MainHandler",
+	"/:alpha" => "PaternHandler",
 ));
 
 ?>

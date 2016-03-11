@@ -1,6 +1,6 @@
 <?php
 
-require_once "./vendor/autoload.php";
+require_once "../vendor/autoload.php";
 
 // $cliente = new nusoap_client("http://localhost/DAW/DEWS/hola/frontoffice/producto_controlador.php?wsdl", true);
 // $error = $cliente->getError();

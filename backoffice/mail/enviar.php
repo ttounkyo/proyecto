@@ -70,11 +70,10 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 			echo "Hubo un error: " . $correo->ErrorInfo . "<br>";
 		} else {
 			echo "Mensaje enviado con exito a " . $nom . "<br>";
-			header("location: ../principal/index.php");
 		}
 		sleep(3);
 	}
-
+	header("location: ../principal/index.php");
 	desconectarBD($db);
 
 }
