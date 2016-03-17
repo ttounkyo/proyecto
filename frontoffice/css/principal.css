@@ -723,5 +723,12 @@ footer div.redes img{
     background-color: white;
 }
 
+.product:hover{
+	transform: scale(1);
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+}
+
 }
 
