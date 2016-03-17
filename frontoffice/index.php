@@ -66,6 +66,9 @@ require_once "sidebar.php";
 	</div>
 <?php
 switch ($seccion) {
+case 'exito':
+	echo "compra realizada con exito";
+	break;
 case 'pedido':
 	require_once 'pedido.php';
 	break;

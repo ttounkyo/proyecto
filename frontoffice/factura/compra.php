@@ -179,6 +179,7 @@ if (!$correo->Send()) {
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 	unset($_SESSION['carrito']);
+	header("Location: ../index.php?sec=exito");
 }
 
 ?>

@@ -77,7 +77,7 @@ if (isset($_SESSION['carrito'])) {
 	foreach ($_SESSION['carrito'] as $key => $value) {
 		?>
         <tr class="algo">
-            <td><img id="imagen" src="../backoffice/<?=$value['ruta']?>" alt="imagen" /></td>
+            <td><img id="imagen" src="../../backoffice/<?=$value['ruta']?>" alt="imagen" /></td>
             <td><?=$value['titulo']?></td>
             <td><?=$value['descripcion']?></td>
             <td><?=$value['precio']?> €</td>
