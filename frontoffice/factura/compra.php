@@ -178,7 +178,6 @@ if (!$correo->Send()) {
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 	unset($_SESSION['carrito']);
-	header("Location:../api_php/redsys/generapedido.php");
 }
 
 ?>

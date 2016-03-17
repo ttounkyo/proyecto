@@ -117,7 +117,8 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 <input type="hidden" name="Ds_SignatureVersion" value="<?php echo $version; ?>"/></br>
  <input type="hidden" name="Ds_MerchantParameters" value="<?php echo $params; ?>"/></br>
 <input type="hidden" name="Ds_Signature" value="<?php echo $signature; ?>"/></br>
-<button class="btn" type="submit"><a href='./factura/compra.php'>Comprar PDF/PP</a></button>
+<button class="btn" type="submit">Comprar PDF/PP</button>
+<!-- <a href='./factura/compra.php'> -->
 </form>
 
 

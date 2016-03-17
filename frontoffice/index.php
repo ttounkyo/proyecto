@@ -111,14 +111,6 @@ case 'imagenes':
 case 'videos':
 	require_once "./galeria/videos/videos.php";
 	break;
-case 'compra':
-	echo "hola no se donde me ha enviador";
-	// require_once './factura/compra.php';
-	//header("location:index.php?sec=patines");
-	break;
-case 'compra2':
-	echo "Compra realizada con exito";
-	break;
 case 'guardarpdf':
 	require_once "compra_pdf.php";
 	break;
