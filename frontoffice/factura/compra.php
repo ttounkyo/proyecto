@@ -134,6 +134,11 @@ $correo->Subject = "Factura";
 $correo->IsHTML(false);
 $correo->Body = "Gracias por comprar nuestros productos";
 
+if (!is_dir("../factura/control")) {
+	// Miram si el directori ja existeix i si no el cream
+	mkdir("../factura/control");
+}
+
 require_once "../../html2pdf/vendor/autoload.php";
 // ini_set("session.auto-start", 0);
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
@@ -150,13 +155,10 @@ try {
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
+
+	$html2pdf->Output("./control/carro" . $registro . ".pdf", "F");
 	ob_get_clean();
 	// $html2pdf->Output();
-	if (!is_dir("../factura/carro")) {
-		// Miram si el directori ja existeix i si no el cream
-		mkdir("../factura/carro");
-	}
-	$html2pdf->Output("./carro/carro" . $registro . ".pdf", "F");
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
 	echo $formatter->getHtmlMessage();
@@ -165,15 +167,12 @@ try {
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
 // ob_get_clean();
-if (!is_dir("../factura/control")) {
-	// Miram si el directori ja existeix i si no el cream
-	mkdir("../factura/control");
-}
+
 $pdf->Output("../factura/control/factura" . $registro . ".pdf", "F");
 
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
 $correo->AddAttachment("../factura/control/factura" . $registro . ".pdf", "FACTURA");
-$correo->AddAttachment("../factura/carro/carro" . $registro . ".pdf", "CARRO");
+$correo->AddAttachment("../factura/control/carro" . $registro . ".pdf", "CARRO");
 
 //Enviamos el correo
 if (!$correo->Send()) {
