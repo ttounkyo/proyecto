@@ -162,7 +162,7 @@ function carritoPDF($registro) {
 	}
 }
 
-function envio($regitro, $email, $username) {
+function envio($registro, $email, $username) {
 	$correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
 	$cabeceras = 'ttounkyo@gmail.com';
 //Usamos el SetFrom para decirle al script quien envia el correo
