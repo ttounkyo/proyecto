@@ -152,7 +152,11 @@ try {
 	$html2pdf->writeHTML($content);
 	ob_get_clean();
 	// $html2pdf->Output();
-	$content_PDF = $html2pdf->Output('', 'S');
+	if (!is_dir("../factura/control")) {
+	// Miram si el directori ja existeix i si no el cream
+	mkdir("../factura/control");
+	}
+	$html2pdf->Output("../factura/control/carro" . $registro . ".pdf", "F");
 	$correo->AddAttachment($content_PDF);
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
@@ -168,10 +172,13 @@ if (!is_dir("../factura/control")) {
 }
 
 $destino = "../factura/control/factura" . $registro . ".pdf";
+$carro = "../factura/control/carro" . $registro . ".pdf"
 $pdf->Output($destino, "F");
 
+
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
-$correo->AddAttachment($destino);
+$correo->AddAttachment($destino , "FACTURA");
+$correo->AddAttachment($caroo, "CARRO");
 
 //Enviamos el correo
 if (!$correo->Send()) {
@@ -179,7 +186,7 @@ if (!$correo->Send()) {
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 	unset($_SESSION['carrito']);
-	header("Location: ../index.php?sec=exito");
+	header("Location: ../index.php");
 }
 
 ?>
