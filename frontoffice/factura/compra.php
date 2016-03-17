@@ -130,14 +130,14 @@ $content_PDF = '';
 try {
 	//ob_clean();
 	$content = "";
-	// ob_start();
+	ob_start();
 	include '../carro_pdf.php';
 	$content = ob_get_clean();
 
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
-	// ob_get_clean();
+	ob_get_clean();
 	$content_PDF = $html2pdf->Output('', true);
 
 } catch (Html2PdfException $e) {
@@ -170,7 +170,7 @@ $correo->IsHTML(false);
 $correo->Body = "Gracias por comprar nuestros productos";
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
 $correo->AddAttachment("Factura", $destino);
-$correo->AddAttachment("Carrito PDF", $content_PDF);
+// $correo->AddAttachment("Carrito PDF", $content_PDF);
 
 //Enviamos el correo
 if (!$correo->Send()) {
