@@ -152,12 +152,11 @@ try {
 	$html2pdf->writeHTML($content);
 	ob_get_clean();
 	// $html2pdf->Output();
-	if (!is_dir("../factura/control")) {
+	if (!is_dir("../factura/carro")) {
 		// Miram si el directori ja existeix i si no el cream
-		mkdir("../factura/control");
+		mkdir("../factura/carro");
 	}
-	$html2pdf->Output("../factura/control/carro" . $registro . ".pdf", "F");
-	$correo->AddAttachment($content_PDF);
+	$html2pdf->Output("./carro/carro" . $registro . ".pdf", "F");
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
 	echo $formatter->getHtmlMessage();
@@ -170,14 +169,11 @@ if (!is_dir("../factura/control")) {
 	// Miram si el directori ja existeix i si no el cream
 	mkdir("../factura/control");
 }
-
-$destino = "../factura/control/factura" . $registro . ".pdf";
-$carro = "../factura/control/carro" . $registro . ".pdf";
-$pdf->Output($destino, "F");
+$pdf->Output("../factura/control/factura" . $registro . ".pdf", "F");
 
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
-$correo->AddAttachment($destino, "FACTURA");
-$correo->AddAttachment($caroo, "CARRO");
+$correo->AddAttachment("../factura/control/factura" . $registro . ".pdf", "FACTURA");
+$correo->AddAttachment("../factura/carro/carro" . $registro . ".pdf", "CARRO");
 
 //Enviamos el correo
 if (!$correo->Send()) {
