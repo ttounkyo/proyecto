@@ -49,7 +49,7 @@ height: 103px;
         <table class="page_header" >
             <tr>
                 <td style="width: 100%; text-align: left">
-                    <img src="./imagenes/logo.png" alt="logo">
+                    <img src="../imagenes/logo.png" alt="logo">
                 </td>
             </tr>
         </table>
