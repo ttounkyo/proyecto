@@ -122,13 +122,39 @@ default:
 	break;
 }
 ?>
+	<div id="ejer">
+
+
+		<img src="./banner/conguito.png" id="d1">
+	    <img src="./banner/conguito.png" id="d2">
+	    <img src="./banner/conguito.png" id="d3">
+	    <img src="./banner/conguito.png" id="d4">
+	    <img src="./banner/conguito.png" id="d5">
+	    <img src="./banner/conguito.png" id="d6">
+	    <img src="./banner/conguito.png" id="d7">
+	    <img src="./banner/conguito.png" id="d8">
+	    <img src="./banner/conguito.png" id="d9">
+	    <img src="./banner/conguito.png" id="d10">
+
+
+
+		<div id="fotosejer">
+			<img src="./banner/p1.png" id="ejerImg1">
+			<img src="./banner/p3.png" id="ejerImg2">
+			<img src="./banner/p2.png" id="ejerImg3">
+		</div>
+
+
+
+	    <h2>Nuevas ofertas! </h2>
+
+	</div>
 			</section>
 			</div>
-		</div>
-		<div class="buscador2">
-		<?php
-require_once "sidebar.php";
-?>
+			<div>
+
+			</div>
+
 		</div>
 
 <?php
