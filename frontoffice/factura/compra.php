@@ -138,7 +138,7 @@ try {
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
 	// ob_get_clean();
-	$content_PDF = $html2pdf->Output('recibo.pdf', true);
+	$content_PDF = $html2pdf->Output('', true);
 
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
@@ -147,7 +147,7 @@ try {
 
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
-ob_get_clean();
+// ob_get_clean();
 if (!is_dir("../factura/control")) {
 	// Miram si el directori ja existeix i si no el cream
 	mkdir("../factura/control");
@@ -178,7 +178,6 @@ if (!$correo->Send()) {
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 	unset($_SESSION['carrito']);
-	echo $content_PDF;
 	header("Location:../api_php/redsys/generapedido.php");
 }
 
