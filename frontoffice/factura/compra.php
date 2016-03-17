@@ -47,6 +47,10 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 		mysqli_query($db, $query);
 	}
 	//header('location:index.php?sec=cancelar');
+	if (!is_dir("../factura/control")) {
+		// Miram si el directori ja existeix i si no el cream
+		mkdir("../factura/control");
+	}
 	desconectarBD($db);
 	facturaPDF($registro, $username, $direccion);
 	carritoPDF($registro);
@@ -171,11 +175,6 @@ function envio($regitro, $email, $username) {
 	$correo->Subject = "Factura";
 	$correo->IsHTML(false);
 	$correo->Body = "Gracias por comprar nuestros productos";
-
-	if (!is_dir("../factura/control")) {
-		// Miram si el directori ja existeix i si no el cream
-		mkdir("../factura/control");
-	}
 
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
 	$correo->AddAttachment("../factura/control/factura" . $registro . ".pdf", "FACTURA");
