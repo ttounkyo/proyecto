@@ -2,6 +2,7 @@
 
 require "../torophp/toro.php";
 require "../../funciones.php";
+header("Content-Type: application/json");
 
 ToroHook::add("404", function () {
 	echo "Not found";
@@ -9,56 +10,68 @@ ToroHook::add("404", function () {
 
 class DBHandler {
 
-	function get($name = null) {
-		// como en el ejemplo anterior
+	function get($id = null, $idped = null) {
+		// echo $id;
+		// exit;
+		if (!empty($id)) {
+			try {
+				$db = conectarBD();
+				$q = '';
+
+				if (!empty($idped)) {
+					$q = " AND idpedido = " . $idped;
+				}
+				$query = "SELECT * FROM pedidos WHERE username = '{$id}'" . $q;
+
+				if (!$resul = $db->query($query)) {
+					echo json_encode(array("Error" => $db->error));
+					return;
+				}
+
+				$pedidos = array();
+				while ($row = $resul->fetch_assoc()) {
+					array_push($pedidos, $row);
+				}
+				echo json_encode($pedidos);
+				desconectarBD($db);
+				return;
+
+			} catch (Exception $e) {
+				// $dbh->rollBack();
+				echo json_encode(array("Mensaje" => $e->getMessage()));
+			}
+		}
 	}
 
-	function post($name = null) {
+	function post($id = null) {
+		if (!empty($id)) {
 
-		$db = array('pedidos' => array('name' => 'Spain', 'area' => 78349, 'population' => 25000000, 'language' => 'Spanish'),
-			'france' => array('name' => 'France', 'area' => 120000, 'population' => 43000000, 'language' => 'French'),
-		);
+			$data = $_POST;
+			try {
+				$db = conectarBD();
+				$query = "INSERT INTO pedidos(idmetodopago,estado, fecha, username)
+					VALUES ('{$data["idmetodopago"]}','{$data["estado"]}', '{$data["fecha"]}','{$id}');";
 
-		// try {
-		//   $dbh = new PDO('sqlite:test.db');
-		// } catch (Exception $e) {
-		//   die("Unable to connect: " . $e->getMessage());
-		// }
-		try {
-			$area = $_POST['area'];
-			$population = $_POST['population'];
-			$language = $_POST['language'];
-			// echo $area;
+				if ($resul = $db->query($query)) {
+					echo json_encode(array("Mensaje" => "ok"));
+				} else {
+					echo json_encode(array("Mensaje" => $db->connect_error));
+				}
 
-			// $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				desconectarBD($db);
 
-			// $stmt = $dbh->prepare("UPDATE countries SET area=:area,
-			//                       population=:population, density=:density
-			//                       WHERE name = :name");
-			// $stmt->bindParam(':area', $area);
-			// $stmt->bindParam(':population', $population);
-			// $stmt->bindParam(':density', $density);
-
-			// $dbh->beginTransaction();
-			// $stmt->execute();
-			// $dbh->commit();
-			array_push($db, array('name' => $name, 'area' => $area, 'population' => $population, 'language' => $language));
-			foreach ($db as $key => $value) {
-				$data[] = $value;
-
+			} catch (Exception $e) {
+				// $dbh->rollBack();
+				echo json_encode(array("Mensaje" => $e->getMessage()));
 			}
-			echo json_encode($data);
-
-		} catch (Exception $e) {
-			// $dbh->rollBack();
-			echo "Failed: " . $e->getMessage();
 		}
 	}
 
 }
 
 Toro::serve(array(
-	"/country" => "DBHandler",
-	"/country/:alpha" => "DBHandler",
+	"/" => "DBHandler",
+	"/:alpha" => "DBHandler",
+	"/:alpha/:alpha" => "DBHandler",
 ));
 ?>

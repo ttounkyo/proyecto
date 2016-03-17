@@ -1,55 +1,54 @@
 <?php
-	// error_reporting(E_ALL);
-	// ini_set('display_errors', 1);
-	session_start();
-	if(isset($_POST['nomuser']) && isset($_POST['pass'])){
-		$user = $_POST['nomuser'];
-		$passwd = $_POST['pass'];
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+session_start();
+if (isset($_POST['nomuser']) && isset($_POST['pass'])) {
+	$user = $_POST['nomuser'];
+	$passwd = $_POST['pass'];
 
-		require_once("../../funciones.php");
-		$db = conectarBD();
+	require_once "../../funciones.php";
+	$db = conectarBD();
 
-		$loginuser = "SELECT username, rol , password FROM usuarios WHERE username='$user';";
-		$result = mysqli_query($db,$loginuser);
-		$row 	= mysqli_fetch_array($result);
-		//password_verify
-			if(hash_equals($row['password'], crypt($passwd,$row['password']))){
+	$loginuser = "SELECT username, rol , password FROM usuarios WHERE username='$user';";
+	$result = mysqli_query($db, $loginuser);
+	$row = mysqli_fetch_array($result);
+	//password_verify
+	if (hash_equals($row['password'], crypt($passwd, $row['password']))) {
 
-				$_SESSION['rol'] = $row['rol'];
+		$_SESSION['rol'] = $row['rol'];
 
-				$file = fopen("log.txt", "a+");
-					if(!$file){
-						echo "No es pot obrir el file";
-					}
-					fputs($file,"El usuario ". $row['username'] . " ha accedido el día. " . date("y/m/d H:s:i" , time()) . " Satisfactoriamente" .PHP_EOL);
+		$file = fopen("log.txt", "a+");
+		if (!$file) {
+			echo "No es pot obrir el file";
+		}
+		fputs($file, "El usuario " . $row['username'] . " ha accedido el día. " . date("y/m/d H:s:i", time()) . " Satisfactoriamente" . PHP_EOL);
 
-				fclose($file);
-				if($_SESSION['rol'] === 'administrador'){
-					$_SESSION['usuario'] = $row['username'];
-				  	header('location:../principal/index.php?sec=index');
-				}elseif($_SESSION['rol'] === 'cliente'){
-					$_SESSION['usuariofront'] = $row['username'];
-				 	header('location:../../frontoffice/index.php');
-				}
-				
-			
-			}else{
-				$file = fopen("log.txt", "a+");
-				if(!$file){
-					echo "No es pot obrir el file";
-				}
-				fwrite($file,"El usuario ". $row['username'] . " ha accedido el día. " . date("y/m/d H:s:i" , time()) . " Incorrectamente." .PHP_EOL);
-				fclose($file);
-				header('location:../principal/index.php?sec=login');
-			}
-		desconectarBD($db);
+		fclose($file);
+		if ($_SESSION['rol'] === 'administrador') {
+			$_SESSION['usuario'] = $row['username'];
+			header('location:../principal/index.php?sec=index');
+		} elseif ($_SESSION['rol'] === 'cliente') {
+			$_SESSION['usuariofront'] = $row['username'];
+			header('location:../../frontoffice/index.php');
+		}
+
+	} else {
+		$file = fopen("log.txt", "a+");
+		if (!$file) {
+			echo "No es pot obrir el file";
+		}
+		fwrite($file, "El usuario " . $row['username'] . " ha accedido el día. " . date("y/m/d H:s:i", time()) . " Incorrectamente." . PHP_EOL);
+		fclose($file);
+		header('location:../principal/index.php?sec=login');
 	}
-	// Hacerlo con comprobadores de pass 
- ?>
+	desconectarBD($db);
+}
+// Hacerlo con comprobadores de pass
+?>
 
-<?php 
-	if(isset($_SESSION['usuario']) || empty($_SESSION['usuario'])){
- ?>
+<?php
+if (isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) {
+	?>
  	<!DOCTYPE html>
  	<html lang="en">
  	<head>
@@ -67,7 +66,7 @@
 		</div>
  	</body>
  	</html>
-	
-<?php 
-	} 
- ?>
+
+<?php
+}
+?>

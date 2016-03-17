@@ -3,8 +3,11 @@ require_once "../funciones.php";
 
 $db = conectarBD();
 if (empty($_SESSION['usuariofront']) || empty($_SESSION['usuario'])) {
-
+	if (isset($_REQUEST['error'])) {
+		echo "Ha habido un error en la compra por favor vuelva a intentarlo";
+	}
 	?>
+
 	<h1>Realizar pedido!</h1>
  	<!-- <div>
  		<label for="">Metodo de pago.</label>

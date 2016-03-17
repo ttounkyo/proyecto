@@ -75,7 +75,7 @@ if (!empty($_POST)) {
 		}
 	} else {
 		echo "FIRMA KO";
-		header("Location:http:../../index.php?sec=listapedido");
+		header("Location:http:../../index.php?sec=listapedido&error=si");
 	}
 }
 

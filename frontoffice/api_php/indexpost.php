@@ -1,14 +1,12 @@
 <?php
 
 $name = 'antonio';
-$url = 'http://localhost/DAW/DEWS/hola/frontoffice/api_php/serviceUserPost.php/' . $name;
+$url = 'http://localhost/DAW/DEWS/hola/frontoffice/api_php/serviceUserPost.php/';
 
 $data = array(
-	'idpedido' => '300',
 	'idmetodopago' => 'ingreso banco',
 	'estado' => 'pedido',
-	'fecha' => '',
-	'username' => 'antonio');
+	'fecha' => '');
 $options = array(
 	'http' => array(
 		'header' => "Content-type: application/x-www-form-urlencoded\r\n",
