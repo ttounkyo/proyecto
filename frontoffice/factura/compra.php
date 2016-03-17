@@ -85,6 +85,7 @@ $pdf->addLineFormat($cols);
 $pdf->addLineFormat($cols);
 $preu_final = 0;
 $y = 109;
+
 foreach ($_SESSION['carrito'] as $key => $value) {
 	$line = array(
 		"REFERENCIA" => $value['titulo'],

@@ -1,4 +1,6 @@
-﻿<?php
+﻿
+<!DOCTYPE html>
+<?php
 session_start();
 require_once "../funciones.php";
 
@@ -9,7 +11,6 @@ if (!isset($_GET['sec'])) {
 }
 
 ?>
-<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -76,7 +77,7 @@ case 'destroy':
 	break;
 case 'cancelar':
 	unset($_SESSION['carrito']);
-	header("location:index.php?sec=patines");
+	header("location:./index.php?sec=patines");
 	break;
 case 'registro':
 	require_once "registro.php";
@@ -111,7 +112,7 @@ case 'videos':
 	require_once "./galeria/videos/videos.php";
 	break;
 case 'compra':
-	echo "hola";
+	echo "hola no se donde me ha enviador";
 	// require_once './factura/compra.php';
 	//header("location:index.php?sec=patines");
 	break;
