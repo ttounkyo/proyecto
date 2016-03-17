@@ -130,15 +130,15 @@ $content_PDF = '';
 try {
 	//ob_clean();
 	$content = "";
-	ob_start();
+	// ob_start();
 	include '../carro_pdf.php';
 	$content = ob_get_clean();
 
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
-	ob_get_clean();
-	$content_PDF = $html2pdf->Output('', true);
+	// ob_get_clean();
+	$content_PDF = $html2pdf->Output('recibo.pdf', true);
 
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
@@ -152,6 +152,7 @@ if (!is_dir("../factura/control")) {
 	// Miram si el directori ja existeix i si no el cream
 	mkdir("../factura/control");
 }
+
 $destino = "../factura/control/factura" . $registro . ".pdf";
 $pdf->Output($destino, "F");
 
@@ -177,6 +178,7 @@ if (!$correo->Send()) {
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 	unset($_SESSION['carrito']);
+	echo $content_PDF;
 	header("Location:../api_php/redsys/generapedido.php");
 }
 
