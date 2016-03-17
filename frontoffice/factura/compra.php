@@ -125,7 +125,7 @@ require_once "../../html2pdf/vendor/autoload.php";
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Html2Pdf;
-
+$content_PDF = '';
 try {
 	//ob_clean();
 	$content = "";
@@ -176,7 +176,7 @@ if (!$correo->Send()) {
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 	unset($_SESSION['carrito']);
-	header("location:../api_php/redsys/generapedido.php");
+	header("Location:../api_php/redsys/generapedido.php");
 }
 
 ?>
