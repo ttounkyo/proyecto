@@ -120,6 +120,30 @@ $params = array(
 	"accompte_percent" => 15, // pourcentage d'acompte (TTC)
 	"Remarque" => "Descuento del 15% en todos nuestros productos");
 
+require_once "../../html2pdf/vendor/autoload.php";
+// ini_set("session.auto-start", 0);
+use Spipu\Html2Pdf\Exception\ExceptionFormatter;
+use Spipu\Html2Pdf\Exception\Html2PdfException;
+use Spipu\Html2Pdf\Html2Pdf;
+
+try {
+	//ob_clean();
+	$content = "";
+	ob_start();
+	include '../carro_pdf.php';
+	$content = ob_get_clean();
+
+	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
+	// $content = ob_get_clean();
+	$html2pdf->writeHTML($content);
+	ob_get_clean();
+	$content_PDF = $html2pdf->Output('', true);
+
+} catch (Html2PdfException $e) {
+	$formatter = new ExceptionFormatter($e);
+	echo $formatter->getHtmlMessage();
+}
+
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
 ob_get_clean();
@@ -143,7 +167,8 @@ $correo->Subject = "Factura";
 $correo->IsHTML(false);
 $correo->Body = "Gracias por comprar nuestros productos";
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
-$correo->AddAttachment($destino);
+$correo->AddAttachment("Factura", $destino);
+$correo->AddAttachment("Carrito PDF", $content_PDF);
 
 //Enviamos el correo
 if (!$correo->Send()) {
@@ -151,7 +176,7 @@ if (!$correo->Send()) {
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 	unset($_SESSION['carrito']);
-	header("location:../index.php");
+	header("location:../api_php/redsys/generapedido.php");
 }
 
 ?>
