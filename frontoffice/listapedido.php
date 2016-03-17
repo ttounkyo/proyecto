@@ -5,7 +5,6 @@ $db = conectarBD();
 if (empty($_SESSION['usuariofront']) || empty($_SESSION['usuario'])) {
 
 	?>
-	<form action="index.php?sec=compra" method="POST">
 	<h1>Realizar pedido!</h1>
  	<!-- <div>
  		<label for="">Metodo de pago.</label>
@@ -119,7 +118,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 <input type="hidden" name="Ds_Signature" value="<?php echo $signature; ?>"/></br>
 <button class="btn" type="submit">Comprar PDF/PP</button>
 <!-- <a href='./factura/compra.php'> -->
-</form>
+
 
 
 <?php
