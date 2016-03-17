@@ -13,7 +13,7 @@ if (isset($_SESSION['usuariofront'])) {
 	echo "<a href='../backoffice/principal/index.php?sec=logout'><span>$nomuser Logout</span></a>";
 } else {
 	echo "<span onclick=showmenu()>Login</span>";
-?>
+	?>
 
 	<div id="menulog">
 		<form action='../backoffice/usuario/login.php' method='POST'>
@@ -53,7 +53,7 @@ if (isset($_SESSION['usuario']) && !isset($_SESSION['usuariofront'])) {
 		<la><a href="#">Ofertas</a></la>
 		<la><a href="#">Personaliza</a></la>
 		<la><a href="index.php?sec=listapedido">Carrito</a></la>
-		<la><a href="#">Galeria</a>
+		<la><a>Galeria</a>
 			<ul>
 				<li><a href="index.php?sec=imagenes">Imagenes</a></li>
 				<li><a href="index.php?sec=videos">Videos y sonido</a></li>

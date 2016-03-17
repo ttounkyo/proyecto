@@ -31,25 +31,20 @@ if (isset($_REQUEST['id']) && isset($_POST['textmail'])) {
 	// $correo->Port = 587;
 	// $correo->Username = "ttounkyo@gmail.com";
 	// $correo->Password = "ttounkyodaw2016";
-
+	$cabeceras = 'ttounkyo@gmail.com';
+	//Usamos el SetFrom para decirle al script quien envia el correo
+	$correo->SetFrom($cabeceras, "Cuenta de administrador");
+	//Usamos el AddReplyTo para decirle al script a quien tiene que responder el correo
+	$correo->AddReplyTo($cabeceras, "Cuenta de administrador");
+	$correo->Subject = "Oferta!!";
 	while ($registro = $result_cli->fetch_array(MYSQLI_BOTH)) {
 
 		$nom = $registro['nombre'];
 		$correocliente = $registro['email'];
-		$cabeceras = 'ttounkyo@gmail.com';
-
-		//Usamos el SetFrom para decirle al script quien envia el correo
-		$correo->SetFrom($cabeceras, "Cuenta de administrador");
-
-		//Usamos el AddReplyTo para decirle al script a quien tiene que responder el correo
-		$correo->AddReplyTo($cabeceras, "Cuenta de administrador");
 
 		//Usamos el AddAddress para agregar un destinatario
 		$correo->AddAddress($correocliente);
-
 		//Ponemos el asunto del mensaje
-		$correo->Subject = "Oferta!!";
-
 		/*
 			 * Si deseamos enviar un correo con formato HTML utilizaremos MsgHTML:
 			 * $correo->MsgHTML("<strong>Mi Mensaje en HTML</strong>");

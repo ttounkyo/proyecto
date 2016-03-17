@@ -9,7 +9,7 @@ class MainHandler {
 	function get() {
 
 		$db = conectarBD();
-		$r = $db->query("SELECT * FROM pedidos NATURAL JOIN pedidos_has_productos WHERE username ='antonio' GROUP BY idpedido");
+		$r = $db->query("SELECT * FROM pedidos NATURAL JOIN pedidos_has_productos");
 		$pedidos = array();
 		while ($row = $r->fetch_assoc()) {
 			array_push($pedidos, $row);

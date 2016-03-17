@@ -119,9 +119,10 @@ ul.log{
 	color: white;
 }
 
-img#menu{
-	display: none;
+img#menu {
+    display: none;
 }
+
 div#menulog{
 	display: none;
 }
@@ -238,25 +239,11 @@ ul.lista li a {
     font-family: 'arvobold';
 }
 
-/*Pner imagen*/
-/*ul.lista li {
-	list-style-position: inside;
-	list-style-image: url('flecha_inactiva.png');
-}*/
+
 ul.lista li:hover{
-	background: #E3E3E3;/*
-	list-style-position: inside;
-	list-style-image: url('flecha_activa.png');*/
+	background: #E3E3E3;
 }
-ul.lista li:active a{
-	background-color:  #00C3F4;
-	-moz-box-shadow:    inset 0 0 10px #47FB00;
-	-webkit-box-shadow: inset 0 0 10px #47FB00;
-	box-shadow:         inset 0 0 10px #47FB00;
-	color: #FFFFFF;
-	list-style-position: inside;
-	list-style-image: url('flecha_activa.png');
-}
+
 
 
 /*Botones*/
@@ -300,34 +287,44 @@ section{
     padding-left: 24px;
 }
 
-/*Footer*/
-img.redessociales{
-    margin-top: -8px;
-    width: 22px;
-    float: right;
-    /* align-items: center; */
-    margin-left: 8px;
-    /* position: absolute; */
-    margin-right: 16px;
-}
 footer{
 	clear: both;
 	background-color: #483E3D;
 	/*margin: 0em 0.5em 0em 0.5em;*/
-	min-height: 135px;
+	min-height: 200px;
 }
 footer div{
 	margin-left: 1%;
+	position: relative;
 	float: left;
-	width: 32.3%;
+	width: 32%;
 	font-family: 'noticia_textregular', serif;
 	color: white;
 }
-footer span{
-    margin-left: 34%;
-    color: white;
+footer div.redes{
+	margin-left: 1%;
+	position: relative;
+	float: left;
+	width: 49%;
+	font-family: 'noticia_textregular', serif;
+	color: white;
 }
 
+footer div.copyr{
+	margin-left: 1%;
+	position: relative;
+	float: left;
+	width: 49%;
+	font-family: 'noticia_textregular', serif;
+	color: white;
+}
+
+footer div.redes img{
+	width: 50px;
+	float: right;
+	margin-right: 2em;
+}
+	
 a{
 	text-decoration: none;
 	color:white;
@@ -501,77 +498,230 @@ iframe{
 
 }
 
-@media screen and (max-width: 800px) {
-	.buscador{
-		display: none;
-	}
-	.buscador2{
-		display: block;
-		margin: .5em .5em 0 .5em;
-	    width: 97%;
-	    min-height: 150px;
-	}
+@media screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
 
-	footer{
-		/*margin: .5em .5em 0 .5em;*/
-		min-height: 368px;
-	}
-	footer div{
-		width: 99%;
-		font-family: 'noticia_textregular', serif;
-		color: white;
-		text-align: center;
-	}
-	footer span{
-		color: white;
-		font-family: 'noticia_textregular', serif;
-		text-align: center;
-		color: white;
-		text-align: center;
-		/*margin: 5%;*/
-	}
-	img#menu{
-		display: block;
-		width: 30px;
-		height: 30px;
-	}
-	img#menu:hover{
-		background-color: red;
-		display: block;
-	}
-	img#logo{
-		width: 90%;
-		margin: 1em;
-	}
-	ul#nav{
-		display: none;
-		/*padding: 1px 10px;*/
-		font-family: 'oswaldregular', sans-serif;
-		text-transform: uppercase;
-		margin-left: -17px;
-    	font-size: 23px;
-	}
-	ul.log{
-		position: relative;
-		margin-left: 1.5em;
-		margin-top: 2em;
-		margin: 0 auto;
-		text-align: center;
-	}
-	.log la{
-		display: block;
-		padding: 1px 10px;
-		font-family: 'noticia_textregular', serif;
-		font-size: 50px;
-		color: white;
-	}
-	la#login:hover{
-		background-color: #8295A0;
-		text-decoration: underline; 
-	}
-	section{	
-	float: left;
-	margin: 10px;
-	width:100%;
-	/*max-width: 72%;*/
+img#logo{	
+	width: 224px;
 }
+
+ul.log{
+	margin-left: -7%;
+	margin-top: -1em;
+}
+.log la{
+	font-size: 21px;
+}
+div.login{
+	/* margin-right: 25%; */
+    margin-top: 38px;
+    float: right;
+}
+
+div#menulog{
+	display: none;
+}
+div#cap{
+	float: right;
+    margin-right: 33px;
+}
+aside{
+	    width: 205px;
+}
+
+.nav la a {
+    font-size: 20px;
+}
+
+/*Buscador*/
+#buscar {
+    width: 123px;
+}
+aside .busc {
+    margin-left: 25px;
+    color: #C88657;
+    font-family: 'playfair_displaybold';
+    font-size: 12px;
+}
+/*Botones*/
+.btn {
+	font-size: 17px;
+    margin-top: 3px;
+    width: 122px;
+}
+
+/*Footer*/
+
+footer div{
+	text-align: center;
+}
+
+footer div.redes{
+	margin-left: 1%;
+	position: relative;
+	float: left;
+	width: 49%;
+	color: white;
+}
+footer div.redes img{
+	width: 22px;
+	margin: 0 auto;
+	margin-right: 1em;
+}
+
+.product:hover{
+	transform: scale(1);
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+}
+}
+
+
+
+
+@media screen and (max-device-width : 480px) {
+img#logo{
+	position: relative;
+	/*margin-top: 2em;
+	margin-left: 1em;
+	margin: 1em;*/
+	width: 224px;
+}
+
+/*img#menu{
+	display: block;
+	width: 70px;
+    height: 32px;
+    float: left;
+}
+
+img#menu:hover{
+	background-color: red;
+	display: block;
+}*/
+
+ul.log{
+	position: relative;
+	/*margin-left: -7%;*/
+	padding: 0;
+	margin-top: -1em;
+}
+.log la{
+	display: inline-block;
+	padding: 1px 10px;
+	font-family: "noticia_textregular";
+	font-size: 17px;
+	color: white;
+}
+div.login{
+	margin-left: -142%;
+}
+
+div#menulog{
+	display: none;
+}
+div#cap{
+	float: inherit;
+	margin-right: -40px;
+}
+
+
+ul{
+  	margin: 0;
+  	padding: 0;
+}
+.nav{
+	/*overflow: hidden;*/
+	padding: 0;
+	margin-right: 26px;
+	/*display: none;*/
+}
+
+.nav la a {
+  display: block;
+  padding: .3em;
+  text-decoration: none;
+}
+
+.nav la ul li {
+	position:initial;
+}
+.buscador{
+	display: none;
+}
+/*Botones*/
+.btn {
+    border-radius: 10px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 22px;
+    background: #8b969e;
+    padding: 7px 25px 4px 25px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+    /* text-decoration: blink; */
+    width: 146px;
+}
+
+.btn:hover {
+  background: #356380;
+  text-decoration: none;
+}
+
+/*Footer*/
+footer{
+	min-height: 348px;
+}
+footer div{
+	width: 99%;
+	font-size: 12px;
+}
+
+footer div.redes{
+	margin-left: 1%;
+	position: relative;
+	float: left;
+	width: 49%;
+	color: white;
+}
+footer div.redes img{
+	width: 22px;
+	margin: 0 auto;
+	margin-right: 1em;
+}
+
+.price {
+    position: relative;
+    margin-top: -142px;
+    left: -50px;
+    width: 31%;
+    color: #52625A;
+    font-size: 21px;
+    border-radius: 15px;
+}
+
+
+
+.product{
+	min-height: 141px;
+	min-width: 139px;
+	display: block;
+	margin: 0.5%;
+	float: initial;
+	margin-top: 2.5%;
+	background-color: #C88657;
+	border: 7px solid #e3e3e3;
+	border-radius: 3px;
+	text-align: center;
+
+}
+
+.product img{
+	border-radius: 10px;
+	width: 201px;
+    height: 150px;
+    background-color: white;
+}
+
+}
+
