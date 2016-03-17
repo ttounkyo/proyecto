@@ -115,9 +115,9 @@ case 'compra':
 	// require_once './factura/compra.php';
 	//header("location:index.php?sec=patines");
 	break;
-// case 'compra':
-// 	require_once 'api_php/redsys/generapedido.php';
-// 	break;
+case 'compra2':
+	echo "Compra realizada con exito";
+	break;
 case 'guardarpdf':
 	require_once "compra_pdf.php";
 	break;
