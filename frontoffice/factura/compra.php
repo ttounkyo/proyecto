@@ -1,8 +1,10 @@
 ﻿<?php
+
+require_once "../funciones.php";
+require_once '../backoffice/PHPMailer-master/class.phpmailer.php';
+require_once '../backoffice/PHPMailer-master/PHPMailerAutoload.php';
+
 if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
-	require_once "../funciones.php";
-	require_once '../backoffice/PHPMailer-master/class.phpmailer.php';
-	require_once '../backoffice/PHPMailer-master/PHPMailerAutoload.php';
 	$db = conectarBD();
 	if ($db->connect_errno > 0) {die('Imposible conectar [' . $db->connect_error . ']');}
 
@@ -149,10 +151,9 @@ if (!$correo->Send()) {
 } else {
 	echo "Mensaje enviado con exito a " . $username . "<br>";
 	unset($_SESSION['carrito']);
-	header("location:index.php?sec=patines");
+	header("location:../index.php");
 }
 
 ?>
-
 <h1>Compras</h1>
 <p>Compra realizada con exito</p>
