@@ -111,7 +111,8 @@ case 'videos':
 	require_once "./galeria/videos/videos.php";
 	break;
 case 'compra':
-	require_once './factura/compra.php';
+	echo "hola";
+	// require_once './factura/compra.php';
 	//header("location:index.php?sec=patines");
 	break;
 // case 'compra':
