@@ -153,8 +153,8 @@ try {
 	ob_get_clean();
 	// $html2pdf->Output();
 	if (!is_dir("../factura/control")) {
-	// Miram si el directori ja existeix i si no el cream
-	mkdir("../factura/control");
+		// Miram si el directori ja existeix i si no el cream
+		mkdir("../factura/control");
 	}
 	$html2pdf->Output("../factura/control/carro" . $registro . ".pdf", "F");
 	$correo->AddAttachment($content_PDF);
@@ -172,12 +172,11 @@ if (!is_dir("../factura/control")) {
 }
 
 $destino = "../factura/control/factura" . $registro . ".pdf";
-$carro = "../factura/control/carro" . $registro . ".pdf"
+$carro = "../factura/control/carro" . $registro . ".pdf";
 $pdf->Output($destino, "F");
 
-
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
-$correo->AddAttachment($destino , "FACTURA");
+$correo->AddAttachment($destino, "FACTURA");
 $correo->AddAttachment($caroo, "CARRO");
 
 //Enviamos el correo
