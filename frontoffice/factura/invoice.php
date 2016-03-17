@@ -1,5 +1,5 @@
 <?php
-require 'fpdf/fpdf.php';
+require '../fpdf/fpdf.php';
 define('EURO', utf8_encode(chr(128)));
 define('EURO_VAL', 166, 386);
 

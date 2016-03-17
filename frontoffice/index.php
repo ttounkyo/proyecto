@@ -59,10 +59,10 @@ require_once "nav.php";
 require_once "sidebar.php";
 ?>
 </aside>
-				<section><!-- breadcrumb -->
-					<div class="breadcrumbs">
-						hola
-					</div>
+<section><!-- breadcrumb -->
+	<div class="breadcrumbs">
+		hola
+	</div>
 <?php
 switch ($seccion) {
 case 'pedido':
@@ -84,7 +84,7 @@ case 'registro':
 case 'logout':
 	unset($_SESSION['usuariofront']);
 	unset($_SESSION['carrito']);
-	header("location:index.php?sec=patines");
+	header("location:./index.php?sec=patines");
 	break;
 case 'facebook':
 	require_once "./fb/fbconfig.php";
