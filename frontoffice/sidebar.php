@@ -2,7 +2,6 @@
 $db = conectarBD();
 $query = 'SELECT * FROM categorias;';
 $resultado = $db->query($query) or die($db->connect_error . " en la línea ");
-
 ?>
 <div class="busc">
 	<h1>BUSCADOR</h1>

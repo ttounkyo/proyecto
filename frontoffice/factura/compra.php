@@ -147,11 +147,11 @@ try {
 $pdf->addTVAs($params, $tab_tva, $tot_prods);
 $pdf->addCadreEurosFrancs();
 ob_get_clean();
-if (!is_dir("./factura/control")) {
+if (!is_dir("../factura/control")) {
 	// Miram si el directori ja existeix i si no el cream
-	mkdir("./factura/control");
+	mkdir("../factura/control");
 }
-$destino = "factura/control/factura" . $registro . ".pdf";
+$destino = "../factura/control/factura" . $registro . ".pdf";
 $pdf->Output($destino, "F");
 
 $correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
