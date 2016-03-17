@@ -121,12 +121,25 @@ $params = array(
 	"accompte_percent" => 15, // pourcentage d'acompte (TTC)
 	"Remarque" => "Descuento del 15% en todos nuestros productos");
 
+$correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
+$cabeceras = 'ttounkyo@gmail.com';
+//Usamos el SetFrom para decirle al script quien envia el correo
+$correo->SetFrom($cabeceras, "Cuenta de administrador");
+//Usamos el AddReplyTo para decirle al script a quien tiene que responder el correo
+$correo->AddReplyTo($cabeceras, "Cuenta de administrador");
+//Usamos el AddAddress para agregar un destinatario
+$correo->AddAddress($email);
+//Ponemos el asunto del mensaje
+$correo->Subject = "Factura";
+$correo->IsHTML(false);
+$correo->Body = "Gracias por comprar nuestros productos";
+
 require_once "../../html2pdf/vendor/autoload.php";
 // ini_set("session.auto-start", 0);
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Html2Pdf;
-$content_PDF = '';
+
 try {
 	//ob_clean();
 	$content = "";
@@ -138,9 +151,9 @@ try {
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
 	ob_get_clean();
-	$html2pdf->Output();
-	$content_PDF = $html2pdf->Output('', true);
-
+	// $html2pdf->Output();
+	$content_PDF = $html2pdf->Output('', 'S');
+	$correo->AddAttachment($content_PDF);
 } catch (Html2PdfException $e) {
 	$formatter = new ExceptionFormatter($e);
 	echo $formatter->getHtmlMessage();
@@ -157,21 +170,8 @@ if (!is_dir("../factura/control")) {
 $destino = "../factura/control/factura" . $registro . ".pdf";
 $pdf->Output($destino, "F");
 
-$correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
-$cabeceras = 'ttounkyo@gmail.com';
-//Usamos el SetFrom para decirle al script quien envia el correo
-$correo->SetFrom($cabeceras, "Cuenta de administrador");
-//Usamos el AddReplyTo para decirle al script a quien tiene que responder el correo
-$correo->AddReplyTo($cabeceras, "Cuenta de administrador");
-//Usamos el AddAddress para agregar un destinatario
-$correo->AddAddress($email);
-//Ponemos el asunto del mensaje
-$correo->Subject = "Factura";
-$correo->IsHTML(false);
-$correo->Body = "Gracias por comprar nuestros productos";
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
 $correo->AddAttachment($destino);
-$correo->AddAttachment($content_PDF);
 
 //Enviamos el correo
 if (!$correo->Send()) {
