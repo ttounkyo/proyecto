@@ -112,7 +112,7 @@ if (!empty($_SESSION['usuariofront']) || !empty($_SESSION['usuario'])) {
 
 		?>
 
-<form name="frm" action="http://jguasch.esy.es/redsys/lacaixa.php" method="POST" target="_blank">
+<form name="frm" action="http://jguasch.esy.es/redsys/lacaixa.php" method="POST">
 <input type="hidden" name="Ds_SignatureVersion" value="<?php echo $version; ?>"/></br>
  <input type="hidden" name="Ds_MerchantParameters" value="<?php echo $params; ?>"/></br>
 <input type="hidden" name="Ds_Signature" value="<?php echo $signature; ?>"/></br>

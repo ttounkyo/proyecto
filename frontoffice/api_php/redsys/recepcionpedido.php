@@ -63,9 +63,9 @@ if (!empty($_POST)) {
 				mysqli_query($db, $query);
 			}
 			//header('location:index.php?sec=cancelar');
-			if (!is_dir("../factura/control")) {
+			if (!is_dir("../../factura/control")) {
 				// Miram si el directori ja existeix i si no el cream
-				mkdir("../factura/control");
+				mkdir("../../factura/control");
 			}
 			desconectarBD($db);
 			facturaPDF($registro, $username, $direccion);
