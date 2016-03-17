@@ -1,7 +1,7 @@
 <?php
 
 $name = 'antonio';
-$url = 'http://localhost/DAW/DEWS/hola/frontoffice/api_php/serviceUserPost.php/';
+$url = 'http://ttounkyo-ttounkyo.rhcloud.com/frontoffice/api_php/serviceUserPost.php/';
 
 $data = array(
 	'idmetodopago' => 'ingreso banco',
