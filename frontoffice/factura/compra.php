@@ -156,7 +156,7 @@ try {
 	// $content = ob_get_clean();
 	$html2pdf->writeHTML($content);
 
-	$html2pdf->Output("./control/carro" . $registro . ".pdf", "F");
+	// $html2pdf->Output("./control/carro" . $registro . ".pdf", "F");
 	ob_get_clean();
 	// $html2pdf->Output();
 } catch (Html2PdfException $e) {
@@ -172,7 +172,7 @@ $pdf->Output("../factura/control/factura" . $registro . ".pdf", "F");
 
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
 $correo->AddAttachment("../factura/control/factura" . $registro . ".pdf", "FACTURA");
-$correo->AddAttachment("../factura/control/carro" . $registro . ".pdf", "CARRO");
+// $correo->AddAttachment("../factura/control/carro" . $registro . ".pdf", "CARRO");
 
 //Enviamos el correo
 if (!$correo->Send()) {
