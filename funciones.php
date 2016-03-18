@@ -185,7 +185,7 @@ function carritoPDF($registro) {
 		// $content = ob_get_clean();
 		$html2pdf->writeHTML($content);
 
-		$html2pdf->Output("../factura/control/carro" . $registro . ".pdf", "F");
+		$html2pdf->Output("../../factura/control/carro" . $registro . ".pdf", "F");
 		ob_get_clean();
 		// $html2pdf->Output();
 	} catch (Html2PdfException $e) {
