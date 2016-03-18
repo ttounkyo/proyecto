@@ -13,7 +13,6 @@ if (isset($_REQUEST['id'])) {
 	// Eliminar segun cantidad **
 	$query = "SELECT * FROM pedidos WHERE idpedido='$identificador';";
 	$resultado = $db->query($query) or die('Ocurrio un error ejecutando el query [' . $db->error . ']');
-	$db->query("DELETE FROM pedidos_has_productos WHERE idpedido='$identificador';")
 	$db->query("DELETE FROM pedidos WHERE idpedido='$identificador';");
 	desconectarBD($db);
 	header('location:index.php?sec=compra');

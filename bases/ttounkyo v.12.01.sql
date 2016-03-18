@@ -150,13 +150,13 @@ CREATE TABLE IF NOT EXISTS `productos` (
 --
 
 INSERT INTO `productos` (`idproducto`, `titulo`, `descripcion`, `precio`, `marca`, `ruta`, `cantidad`, `createdAt`) VALUES
-(1, 'Patines', 'Para  Iniciacion', '50', 'Raider', 'img_products/1/patines_iniciacion.png', 42, '2016-01-09 06:22:48'),
-(2, 'Patines A', 'Agresivos', '55', 'Rider-Extreme', 'img_products/2/patines-agresivo.png', 35, '2016-01-09 06:23:20'),
-(3, 'Patin Fitnes', 'Fitnes', '35', 'Rider', 'img_products/3/patines-fitness.png', 33, '2016-01-09 06:23:54'),
-(4, 'freeskate', 'patines-freeskate', '66', 'oxelo', 'img_products/4/patines-freeskate.png', 32, '2016-01-09 06:24:31'),
-(5, 'Patines Nini', 'Nino', '65', 'Rider', 'img_products/5/patines-nino.png', 64, '2016-01-09 06:24:58'),
-(6, 'slalom', 'patines-slalom', '98', 'Extrem', 'img_products/6/patines-slalom.png', 41, '2016-01-09 06:25:21'),
-(7, 'P. Velocidad', 'patines-slalom', '75', 'speed', 'img_products/7/patines-velocidad_1.png', 17, '2016-01-09 06:25:52');
+(1, 'Patines', 'Para  Iniciacion', '50', 'Raider', '../img_products/1/patines_iniciacion.png', 42, '2016-01-09 06:22:48'),
+(2, 'Patines A', 'Agresivos', '55', 'Rider-Extreme', '../img_products/2/patines-agresivo.png', 35, '2016-01-09 06:23:20'),
+(3, 'Patin Fitnes', 'Fitnes', '35', 'Rider', '../img_products/3/patines-fitness.png', 33, '2016-01-09 06:23:54'),
+(4, 'freeskate', 'patines-freeskate', '66', 'oxelo', '../img_products/4/patines-freeskate.png', 32, '2016-01-09 06:24:31'),
+(5, 'Patines Nini', 'Nino', '65', 'Rider', '../img_products/5/patines-nino.png', 64, '2016-01-09 06:24:58'),
+(6, 'slalom', 'patines-slalom', '98', 'Extrem', '../img_products/6/patines-slalom.png', 41, '2016-01-09 06:25:21'),
+(7, 'P. Velocidad', 'patines-slalom', '75', 'speed', '../img_products/7/patines-velocidad_1.png', 17, '2016-01-09 06:25:52');
 
 -- --------------------------------------------------------
 
@@ -302,8 +302,8 @@ ALTER TABLE `pedidos`
 -- Filtros para la tabla `pedidos_has_productos`
 --
 ALTER TABLE `pedidos_has_productos`
-  ADD CONSTRAINT `fk_pedidos_has_productos_pedidos1` FOREIGN KEY (`idpedido`) REFERENCES `pedidos` (`idpedido`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_pedidos_has_productos_productos1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_pedidos_has_productos_pedidos1` FOREIGN KEY (`idpedido`) REFERENCES `pedidos` (`idpedido`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_pedidos_has_productos_productos1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`idproducto`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `productos_has_media`
