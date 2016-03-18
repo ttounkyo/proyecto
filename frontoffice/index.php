@@ -146,7 +146,7 @@ default:
 
 
 
-	    <h2>Nuevas ofertas! </h2>
+	    <h2><a href="index.php">Nuevas ofertas! </a></h2>
 
 	</div>
 			</section>
