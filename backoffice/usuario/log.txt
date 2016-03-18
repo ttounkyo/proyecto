@@ -8,3 +8,4 @@ El usuario antonio ha accedido el día. 16/03/18 12:49:24 Satisfactoriamente
 El usuario boss ha accedido el día. 16/03/18 12:18:25 Satisfactoriamente
 El usuario boss ha accedido el día. 16/03/18 12:58:54 Satisfactoriamente
 El usuario boss ha accedido el día. 16/03/18 14:11:46 Satisfactoriamente
+El usuario boss ha accedido el día. 16/03/18 15:18:41 Satisfactoriamente
