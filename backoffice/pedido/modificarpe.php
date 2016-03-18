@@ -1,32 +1,32 @@
-<?php 
+<?php
 
-	if(isset($_REQUEST['id']) && isset($_REQUEST['esta']) && isset($_REQUEST['pago'])){
-		$estado 	= $_REQUEST['esta'];
-		$metodo     = $_REQUEST['pago'];
-		$id 	= $_REQUEST['id'];
-		require_once("../funciones.php");
- 
-		$db = conectarBD();
-		
-		$sql = "UPDATE pedidos SET idmetodopago = '$metodo', estado ='$estado' WHERE idpedido = '$id';";
-		mysqli_query($db,$sql);
-		header('location:index.php?sec=compra');
-		desconectarBD($db);
-	}
+if (isset($_REQUEST['id']) && isset($_REQUEST['esta']) && isset($_REQUEST['pago'])) {
+	$estado = $_REQUEST['esta'];
+	$metodo = $_REQUEST['pago'];
+	$id = $_REQUEST['id'];
+	require_once "../../funciones.php";
 
- ?>
+	$db = conectarBD();
 
- <form class='pedido' action='index.php?sec=modificarpe&id=<?php echo $_REQUEST['id']?>' method='POST'>
+	$sql = "UPDATE pedidos SET idmetodopago = '$metodo', estado ='$estado' WHERE idpedido = '$id';";
+	mysqli_query($db, $sql);
+	header('location:index.php?sec=compra');
+	desconectarBD($db);
+}
+
+?>
+
+ <form class='pedido' action='index.php?sec=modificarpe&id=<?php echo $_REQUEST['id'] ?>' method='POST'>
 	<h1>Modificar Pedido</h1>
 	<div>
 		<label for="">Id Pedido</label>
 		<br>
-		<input type="text"disabled value='<?php echo $_REQUEST['id']?>'>
+		<input type="text"disabled value='<?php echo $_REQUEST['id'] ?>'>
 	</div>
 	<div>
 		<label for="">Nuevo estado: </label>
 		<br>
-		<input type='text' value='<?php echo $_REQUEST['est']?>' name='esta' />
+		<input type='text' value='<?php echo $_REQUEST['est'] ?>' name='esta' />
 	</div>
 	<div>
 		<label for="">Nuevo metodo de pago: </label>

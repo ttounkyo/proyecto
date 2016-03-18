@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 session_start();
 if (!isset($_GET['sec'])) {
@@ -11,7 +12,7 @@ if (!isset($_GET['sec'])) {
 if ($_SESSION['rol'] === 'administrador') {
 
 	?>
-<!DOCTYPE html>
+
 <!--
 * PROYECTO DE PHP, TTOUNKYO.
 	* NAME:	 TIENDA ONLINE.

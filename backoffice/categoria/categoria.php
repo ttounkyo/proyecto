@@ -5,26 +5,26 @@
 	<div ><button class="btn" type='submit' name='enviar'>Enviar</button></div>
 </form>
 
-	<?php 
-		if(isset($_POST['ctg'])){
-			$nom_categ	=	$_POST['ctg'];
-			require_once("../funciones.php");
- 
-			$db = conectarBD();
-			if($db->connect_errno > 0){
-			    die('Imposible conectar [' . $db->connect_error . ']');
-			}
-			
-			$query = "INSERT INTO categorias(nombre)
+	<?php
+if (isset($_POST['ctg'])) {
+	$nom_categ = $_POST['ctg'];
+	require_once "../../funciones.php";
+
+	$db = conectarBD();
+	if ($db->connect_errno > 0) {
+		die('Imposible conectar [' . $db->connect_error . ']');
+	}
+
+	$query = "INSERT INTO categorias(nombre)
 					VALUES ('$nom_categ');";
-				
-				if($resul = $db->query($query)){
-					echo "Categoria añadida";
-				}else{
-					echo "Categoria ya existe.";
-					die ($db->connect_error. " en la línea ");
-				}
-			desconectarBD($db);
-		}
-	require_once("listarctg.php");
-	?>
+
+	if ($resul = $db->query($query)) {
+		echo "Categoria añadida";
+	} else {
+		echo "Categoria ya existe.";
+		die($db->connect_error . " en la línea ");
+	}
+	desconectarBD($db);
+}
+require_once "listarctg.php";
+?>
