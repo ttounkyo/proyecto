@@ -90,15 +90,17 @@
 
 
 #ejer{
-    width:30%;
-    margin:0%;
-    margin-top: -55px;
-    height:430px;
-    border:2px solid #310;
+    position: absolute;
+    width: 19%;
+    /* margin: 0%; */
+    top: 287px;
+    right: 12px;
+    height: 413px;
+    border: 2px solid #310;
     background-image: url("../banner/fondo.jpg");
     background-size: 185%;
     overflow: hidden;
-    float: right;
+    /* float: right; */
 }
 
 #ejer:hover{
@@ -604,15 +606,18 @@ div .posi{
 /*mejoras http://www.456bereastreet.com/archive/200405/equal_height_boxes_with_css/*/
 /*videos.php*/
 .contenedor{
-	background-color: red;
+    width: 99%;
+    float: left;
+
 }
 .vid{
 	background-color: #483E3D;
 	float: left;
 	margin: .5em;
 	border-radius: 20px;
-	width: 425px;
+	width: 32%;
 	height: 350px;
+    overflow: hidden;
 }
 video{
 	width: 425px;
@@ -627,7 +632,8 @@ iframe{
 
 /*Audio!!*/
 .aud{
-
+    position:relative;
+    width: 33%;
 }
 
 @media screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
