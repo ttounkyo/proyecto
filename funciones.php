@@ -173,26 +173,6 @@ function facturaPDF($registro, $username, $direccion) {
 	$pdf->Output("../../factura/control/factura" . $registro . ".pdf", "F");
 }
 
-function carritoPDF($registro) {
-	try {
-		//ob_clean();
-		$content = "";
-		ob_start();
-		include 'carro_pdf.php';
-		$content = ob_get_clean();
-		$html2pdf = new Html2Pdf('P', 'A4', 'fr');
-		// $content = ob_get_clean();
-		$html2pdf->writeHTML($content);
-
-		$html2pdf->Output("../../factura/control/carro" . $registro . ".pdf", "F");
-		ob_get_clean();
-		// $html2pdf->Output();
-	} catch (Html2PdfException $e) {
-		$formatter = new ExceptionFormatter($e);
-		echo $formatter->getHtmlMessage();
-	}
-}
-
 function envio($registro, $email, $username) {
 	$correo = new PHPMailer(); //Creamos una instancia en lugar usar mail()
 	$cabeceras = 'ttounkyo@gmail.com';
