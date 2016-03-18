@@ -44,7 +44,7 @@ while ($registro = $result_vpro->fetch_array(MYSQLI_BOTH)) {
 	echo "<td>" . $registro['fecha'] . "</td>";
 	echo "<td>" . $registro['username'] . "</td>";
 	if ($_SESSION['rol'] == 'administrador') {
-		echo "<td><a href='index.php?sec=eliminarpe&id=" . $id . "'><button>Eliminar Pedido</button></a></td>";
+		echo "<td><a href='index.php?sec=eliminar&id=" . $id . "'><button>Eliminar Pedido</button></a></td>";
 		echo "<td><a href='index.php?sec=modificarpe&id=" . $id . "&met=" . $metodop . "&est=" . $estado . "'><button>Modificar Pedido</button></a></td>";
 	}
 	// echo "<td><a href='index.php?sec=pedido&id=".$id."'><button>Seleccionar</button></a></td>";

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <?php
 session_start();
 if (!isset($_GET['sec'])) {
@@ -12,7 +12,7 @@ if (!isset($_GET['sec'])) {
 if ($_SESSION['rol'] === 'administrador') {
 
 	?>
-
+<!DOCTYPE html>
 <!--
 * PROYECTO DE PHP, TTOUNKYO.
 	* NAME:	 TIENDA ONLINE.
@@ -63,7 +63,7 @@ if ($_SESSION['rol'] === 'administrador') {
 	case "pedido":
 		require_once "../pedido/pedido.php";
 		break;
-	case "eliminarpe":
+	case "eliminar":
 		require_once "../pedido/eliminarpe.php";
 		break;
 	case "modificarpe":

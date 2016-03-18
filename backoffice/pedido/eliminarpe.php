@@ -1,8 +1,8 @@
 <?php
 
-if (isset($_GET['id'])) {
+if (isset($_REQUEST['id'])) {
 
-	$identificador = $_GET['id'];
+	$identificador = $_REQUEST['id'];
 	require_once "../../funciones.php";
 
 	$db = conectarBD();
@@ -19,5 +19,3 @@ if (isset($_GET['id'])) {
 }
 
 ?>
-
-hola

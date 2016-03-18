@@ -50,8 +50,6 @@ if (isset($_SESSION['usuario']) && !isset($_SESSION['usuariofront'])) {
 		<la><a href="index.php?sec=patines">Patines</a></la>
 		<la><a href="index.php?sec=accesorios">Accesorios</a></la>
 		<la><a href="index.php?sec=marca">Marca</a></la>
-		<la><a href="#">Ofertas</a></la>
-		<la><a href="#">Personaliza</a></la>
 		<la><a href="index.php?sec=listapedido">Carrito</a></la>
 		<la><a>Galeria</a>
 			<ul>

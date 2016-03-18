@@ -28,7 +28,7 @@ table#listadopro{
 table#listadopro{     
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 12px;    
-    margin: 45px;     
+    margin: 10px;     
     width: 480px; 
     text-align: left;    
     border-collapse: collapse; 
@@ -57,10 +57,7 @@ tr:hover td {
     color: #339; 
 }
 
-#wrapper {
-    margin: 0 auto;
-    padding: 0 15px 0 15px;    
-}
+
 
 #header {
     background-color: #483634;
@@ -77,12 +74,12 @@ h1{
 }
 
 #sidebar {
-    margin-top: 0em;
-    float: left;        
+/*margin-top: 0em; */
+    float: left;
     background-color: #483634;
-    width: 17em;
+    width: 13em;
     height: 407px;
-    border: 1px white solid;
+    /* border: 1px white solid; */
 }
 
 #sidebar ul {
