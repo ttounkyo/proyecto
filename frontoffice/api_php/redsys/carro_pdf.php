@@ -49,7 +49,7 @@ height: 103px;
         <table class="page_header" >
             <tr>
                 <td style="width: 100%; text-align: left">
-                    <img src="../imagenes/logo.png" alt="logo">
+                    <img src="../../imagenes/logo.png" alt="logo">
                 </td>
             </tr>
         </table>
@@ -77,7 +77,7 @@ if (isset($_SESSION['carrito'])) {
 	foreach ($_SESSION['carrito'] as $key => $value) {
 		?>
         <tr class="algo">
-            <td><img id="imagen" src="../../backoffice/<?=$value['ruta']?>" alt="imagen" /></td>
+            <td><img id="imagen" src="../../../backoffice/<?=$value['ruta']?>" alt="imagen" /></td>
             <td><?=$value['titulo']?></td>
             <td><?=$value['descripcion']?></td>
             <td><?=$value['precio']?> €</td>
