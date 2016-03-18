@@ -170,7 +170,7 @@ function facturaPDF($registro, $username, $direccion) {
 	$pdf->addTVAs($params, $tab_tva, $tot_prods);
 	$pdf->addCadreEurosFrancs();
 // ob_get_clean();
-	$pdf->Output("../factura/control/factura" . $registro . ".pdf", "F");
+	$pdf->Output("../../factura/control/factura" . $registro . ".pdf", "F");
 }
 
 function carritoPDF($registro) {
@@ -209,15 +209,15 @@ function envio($registro, $email, $username) {
 	$correo->Body = "Gracias por comprar nuestros productos";
 
 //Si deseamos agregar un archivo adjunto utilizamos AddAttachment
-	$correo->AddAttachment("../factura/control/factura" . $registro . ".pdf", "FACTURA");
-	$correo->AddAttachment("../factura/control/carro" . $registro . ".pdf", "CARRO");
+	$correo->AddAttachment("../../factura/control/factura" . $registro . ".pdf", "FACTURA");
+	$correo->AddAttachment("../../factura/control/carro" . $registro . ".pdf", "CARRO");
 //Enviamos el correo
 	if (!$correo->Send()) {
 		echo "Hubo un error: " . $correo->ErrorInfo . "<br>";
 	} else {
 		echo "Mensaje enviado con exito a " . $username . "<br>";
 		unset($_SESSION['carrito']);
-		header("Location: ../index.php");
+		header("Location: ../../index.php");
 	}
 }
 
