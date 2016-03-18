@@ -125,23 +125,23 @@ default:
 	<div id="ejer">
 
 
-		<img src="./banner/conguito.png" id="d1">
-	    <img src="./banner/conguito.png" id="d2">
-	    <img src="./banner/conguito.png" id="d3">
-	    <img src="./banner/conguito.png" id="d4">
-	    <img src="./banner/conguito.png" id="d5">
-	    <img src="./banner/conguito.png" id="d6">
-	    <img src="./banner/conguito.png" id="d7">
-	    <img src="./banner/conguito.png" id="d8">
-	    <img src="./banner/conguito.png" id="d9">
-	    <img src="./banner/conguito.png" id="d10">
+		<img src="./banner/conguito.png" id="d1" alt="conguito">
+	    <img src="./banner/conguito.png" id="d2" alt="conguito">
+	    <img src="./banner/conguito.png" id="d3" alt="conguito">
+	    <img src="./banner/conguito.png" id="d4" alt="conguito">
+	    <img src="./banner/conguito.png" id="d5" alt="conguito">
+	    <img src="./banner/conguito.png" id="d6" alt="conguito">
+	    <img src="./banner/conguito.png" id="d7" alt="conguito">
+	    <img src="./banner/conguito.png" id="d8" alt="conguito">
+	    <img src="./banner/conguito.png" id="d9" alt="conguito">
+	    <img src="./banner/conguito.png" id="d10" alt="conguito">
 
 
 
 		<div id="fotosejer">
-			<img src="./banner/p1.png" id="ejerImg1">
-			<img src="./banner/p3.png" id="ejerImg2">
-			<img src="./banner/p2.png" id="ejerImg3">
+			<img src="./banner/p1.png" id="ejerImg1" alt="producto">
+			<img src="./banner/p3.png" id="ejerImg2" alt="producto">
+			<img src="./banner/p2.png" id="ejerImg3" alt="producto">
 		</div>
 
 
