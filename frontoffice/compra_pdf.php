@@ -10,7 +10,7 @@ try {
 	//ob_clean();
 	$content = "";
 	ob_start();
-	include 'carro_pdf.php';
+	include 'carro2_pdf.php';
 	$content = ob_get_clean();
 
 	$html2pdf = new Html2Pdf('P', 'A4', 'fr');
