@@ -175,7 +175,7 @@ function facturaPDF($registro, $username, $direccion) {
 
 function carritoPDF($registro) {
 	try {
-		//ob_clean();
+		ob_clean();
 		$content = "";
 		ob_start();
 		include 'carro_pdf.php';
